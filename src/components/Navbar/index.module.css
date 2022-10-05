@@ -1,3 +1,9 @@
-
+.Navbar {
+  display: flex;
+}
+.Navbar__search {
+  padding: 10px 20px;
+  border-radius: 8px;
+}
 
 /*# sourceMappingURL=index.module.css.map */
