@@ -1,3 +1,18 @@
-
+.Layout {
+  display: grid;
+  grid-template-areas: "nav nav nav" "sidebar body body" "sidebar body body";
+  grid-template-columns: repeat(auto, 3);
+  grid-template-rows: repeat(auto, 3);
+  column-gap: 20px;
+}
+.Layout__nav {
+  grid-area: nav;
+}
+.Layout__sidebar {
+  grid-area: sidebar;
+}
+.Layout__body {
+  grid-area: body;
+}
 
 /*# sourceMappingURL=index.module.css.map */

@@ -1,0 +1,19 @@
+.Layout{
+    display: grid;
+        grid-template-areas: "nav nav nav"
+                            "sidebar body body"
+                            "sidebar body body";
+        grid-template-columns: repeat(auto, 3);
+        grid-template-rows: repeat(auto, 3);
+        column-gap: 20px;
+        &__nav{
+            grid-area: nav;
+        }
+        &__sidebar{
+            grid-area: sidebar;
+        }
+        &__body{
+            grid-area: body;
+        }
+
+}
