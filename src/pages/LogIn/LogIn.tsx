@@ -3,12 +3,12 @@ import { loginIllustration, Logo } from "../../assets";
 import { Input, PassWordInput } from "../../components";
 import { useInput } from "../../utils/hooks";
 import style from "./index.module.css";
-interface ILogIn {}
-const LogIn: FC<ILogIn> = () => {
+const LogIn: FC = () => {
   const [email, setEmail, clearEmail] = useInput("");
   const [password, setPassword, clearPassword] = useInput("");
   const [emailError, setEmailError] = useState(true);
   const [passWordError, setPassWordError] = useState(true);
+  
   return (
     <section className={style.LogIn}>
       <div className={style.LogIn__left}>
@@ -16,6 +16,7 @@ const LogIn: FC<ILogIn> = () => {
         <img
           src={loginIllustration}
           className={style.LogIn__left__illustration}
+          alt="illustration"
         />
       </div>
       <div className={style.LogIn__right}>
@@ -30,7 +31,7 @@ const LogIn: FC<ILogIn> = () => {
               placeholder: "Email",
               type: "email",
               error: emailError,
-              errorMessage: "Please enter a valid email",
+              errorMessage: "Please enter a valid email"
             }}
           />
           <PassWordInput
@@ -40,6 +41,8 @@ const LogIn: FC<ILogIn> = () => {
               clearValue: clearPassword,
               placeholder: "Password",
               type: "password",
+              error: passWordError,
+              errorMessage: "Please enter a password with an Uppercase, Lowercase, Number and a special character"
             }}
           />
           <span className={style.LogIn__right__form__forgot}>
