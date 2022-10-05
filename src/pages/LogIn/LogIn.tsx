@@ -1,16 +1,35 @@
 import React, { FC, useState } from "react";
 import { loginIllustration, Logo } from "../../assets";
-import { Input, PassWordInput } from "../../components";
+import { Input, Loader, PassWordInput } from "../../components";
+import { isEmail, isPassword } from "../../utils/functions";
 import { useInput } from "../../utils/hooks";
 import style from "./index.module.css";
 const LogIn: FC = () => {
   const [email, setEmail, clearEmail] = useInput("");
   const [password, setPassword, clearPassword] = useInput("");
-  const [emailError, setEmailError] = useState(true);
-  const [passWordError, setPassWordError] = useState(true);
-  
+  const [emailError, setEmailError] = useState(false);
+  const [passWordError, setPassWordError] = useState(false);
+  const handleSubmit = () => {
+    if (!isEmail(email) || !isPassword(password)) {
+      if (!isEmail(email)) {
+        setEmailError(true);
+        setTimeout(() => {
+          setEmailError(false);
+        }, 3000);
+      }
+      if(!isPassword(password)) {
+        setPassWordError(true);
+        setTimeout(() => {
+          setPassWordError(false);
+        }, 3000);
+      }
+      return;
+    }
+    console.log("submit");
+  }
   return (
     <section className={style.LogIn}>
+      <Loader />
       <div className={style.LogIn__left}>
         <Logo className={style.LogIn__left__logo} />
         <img
@@ -48,7 +67,9 @@ const LogIn: FC = () => {
           <span className={style.LogIn__right__form__forgot}>
             Forgot PASSWORD?
           </span>
-          <button className={style.LogIn__right__form__button}>Login</button>
+          <button className={style.LogIn__right__form__button}
+            onClick={handleSubmit}
+          >Login</button>
         </div>
       </div>
     </section>
