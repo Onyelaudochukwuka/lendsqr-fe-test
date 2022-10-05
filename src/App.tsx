@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { FC, Fragment, useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { Login } from "./pages";
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <MoveToTop />
+      <Routes>
+        <Route path="/logIn" element={<Login />} />
+      </Routes>
+    </Fragment>
   );
-}
+};
+const MoveToTop = () => {
+  const { hash, pathname } = useLocation();
+  useEffect(() => {
+    if (!!hash) return;
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 export default App;
