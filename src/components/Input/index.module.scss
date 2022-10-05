@@ -1,6 +1,18 @@
 @import "../../sass/values";
 .Input{
+    &__input{
     border: $inputBorder;
-    width: 80%;
-    padding: 10px 30px;
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 5px;
+    }
+    &__error{
+        color: $error;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        letter-spacing: 1.6px;
+        transition: all 500ms ease-in-out;
+        margin-top: 15px;
+    }
 }

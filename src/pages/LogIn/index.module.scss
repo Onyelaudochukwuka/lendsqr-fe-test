@@ -27,9 +27,34 @@
       margin-left: -5px;
     }
     &__details {
-      font-size: 16px;
       font-weight: 400;
       color: $logInText;
+    }
+    &__form {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 50px;
+      &__forgot{
+        color: $logInButton;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        letter-spacing: 1.6px;
+        margin-right: auto;
+      }
+      &__button {
+        background-color: $logInButton;
+        color: white;
+        font-weight: 800;
+        padding-block: 15px;
+        border-radius: 8px;
+        transition: background-color 500ms ease-in-out;
+        &:hover{
+            background-color: $logInButtonHover;
+        }
+      }
     }
   }
 }

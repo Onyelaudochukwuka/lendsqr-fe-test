@@ -1,7 +1,17 @@
-.Input {
+.Input__input {
   border: 2px solid rgba(84, 95, 125, 0.15);
-  width: 80%;
-  padding: 10px 30px;
+  width: 100%;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+.Input__error {
+  color: #E4033B;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1.6px;
+  transition: all 500ms ease-in-out;
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=index.module.css.map */
