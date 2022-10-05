@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "../../assets";
+import { Logo, Notification } from "../../assets";
 import { useInput } from "../../utils/hooks";
 import Input from "../Input/Input";
 import style from "./index.module.css";
@@ -24,7 +24,7 @@ const Navbar: FC<INavbar> = ({ className }) => {
           />
           <div className={style.Navbar__info}>
               <Link to="/Dashboard" className={style.Navbar__info__docs}><span>Docs</span></Link>
-              
+              <Notification className={style.Navbar__info__notification} />
           </div>
     </div>
   );
