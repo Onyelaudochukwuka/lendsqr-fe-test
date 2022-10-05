@@ -1,0 +1,25 @@
+.PassWordInput {
+  display: flex;
+  position: relative;
+  width: 80%;
+}
+.PassWordInput__input {
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  width: 100%;
+  padding: 10px 30px;
+  padding-right: 60px;
+  border-radius: 5px;
+}
+.PassWordInput__show {
+  position: absolute;
+  margin: auto;
+  align-self: center;
+  color: #39CDCC;
+  right: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1.6px;
+}
+
+/*# sourceMappingURL=index.module.css.map */

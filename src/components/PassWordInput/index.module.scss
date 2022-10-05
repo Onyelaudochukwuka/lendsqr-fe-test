@@ -1,0 +1,26 @@
+@import "../../sass/values";
+
+.PassWordInput {
+    display: flex;
+    position: relative;
+    width: 80%;
+  &__input {
+    border: $inputBorder;
+    width: 100%;
+    padding: 10px 30px;
+    padding-right: 60px;
+    border-radius: 5px;
+  }
+  &__show{
+    position: absolute;
+    margin: auto;
+    align-self: center;
+    color: $logInButton;
+    right: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1.6px;
+
+  }
+}
