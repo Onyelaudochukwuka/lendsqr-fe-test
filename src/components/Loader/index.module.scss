@@ -1,0 +1,9 @@
+.Loader{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    z-index: 10;
+    justify-items: center;
+    align-items: center;
+}
