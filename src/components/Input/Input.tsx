@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC } from "react";
-
+import style from "./index.module.css";
 interface IInput {
   placeholder: string;
   value: string;
@@ -16,7 +16,7 @@ const Input: FC<IInput> = ({
 }) => {
   return (
     <div>
-      <input {...{ placeholder, value, type }} onChange={setValue} />
+      <input className={style.Input} {...{ placeholder, value, type }} onChange={setValue} />
     </div>
   );
 };
