@@ -5,8 +5,8 @@ interface ILoader {
 }
 const Loader: FC<ILoader> = () => {
     return (
-        <div className={style.blockName}>
-            Loader
+        <div className={style.Loader}>
+            <p>Loader</p>
         </div>
 
     );
