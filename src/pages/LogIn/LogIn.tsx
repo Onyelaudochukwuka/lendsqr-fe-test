@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { loginIllustration, Logo } from "../../assets";
 import { Input, Loader, PassWordInput } from "../../components";
 import { isEmail, isPassword } from "../../utils/functions";
@@ -9,6 +10,7 @@ const LogIn: FC = () => {
   const [password, setPassword, clearPassword] = useInput("");
   const [emailError, setEmailError] = useState(false);
   const [passWordError, setPassWordError] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = () => {
     if (!isEmail(email) || !isPassword(password)) {
       if (!isEmail(email)) {
@@ -25,11 +27,10 @@ const LogIn: FC = () => {
       }
       return;
     }
-    console.log("submit");
+   navigate("/dashboard")
   }
   return (
     <section className={style.LogIn}>
-      <Loader />
       <div className={style.LogIn__left}>
         <Logo className={style.LogIn__left__logo} />
         <img
