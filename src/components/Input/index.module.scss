@@ -5,10 +5,15 @@
     width: 100%;
     padding: 15px 30px;
     border-radius: 5px;
+    outline: none;
+    &:focus{
+        border: $inputFocusBorder;
+        outline: none;
+    }
     }
     &__error{
         color: $error;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
         cursor: pointer;
         letter-spacing: 1.6px;

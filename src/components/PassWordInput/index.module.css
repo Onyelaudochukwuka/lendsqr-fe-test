@@ -1,19 +1,24 @@
-.PassWordInput {
+.PassWordInput__container {
   display: flex;
   position: relative;
   width: 100%;
 }
-.PassWordInput__input {
+.PassWordInput__container__input {
   border: 2px solid rgba(84, 95, 125, 0.15);
   width: 100%;
   padding: 15px 30px;
   padding-right: 60px;
   border-radius: 5px;
+  outline: none;
 }
-.PassWordInput__input[type=text] {
+.PassWordInput__container__input:focus {
+  border: 2px solid rgba(84, 95, 125, 0.5);
+  outline: none;
+}
+.PassWordInput__container__input[type=text] {
   letter-spacing: 5px;
 }
-.PassWordInput__show {
+.PassWordInput__container__show {
   position: absolute;
   margin: auto;
   align-self: center;
@@ -23,6 +28,15 @@
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 1.6px;
+}
+.PassWordInput__error {
+  color: #E4033B;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1.6px;
+  transition: all 500ms ease-in-out;
+  margin-top: 15px;
 }
 
 /*# sourceMappingURL=index.module.css.map */

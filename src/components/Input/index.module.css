@@ -3,10 +3,15 @@
   width: 100%;
   padding: 15px 30px;
   border-radius: 5px;
+  outline: none;
+}
+.Input__input:focus {
+  border: 2px solid rgba(84, 95, 125, 0.5);
+  outline: none;
 }
 .Input__error {
   color: #E4033B;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 1.6px;
