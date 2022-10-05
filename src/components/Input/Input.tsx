@@ -6,26 +6,28 @@ interface IInput {
   setValue: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   type: string;
   clearValue: () => void;
-  error: boolean;
-  errorMessage: string;
+  error?: boolean;
+  errorMessage?: string;
+  className?: string;
 }
 const Input: FC<IInput> = ({
   placeholder,
   value,
   setValue,
   type,
-    clearValue,
-    error,
-    errorMessage
+  clearValue,
+  error,
+  errorMessage,
+  className,
 }) => {
   return (
     <div className={style.Input}>
       <input
-        className={style.Input__input}
+        className={`${style.Input__input} ${className}`}
         {...{ placeholder, value, type }}
         onChange={setValue}
-          />
-          {error && <p className={style.Input__error}>{errorMessage}</p>}
+      />
+      {!!error && <p className={style.Input__error}>{errorMessage}</p>}
     </div>
   );
 };
