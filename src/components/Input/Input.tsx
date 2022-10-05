@@ -1,26 +1,24 @@
-import React, { FC } from "react";
+import React, { ChangeEvent, FC } from "react";
 
 interface IInput {
   placeholder: string;
   value: string;
-  setValue: () => void;
-  label: string;
-  id: string;
+  setValue: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   type: string;
+  clearValue: () => void;
 }
 const Input: FC<IInput> = ({
   placeholder,
   value,
   setValue,
-  label,
-  id,
   type,
+  clearValue,
 }) => {
-    return (
-        <div>
-            <label></label>
-        </div>
-    );
+  return (
+    <div>
+      <input {...{ placeholder, value, type }} onChange={setValue} />
+    </div>
+  );
 };
 
 export default Input;
