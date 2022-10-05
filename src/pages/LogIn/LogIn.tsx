@@ -6,7 +6,12 @@ interface ILogIn {
 const LogIn: FC<ILogIn> = () => {
     return (
         <section className={style.LogIn}>
-            LogIn
+            <div className={style.LogIn__left}>
+
+            </div>
+            <div className={style.LogIn__right}>
+                
+            </div>
         </section>
 
     );
