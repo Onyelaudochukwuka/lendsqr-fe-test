@@ -1,13 +1,13 @@
 import React, { FC } from "react"
-
+import style from "./index.module.css"
 interface ILogIn {
 
 }
 const LogIn: FC<ILogIn> = () => {
     return (
-        <div>
+        <section className={style.LogIn}>
             LogIn
-        </div>
+        </section>
 
     );
 }
