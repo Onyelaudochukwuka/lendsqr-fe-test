@@ -2,12 +2,14 @@ import React, { FC, Fragment, useEffect } from "react";
 import "./App.css";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Login } from "./pages";
+import Dashboard from "./pages/Dashboard/Dashboard";
 const App: FC = () => {
   return (
     <Fragment>
       <MoveToTop />
       <Routes>
         <Route path="/logIn" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Fragment>
   );
