@@ -1,14 +1,17 @@
 import React, { FC, ReactNode } from "react";
 import { SideBarLink, SidebarSection } from "../";
 import {
+  AuditLogs,
   BriefCase,
   FeesAndCharges,
+  FeesAndPricing,
   Guarantors,
   Handshake,
   Home,
   Karma,
   LoanRequests,
   OrgDropDown,
+  Preferences,
   Reports,
   Sack,
   Savings,
@@ -128,15 +131,27 @@ const sidebarElements: SidebarElements[] = [
         to: "/reports",
       },
     ],
-    },
-    {
-        heading: "SETTINGS",
-        children: [
-            {
-                
-            }
-        ]
-  }
+  },
+  {
+    heading: "SETTINGS",
+    children: [
+      {
+        Icon: Preferences,
+        name: "Preferences",
+        to: "/preferences",
+      },
+      {
+        Icon: FeesAndPricing,
+        name: "Fees and Pricing",
+        to: "/fees-and-pricing",
+      },
+      {
+        Icon: AuditLogs,
+        name: "Audit Logs",
+        to: "/audit-logs",
+      },
+    ],
+  },
 ];
 const Sidebar: FC<ISidebar> = ({ className }) => {
   return (
@@ -146,7 +161,7 @@ const Sidebar: FC<ISidebar> = ({ className }) => {
         <span>Switch Organization</span>{" "}
         <OrgDropDown className={style.Sidebar__switch__drop} />{" "}
       </div>
-      <SideBarLink to="/dashboard">
+      <SideBarLink to="/dashboard" end>
         <Home className={style.Sidebar__link__icon} />
         <span>Dashboard</span>
       </SideBarLink>
