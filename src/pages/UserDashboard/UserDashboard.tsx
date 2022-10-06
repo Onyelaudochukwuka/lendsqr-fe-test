@@ -11,6 +11,9 @@ const UserDashboard: FC<IUserDashboard> = () => {
             <h2 className={style.UserDashboard__heading}>Users</h2>
             <div className={style.UserDashboard__stats}>
                 <UsersStats />
+                <UsersStats />
+                <UsersStats />
+                <UsersStats />
             </div>
         </Layout>
 
