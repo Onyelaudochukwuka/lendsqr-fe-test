@@ -1,3 +1,51 @@
-
+.SelectViews {
+  display: flex;
+  align-items: center;
+  background-color: rgba(33, 63, 125, 0.1019607843);
+  border-radius: 4px;
+  width: fit-content;
+  position: relative;
+  padding: 10px 15px;
+}
+.SelectViews__selected {
+  font-size: 14px;
+  color: #213f7d;
+  font-weight: 500;
+  margin-right: 15px;
+}
+.SelectViews__icon {
+  cursor: pointer;
+  fill: #213f7d;
+}
+.SelectViews__icon__active {
+  fill: rgba(57, 205, 98, 0.0588235294);
+}
+.SelectViews__select {
+  height: -15px;
+  transition: all 500ms ease-in;
+  transform-origin: top;
+  overflow-x: hidden;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: rgba(33, 63, 125, 0.1019607843);
+  border-radius: 4px;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.SelectViews__select__option {
+  padding: 5px 15px;
+  font-size: 14px;
+  color: #213f7d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color, color 500ms ease-in;
+}
+.SelectViews__select__option:hover {
+  color: #fff;
+  cursor: pointer;
+  background-color: rgba(33, 64, 125, 0.7490196078);
+}
 
 /*# sourceMappingURL=index.module.css.map */
