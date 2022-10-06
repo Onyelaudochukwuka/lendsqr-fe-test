@@ -9,3 +9,4 @@ export { default as SidebarSection } from "./SidebarSection/SidebarSection";
 export { default as UsersStats } from "./UsersStats/UsersStats";
 export { default as Table } from "./Table/Table";
 export { default as TableRow } from "./TableRow/TableRow";
+export { default as SelectViews } from "./SelectViews/SelectViews";
