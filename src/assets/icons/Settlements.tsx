@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface ISettlements {
   className: string;
 }
-const Settlements: FC<ISettlements> = () => {
+const Settlements: FC<ISettlements> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="13"
       viewBox="0 0 16 13"

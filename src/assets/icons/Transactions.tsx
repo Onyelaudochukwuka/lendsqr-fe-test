@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface ITransactions {
   className: string;
 }
-const Transactions: FC<ITransactions> = () => {
+const Transactions: FC<ITransactions> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="18"
       viewBox="0 0 16 18"

@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface IServiceAccount {
   className: string;
 }
-const ServiceAccount: FC<IServiceAccount> = () => {
+const ServiceAccount: FC<IServiceAccount> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="13"
       viewBox="0 0 16 13"

@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface IKarma {
   className: string;
 }
-const Karma: FC<IKarma> = () => {
+const Karma: FC<IKarma> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="13"
       viewBox="0 0 16 13"

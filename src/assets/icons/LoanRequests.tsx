@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface ILoanRequests {
   className: string;
 }
-const LoanRequests: FC<ILoanRequests> = () => {
+const LoanRequests: FC<ILoanRequests> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="18"
       height="22"
       viewBox="0 0 18 22"

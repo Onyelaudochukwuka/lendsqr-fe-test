@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface ISack {
   className: string;
 }
-const Sack: FC<ISack> = () => {
+const Sack: FC<ISack> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="16"
       viewBox="0 0 16 16"
