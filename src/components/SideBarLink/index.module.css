@@ -9,6 +9,7 @@
   transition-property: background-color, color;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
+  color: #7A8CB1;
 }
 .SideBarLink:hover {
   background-color: rgba(57, 205, 204, 0.0588235294);
