@@ -2,15 +2,21 @@ import React, { FC, ReactNode } from "react";
 import { SideBarLink, SidebarSection } from "../";
 import {
   BriefCase,
+  FeesAndCharges,
   Guarantors,
   Handshake,
   Home,
   Karma,
   LoanRequests,
   OrgDropDown,
+  Reports,
   Sack,
   Savings,
   SavingsProducts,
+  ServiceAccount,
+  Services,
+  Settlements,
+  Transactions,
   Users,
   WhiteList,
 } from "../../assets";
@@ -86,13 +92,43 @@ const sidebarElements: SidebarElements[] = [
         name: "Loan Products",
         to: "/loan-products",
       },
-        {
-            Icon: SavingsProducts,
-            name: "Savings Products",
-            to: "/savings-products"
+      {
+        Icon: SavingsProducts,
+        name: "Savings Products",
+        to: "/savings-products",
+      },
+      {
+        Icon: FeesAndCharges,
+        name: "Fees and Charges",
+        to: "/fees-and-charges",
+      },
+      {
+        Icon: Transactions,
+        name: "Transactions",
+        to: "/transactions",
+      },
+      {
+        Icon: Services,
+        name: "Services",
+        to: "/services",
+      },
+      {
+        Icon: ServiceAccount,
+        name: "Service Accounts",
+        to: "/service-accounts",
+      },
+      {
+        Icon: Settlements,
+        name: "Settlements",
+        to: "/settlements",
+      },
+      {
+        Icon: Reports,
+        name: "Reports",
+        to: "/reports",
       },
     ],
-  },
+    }
 ];
 const Sidebar: FC<ISidebar> = ({ className }) => {
   return (
