@@ -14,12 +14,12 @@
   border-bottom: none;
 }
 .TableRow div {
-  flex-basis: 15%;
-  max-width: 15%;
-  width: 15%;
   font-size: 11px;
 }
 .TableRow__elements {
+  flex-basis: 15%;
+  max-width: 15%;
+  width: 15%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -59,22 +59,38 @@
 }
 .TableRow__dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 20px);
   right: 0;
   border-radius: 5px;
   background-color: white;
-  overflow-x: visible !important;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  overflow-x: visible;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
   padding: 10px 0;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0);
+  transform-origin: top;
+  transition: transform 200ms ease-in;
+}
+.TableRow__dropdown__active {
+  transform: scale(1);
 }
 .TableRow__dropdown__item {
   padding: 10px 20px;
   cursor: pointer;
   transition: background-color 500ms ease-in;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
 }
 .TableRow__dropdown__item:hover {
   background-color: rgba(84, 95, 125, 0.0588235294);
+}
+.TableRow__dropdown__item span {
+  display: block;
 }
 
 /*# sourceMappingURL=index.module.css.map */
