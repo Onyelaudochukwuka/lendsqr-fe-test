@@ -3,10 +3,15 @@ import { SideBarLink, SidebarSection } from "../";
 import {
   BriefCase,
   Guarantors,
+  Handshake,
   Home,
+  Karma,
+  LoanRequests,
   OrgDropDown,
   Sack,
+  Savings,
   Users,
+  WhiteList,
 } from "../../assets";
 import style from "./index.module.css";
 interface ISidebar {
@@ -39,9 +44,44 @@ const sidebarElements: SidebarElements[] = [
         Icon: Sack,
         name: "Loans",
         to: "/loans",
-      },
-    ],
-  },
+        },
+        {
+            Icon: Handshake,
+            name: "Decision Models",
+            to: "/decision-models",
+        },
+        {
+            Icon: Savings,
+            name: "Savings",
+            to: "/savings"
+        },
+        {
+            Icon: LoanRequests,
+            name: "Loan Requests",
+            to: "/loan-requests"
+        },
+        {
+            Icon: WhiteList,
+            name: "Whitelist",
+            to: "/whitelist"
+        },
+        {
+            Icon: Karma,
+            name: "Karma",
+            to: "/karma"
+        }
+        ],
+    },
+    {
+        heading: "BUSINESSES",
+        children: [
+            {
+                Icon: BriefCase,
+                name: "Organization",
+                to: "/organization",
+            },
+        ]
+    }
 ];
 const Sidebar: FC<ISidebar> = ({ className }) => {
   return (
