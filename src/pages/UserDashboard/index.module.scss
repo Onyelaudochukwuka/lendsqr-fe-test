@@ -7,11 +7,11 @@
     width: 100%;
     background: $dashboard-background;
     padding: 30px;
+    gap: 30px;
     &__heading{
         font-size: 24px;
         font-weight: 500;
         color: $sidebar-link-text;
-        margin-bottom: 30px;
     }
     &__stats{
         display: flex;

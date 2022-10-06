@@ -6,12 +6,12 @@
   width: 100%;
   background: #FBFBFB;
   padding: 30px;
+  gap: 30px;
 }
 .UserDashboard__heading {
   font-size: 24px;
   font-weight: 500;
   color: #213f7d;
-  margin-bottom: 30px;
 }
 .UserDashboard__stats {
   display: flex;
