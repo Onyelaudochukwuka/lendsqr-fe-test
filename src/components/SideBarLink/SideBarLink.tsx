@@ -1,16 +1,19 @@
-import React, { FC } from "react"
+import React, { FC, ReactNode } from "react";
 import style from "./index.module.css";
-
+import { NavLink } from "react-router-dom";
 interface ISideBarLink {
-
+  children: ReactNode;
+    to: string;
+    className?: string;
 }
-const SideBarLink: FC<ISideBarLink> = () => {
+const SideBarLink: FC<ISideBarLink> = ({ children,className, ...props }) => {
     return (
-        <div className={style.SideBarLink}>
-            SideBarLink
-        </div>
-
+        <NavLink
+        className={({isActive}) => `${style.SideBarLink} ${className} ${isActive ? style.SideBarLink__active : ""}`}
+            {...props}>
+        {children}
+        </NavLink>
     );
-}
+};
 
 export default SideBarLink;
