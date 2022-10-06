@@ -29,5 +29,6 @@ export { default as DashboardUsers } from "./icons/DashboardUsers";
 export { default as DashboardActiveUsers } from "./icons/DashboardActiveUsers";
 export { default as DashboardUsersWithLoans } from "./icons/DashboardUsersWithLoans";
 export { default as DashboardUsersWithSavings } from "./icons/DashboardUsersWithSavings";
+export { default as Filter } from "./icons/Filter";
 
 export { loginIllustration, userImage };
