@@ -5,4 +5,7 @@ export { default as Notification } from "./icons/Notification";
 export { default as Search } from "./icons/Search";
 export { default as DropDown } from "./icons/DropDown";
 export { default as BriefCase } from "./icons/BriefCase";
+export { default as OrgDropDown } from "./icons/OrgDropDown";
+export { default as Home } from "./icons/Home";
+export { default as Users } from "./icons/Users";
 export { loginIllustration, userImage };
