@@ -1,9 +1,8 @@
 .Layout {
   display: grid;
   grid-template-areas: "nav nav nav" "sidebar body body" "sidebar body body";
-  grid-template-columns: repeat(auto, 3);
+  grid-template-columns: 0.25fr 1fr;
   grid-template-rows: repeat(auto, 3);
-  column-gap: 20px;
 }
 .Layout__nav {
   grid-area: nav;
