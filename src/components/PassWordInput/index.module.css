@@ -4,7 +4,7 @@
   width: 100%;
 }
 .PassWordInput__container__input {
-  border: 2px solid rgba(84, 95, 125, 0.15);
+  border: 2px solid rgba(84, 95, 125, 0.1490196078);
   width: 100%;
   padding: 15px 30px;
   padding-right: 60px;
@@ -12,7 +12,7 @@
   outline: none;
 }
 .PassWordInput__container__input:focus {
-  border: 2px solid rgba(84, 95, 125, 0.5);
+  border: 2px solid rgba(84, 95, 125, 0.5019607843);
   outline: none;
 }
 .PassWordInput__container__input[type=text] {

@@ -1,3 +1,27 @@
-
+.SideBarLink {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  font-weight: 400;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  transition-property: background-color, color, border;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+.SideBarLink__active {
+  background-color: rgba(57, 205, 204, 0.0588235294);
+  color: #213f7d;
+  border-left: 3px solid #39CDCC;
+}
+.SideBarLink__active:hover {
+  background-color: rgba(57, 205, 204, 0.1019607843);
+  color: rgba(33, 64, 125, 0.7490196078);
+  border-left: 3px solid #2E9E9D;
+}
+.SideBarLink__active svg {
+  fill: #213f7d;
+}
 
 /*# sourceMappingURL=index.module.css.map */

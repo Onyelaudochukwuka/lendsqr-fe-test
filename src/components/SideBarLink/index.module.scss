@@ -1,0 +1,28 @@
+@import "../../sass/values";
+.SideBarLink {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  font-weight: 400;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  transition-property: background-color, color, border;
+   transition-duration: 500ms;
+   transition-timing-function: ease-in-out;
+
+  &__active {
+    background-color: $sidebar-link-background;
+    color: $sidebar-link-text;
+    border-left: 3px solid $log-in-button;
+    &:hover{
+        background-color: $sidebar-link-hover;
+        color: $sidebar-link-text-hover;
+        border-left: 3px solid $log-in-button-hover;
+        
+    }
+    svg{
+        fill: $sidebar-link-text;
+    }
+  }
+}
