@@ -1,0 +1,14 @@
+@import "../../sass/values";
+.SidebarSection{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    &__heading{
+        padding: 0 16px;
+        font-size: 14px;
+        font-weight: 500;
+        color: $sidebar-heading-text;
+
+    }
+}
