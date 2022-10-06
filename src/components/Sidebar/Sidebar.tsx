@@ -10,6 +10,7 @@ import {
   OrgDropDown,
   Sack,
   Savings,
+  SavingsProducts,
   Users,
   WhiteList,
 } from "../../assets";
@@ -24,7 +25,7 @@ type SidebarElementsChildren = {
 };
 export interface SidebarElements {
   heading: string;
-    children: SidebarElementsChildren[];
+  children: SidebarElementsChildren[];
 }
 const sidebarElements: SidebarElements[] = [
   {
@@ -44,44 +45,54 @@ const sidebarElements: SidebarElements[] = [
         Icon: Sack,
         name: "Loans",
         to: "/loans",
-        },
+      },
+      {
+        Icon: Handshake,
+        name: "Decision Models",
+        to: "/decision-models",
+      },
+      {
+        Icon: Savings,
+        name: "Savings",
+        to: "/savings",
+      },
+      {
+        Icon: LoanRequests,
+        name: "Loan Requests",
+        to: "/loan-requests",
+      },
+      {
+        Icon: WhiteList,
+        name: "Whitelist",
+        to: "/whitelist",
+      },
+      {
+        Icon: Karma,
+        name: "Karma",
+        to: "/karma",
+      },
+    ],
+  },
+  {
+    heading: "BUSINESSES",
+    children: [
+      {
+        Icon: BriefCase,
+        name: "Organization",
+        to: "/organization",
+      },
+      {
+        Icon: LoanRequests,
+        name: "Loan Products",
+        to: "/loan-products",
+      },
         {
-            Icon: Handshake,
-            name: "Decision Models",
-            to: "/decision-models",
-        },
-        {
-            Icon: Savings,
-            name: "Savings",
-            to: "/savings"
-        },
-        {
-            Icon: LoanRequests,
-            name: "Loan Requests",
-            to: "/loan-requests"
-        },
-        {
-            Icon: WhiteList,
-            name: "Whitelist",
-            to: "/whitelist"
-        },
-        {
-            Icon: Karma,
-            name: "Karma",
-            to: "/karma"
-        }
-        ],
-    },
-    {
-        heading: "BUSINESSES",
-        children: [
-            {
-                Icon: BriefCase,
-                name: "Organization",
-                to: "/organization",
-            },
-        ]
-    }
+            Icon: SavingsProducts,
+            name: "Savings Products",
+            to: "/savings-products"
+      },
+    ],
+  },
 ];
 const Sidebar: FC<ISidebar> = ({ className }) => {
   return (
@@ -95,7 +106,9 @@ const Sidebar: FC<ISidebar> = ({ className }) => {
         <Home className={style.Sidebar__link__icon} />
         <span>Dashboard</span>
       </SideBarLink>
-          {sidebarElements.map((props) => (<SidebarSection {...props} />))}
+      {sidebarElements.map((props) => (
+        <SidebarSection {...props} />
+      ))}
     </div>
   );
 };
