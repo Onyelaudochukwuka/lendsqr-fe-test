@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Layout, UsersStats } from "../../components";
+import { Layout, Table, UsersStats } from "../../components";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../utils/redux/apiConnection";
 import {
@@ -14,7 +14,7 @@ interface Stats {
   heading: string;
   count: number;
 }
-const stats: Stats[] = [
+const stats: Required<Stats[]> = [
   {
     Icon: DashboardUsers,
     heading: "USERS",
@@ -29,22 +29,25 @@ const stats: Stats[] = [
     Icon: DashboardUsersWithLoans,
     heading: "USERS WITH LOANS",
     count: 12453,
-    },
-    {
-        Icon: DashboardUsersWithSavings,
-        heading: "USERS WITH SAVINGS",
-        count: 102453
-  }
+  },
+  {
+    Icon: DashboardUsersWithSavings,
+    heading: "USERS WITH SAVINGS",
+    count: 102453,
+  },
 ];
 const UserDashboard: FC<IUserDashboard> = () => {
+  const { data } = useGetUsersQuery({});
+console.log(data)
   return (
     <Layout className={style.UserDashboard}>
       <h2 className={style.UserDashboard__heading}>Users</h2>
       <div className={style.UserDashboard__stats}>
-              {
-                    stats.map((props) => (<UsersStats {...props} />))
-        }
-      </div>
+        {stats.map((props) => (
+          <UsersStats {...props} />
+        ))}
+          </div>
+    <Table />
     </Layout>
   );
 };
