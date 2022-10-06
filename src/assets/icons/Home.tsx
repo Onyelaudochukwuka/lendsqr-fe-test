@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface IHome {
   className: string;
 }
-const Home: FC<IHome> = () => {
+const Home: FC<IHome> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="16"
       height="15"
       viewBox="0 0 16 15"
