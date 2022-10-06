@@ -6,3 +6,4 @@ export { default as Navbar } from "./Navbar/Navbar";
 export { default as Sidebar } from "./Sidebar/Sidebar";
 export { default as SideBarLink } from "./SideBarLink/SideBarLink";
 export { default as SidebarSection } from "./SidebarSection/SidebarSection";
+export { default as UsersStats } from "./UsersStats/UsersStats";
