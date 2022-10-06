@@ -7,3 +7,5 @@ export { default as Sidebar } from "./Sidebar/Sidebar";
 export { default as SideBarLink } from "./SideBarLink/SideBarLink";
 export { default as SidebarSection } from "./SidebarSection/SidebarSection";
 export { default as UsersStats } from "./UsersStats/UsersStats";
+export { default as Table } from "./Table/Table";
+export { default as TableRow } from "./TableRow/TableRow";
