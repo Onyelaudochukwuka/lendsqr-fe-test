@@ -1,0 +1,19 @@
+.TableRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 2px solid rgba(33, 63, 125, 0.1);
+  padding-block: 20px;
+}
+.TableRow:first-child {
+  padding-top: 0;
+}
+.TableRow:last-child {
+  border-bottom: none;
+}
+.TableRow div {
+  flex-basis: 17%;
+  font-size: 11px;
+}
+
+/*# sourceMappingURL=index.module.css.map */
