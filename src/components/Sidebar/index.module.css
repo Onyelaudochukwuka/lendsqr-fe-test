@@ -5,6 +5,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-block: 30px;
+  writing-mode: horizontal-tb;
+}
+.Sidebar__switch {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.module.css.map */
