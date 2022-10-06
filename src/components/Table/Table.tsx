@@ -30,7 +30,11 @@ const Table: FC<ITable> = () => {
       {/* <div className={style.Table__row}>
         {!isLoading && rows?.map((data: any) => <TableRow {...data} />)}
       </div> */}
-<div></div>
+      <div className={style.Table__footer}>
+        <div className={style.Table__footer_select}>
+          <span>Showing  entries</span>
+        </div>
+    </div>
     </div>
   );
 };
