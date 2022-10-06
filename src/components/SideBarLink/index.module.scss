@@ -7,11 +7,16 @@
   align-items: center;
   width: 100%;
   cursor: pointer;
-  transition-property: background-color, color, border;
-   transition-duration: 500ms;
+  transition-property: background-color, color;
+   transition-duration: 1s;
    transition-timing-function: ease-in-out;
-
-  &__active {
+ 
+&:hover {
+        background-color: $sidebar-link-background;
+        color: $sidebar-link-text;
+        border-left: 3px solid $log-in-button;
+}
+  &__active{
     background-color: $sidebar-link-background;
     color: $sidebar-link-text;
     border-left: 3px solid $log-in-button;
