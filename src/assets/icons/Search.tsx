@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface ISearch {
   className: string;
 }
-const Search: FC<ISearch> = () => {
+const Search: FC<ISearch> = (props) => {
   return (
     <svg
+    {...props}
       width="14"
       height="14"
       viewBox="0 0 14 14"
