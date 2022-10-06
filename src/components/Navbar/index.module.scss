@@ -1,8 +1,57 @@
-.Navbar{
+@import "../../sass/values";
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 80px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+  &__left {
     display: flex;
-    &__search{
+    flex-basis: 50%;
+    justify-content: space-between;
+    align-items: center;
+    &__search {
+      display: flex;
+      width: 50%;
+      &__input {
+        width: 100%;
         padding: 10px 20px;
-        border-radius: 8px;
+        --border-top-left-radius: 8px;
+        --border-top-right-radius: 0;
+        --border-bottom-left-radius: 8px;
+        --border-bottom-right-radius: 0;
+      }
+      &__searchbar {
+        display: flex;
+        align-items: center;
+        background-color: $log-in-button;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-inline: 15px;
+        &__icon {
+          height: 20px;
+          width: auto;
+        }
+      }
     }
-
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    flex-basis: 25%;
+    justify-content: space-between;
+    &__user {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      &__avatar {
+        border-radius: 99px;
+      }
+      &__info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+  }
 }
