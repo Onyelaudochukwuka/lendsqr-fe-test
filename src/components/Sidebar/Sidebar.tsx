@@ -36,7 +36,7 @@ export interface SidebarElements {
   heading: string;
   children: SidebarElementsChildren[];
 }
-const sidebarElements: SidebarElements[] = [
+const sidebarElements: Required<SidebarElements[]> = [
   {
     heading: "CUSTOMERS",
     children: [
