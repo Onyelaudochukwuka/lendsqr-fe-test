@@ -26,5 +26,8 @@ export { default as Preferences } from "./icons/Preferences";
 export { default as FeesAndPricing } from "./icons/FeesAndPricing";
 export { default as AuditLogs } from "./icons/AuditLogs";
 export { default as DashboardUsers } from "./icons/DashboardUsers";
+export { default as DashboardActiveUsers } from "./icons/DashboardActiveUsers";
+export { default as DashboardUsersWithLoans } from "./icons/DashboardUsersWithLoans";
+export { default as DashboardUsersWithSavings } from "./icons/DashboardUsersWithSavings";
 
 export { loginIllustration, userImage };
