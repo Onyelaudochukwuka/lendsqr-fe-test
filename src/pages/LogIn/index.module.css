@@ -1,4 +1,6 @@
+@import url("../../assets/fonts/fontsheet.css");
 .LogIn {
+  font-family: "Avenir Next LT Pro";
   display: flex;
   min-height: 100vh;
   justify-content: space-between;
