@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface IDashboardUsers {
   className: string;
 }
-const DashboardUsers: FC<IDashboardUsers> = () => {
+const DashboardUsers: FC<IDashboardUsers> = (props) => {
   return (
-    <svg
+      <svg
+          {...props}
       width="40"
       height="40"
       viewBox="0 0 40 40"
