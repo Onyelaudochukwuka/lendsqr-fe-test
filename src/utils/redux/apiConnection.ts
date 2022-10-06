@@ -5,7 +5,7 @@ const ApiHeaders = {
 };
 const baseUrl = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1";
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
-enum Status {
+export enum Status {
   active = "active",
   inactive = "inactive",
   pending = "pending",
@@ -25,12 +25,12 @@ const apiConnection = createApi({
     getUsers: builder.query({
       query: () => createRequest(`/users`, "GET"),
       transformResponse: (response: any) =>
-        response.map((user: any) => ({
-          createdAt: user.createdAt,
-          orgName: user.orgName,
-          userName: user.userName,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
+          response.map((user: any) => ({
+              createdAt: user.createdAt,
+              orgName: user.orgName,
+              userName: user.userName,
+              email: user.email,
+              phoneNumber: user.phoneNumber.replace(/(-|\s|\.|x|\(|\))/g, "").replace(/\d\w{2,3}/g, (match: string, i: number, str: any) => str.length - 4 > i ? `${match}-` : match),
           id: user.id,
           status:
             user.createdAt > user.lastActiveDate
