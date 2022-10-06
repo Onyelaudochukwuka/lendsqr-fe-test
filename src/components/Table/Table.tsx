@@ -27,9 +27,10 @@ const Table: FC<ITable> = () => {
           </div>
         ))}
       </div>
-      <div className={style.Table__row}>
+      {/* <div className={style.Table__row}>
         {!isLoading && rows?.map((data: any) => <TableRow {...data} />)}
-      </div>
+      </div> */}
+<div></div>
     </div>
   );
 };
