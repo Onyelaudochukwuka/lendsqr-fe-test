@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Filter } from "../../assets";
 import style from "./index.module.css";
 import moment from "moment";
 import { TableRow } from "../";
+import { useGetUsersQuery } from "../../utils/redux/apiConnection";
 interface ITable {}
 const heading: string[] = [
   "Organization",
@@ -10,29 +11,10 @@ const heading: string[] = [
   "Email",
   "Phone Number",
   "Date Joined",
-  "Status",
-];
-const row = [
-  {
-    orgName: "Lendsqr",
-    userName: "Adedeji",
-    email: "adedeji@lendsqr.com",
-    phoneNumber: "08078903721",
-    createdAt: "May 15, 2020 10:00 AM",
-    status: "Inactive",
-  },{
-    orgName: "Lendsqr",
-    userName: "Adedeji",
-    email: "adedeji@lendsqr.com",
-    phoneNumber: "08078903721",
-    createdAt: "May 15, 2020 10:00 AM",
-    status: "Inactive",
-  }
+  "Status"
 ];
 const Table: FC<ITable> = () => {
-  console.log(
-    moment("2072-12-27T03:44:22.522Z").format("MMMM D YYYY, h:mm:ss A")
-  );
+  const { data: rows, isLoading } = useGetUsersQuery({});
   return (
     <div className={style.Table}>
       <div className={style.Table__header}>
@@ -46,7 +28,7 @@ const Table: FC<ITable> = () => {
         ))}
       </div>
       <div className={style.Table__row}>
-        {row.map((data) => (<TableRow {...data} />))}
+        {!isLoading && rows?.map((data: any) => <TableRow {...data} />)}
       </div>
     </div>
   );
