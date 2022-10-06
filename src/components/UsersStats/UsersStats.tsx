@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { DashboardUsers } from "../../assets";
 import style from "./index.module.css";
 interface IUsersStats {
   Icon: FC<{ className: string }>;
