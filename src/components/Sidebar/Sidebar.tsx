@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { SideBarLink } from "../";
+import { SideBarLink, SidebarSection } from "../";
 import {
   BriefCase,
   Guarantors,
@@ -12,16 +12,16 @@ import style from "./index.module.css";
 interface ISidebar {
   className: string;
 }
-type CustomersChildren = {
+type SidebarElementsChildren = {
   Icon: FC<{ className: string }>;
   name: string;
   to: string;
 };
-interface Customers {
+export interface SidebarElements {
   heading: string;
-  children: CustomersChildren[];
+    children: SidebarElementsChildren[];
 }
-const customers: Customers[] = [
+const sidebarElements: SidebarElements[] = [
   {
     heading: "CUSTOMERS",
     children: [
@@ -55,17 +55,7 @@ const Sidebar: FC<ISidebar> = ({ className }) => {
         <Home className={style.Sidebar__link__icon} />
         <span>Dashboard</span>
       </SideBarLink>
-        {customers.map(({ heading,children }) => (
-      <div className={style.Sidebar__container}>
-                <p className={style.Sidebar__container}>{ heading }</p>
-        {children.map(({ Icon, name, to }) => (
-          <SideBarLink to={to}>
-            <Icon className={style.Sidebar__container__icon} />
-            <span>{name}</span>
-            </SideBarLink>
-        ))}
-      </div>
-        ))}
+          {sidebarElements.map((props) => (<SidebarSection {...props} />))}
     </div>
   );
 };
