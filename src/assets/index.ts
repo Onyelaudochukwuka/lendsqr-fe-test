@@ -22,4 +22,8 @@ export { default as ServiceAccount } from "./icons/ServiceAccount";
 export { default as Services } from "./icons/Services";
 export { default as Settlements } from "./icons/Settlements";
 export { default as Transactions } from "./icons/Transactions";
+export { default as Preferences } from "./icons/Preferences";
+export { default as FeesAndPricing } from "./icons/FeesAndPricing";
+export { default as AuditLogs } from "./icons/AuditLogs";
+
 export { loginIllustration, userImage };
