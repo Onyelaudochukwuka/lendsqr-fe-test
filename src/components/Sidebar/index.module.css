@@ -1,3 +1,7 @@
-
+.Sidebar {
+  width: 75%;
+  min-height: 100vh;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+}
 
 /*# sourceMappingURL=index.module.css.map */
