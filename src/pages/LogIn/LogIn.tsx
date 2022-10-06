@@ -27,7 +27,7 @@ const LogIn: FC = () => {
       }
       return;
     }
-   navigate("/dashboard")
+   navigate("/dashboard/users")
   }
   return (
     <section className={style.LogIn}>
