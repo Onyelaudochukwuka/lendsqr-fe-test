@@ -5,8 +5,8 @@ interface IOrgDropDown {
 }
 const OrgDropDown: FC<IOrgDropDown> = (props) => {
   return (
-      <svg
-          {...props}
+    <svg
+      {...props}
       width="12"
       height="8"
       viewBox="0 0 12 8"
