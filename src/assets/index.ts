@@ -30,6 +30,9 @@ export { default as DashboardActiveUsers } from "./icons/DashboardActiveUsers";
 export { default as DashboardUsersWithLoans } from "./icons/DashboardUsersWithLoans";
 export { default as DashboardUsersWithSavings } from "./icons/DashboardUsersWithSavings";
 export { default as Filter } from "./icons/Filter";
-export {default as SideMenu } from "./icons/SideMenu";
+export { default as SideMenu } from "./icons/SideMenu";
+export { default as View } from "./icons/View";
+export { default as Activate } from "./icons/Activate";
+export { default as Blacklist } from "./icons/Blacklist";
 
 export { loginIllustration, userImage };
