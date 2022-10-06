@@ -128,7 +128,15 @@ const sidebarElements: SidebarElements[] = [
         to: "/reports",
       },
     ],
-    }
+    },
+    {
+        heading: "SETTINGS",
+        children: [
+            {
+                
+            }
+        ]
+  }
 ];
 const Sidebar: FC<ISidebar> = ({ className }) => {
   return (
