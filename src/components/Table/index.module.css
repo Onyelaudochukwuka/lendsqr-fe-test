@@ -17,12 +17,11 @@
 .Table__header__heading {
   display: flex;
   align-items: center;
-  gap: 15px;
-  flex-basis: 17%;
+  flex-basis: 15%;
+  gap: 11px;
 }
 .Table__row {
   display: flex;
-  justify-content: space-between;
   font-size: 12px;
   flex-direction: column;
 }
