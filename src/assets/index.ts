@@ -8,4 +8,6 @@ export { default as BriefCase } from "./icons/BriefCase";
 export { default as OrgDropDown } from "./icons/OrgDropDown";
 export { default as Home } from "./icons/Home";
 export { default as Users } from "./icons/Users";
+export { default as Guarantors } from "./icons/Guarantors";
+export { default as Sack } from "./icons/Sack";
 export { loginIllustration, userImage };
