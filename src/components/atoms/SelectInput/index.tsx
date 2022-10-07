@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import { OrgDropDown } from "../../../assets";
 import style from "./index.module.css";
 interface ISelectInput {
@@ -9,32 +9,21 @@ interface ISelectInput {
     placeholder: string;
 }
 const SelectInput: FC<ISelectInput> = ({ selectedData, data, label, placeholder, setSelectedData }) => {
+    const [toggleDetails, setToggleDetails] = useState<boolean>(false);
     return (
-        <div className={style.SelectInput}>
-            <div className={style.SelectInput__label}> Organization </div>
-            <div className={style.SelectInput__content}>
-                <span className={style.SelectInput__text}>{selectedData.length > 0 ? selectedData.toLocaleString().replace(",", (val) => `${val} `) : placeholder}</span>
-                <OrgDropDown className={style.SelectInput__icon} />
+        <div className={`${style.SelectInput} ${toggleDetails && style.SelectInput__active}`}>
+            <div className={style.SelectInput__label}> {label} </div>
+            <div className={style.SelectInput__content} onClick={()=>setToggleDetails((prev:boolean) => !prev)}>
+                <span className={style.SelectInput__content__text}>{selectedData.length > 0 ? selectedData.toLocaleString().replace(",", (val) => `${val} `) : placeholder}</span>
+                <OrgDropDown className={`${style.SelectInput__content__icon} ${toggleDetails && style.SelectInput__content__icon__active}`} />
             </div>
-            <div className={style.SelectInput__details}>
-                {[
-                    "All",
-                    "Active",
-                    "Inactive",
-                    "All",
-                    "Active",
-                    "Inactive",
-                    "All",
-                    "Active",
-                    "Inactive",
-                    "All",
-                    "Active",
-                    "Inactive",
-                ].map((prop) => (
+            <div className={`${style.SelectInput__details} ${toggleDetails && style.SelectInput__details__active}`}>
+                {data?.map((name) => (
                     <div
-                        className={`${style.SelectInput__details__container} ${style.SelectInput__details__container__active}`}
+                        onClick={()=> setSelectedData((prev)=> prev.includes(name) ? prev.filter((item)=> item !== name) : [...prev, name])}
+                        className={`${style.SelectInput__details__container} ${selectedData.includes(name) && style.SelectInput__details__container__active}`}
                     >
-                        {prop}
+                        {name}
                     </div>
                 ))}
             </div>
