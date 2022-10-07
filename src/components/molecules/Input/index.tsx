@@ -10,7 +10,6 @@ interface IInput {
   errorMessage?: string;
   className?: string;
   label?: string;
-  showIcon?: boolean
 }
 const Input: FC<IInput> = ({
   placeholder,
@@ -31,7 +30,7 @@ const Input: FC<IInput> = ({
         {...{ placeholder, value, type }}
         onChange={setValue}
       />
-      
+
       {!!error && <p className={style.Input__error}>{errorMessage}</p>}
     </div>
   );
