@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, FormEvent, FormEventHandler, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginIllustration, Logo } from "../../assets";
 import { Input, Loader, PassWordInput } from "../../components";
@@ -11,15 +11,16 @@ const LogIn: FC = () => {
   const [emailError, setEmailError] = useState(false);
   const [passWordError, setPassWordError] = useState(false);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    if (!isEmail(email) || !isPassword(password)) {
-      if (!isEmail(email)) {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isEmail(String(email)) || !isPassword(String(password))) {
+      if (!isEmail(String(email))) {
         setEmailError(true);
         setTimeout(() => {
           setEmailError(false);
         }, 3000);
       }
-      if(!isPassword(password)) {
+      if(!isPassword(String(password))) {
         setPassWordError(true);
         setTimeout(() => {
           setPassWordError(false);
@@ -43,10 +44,12 @@ const LogIn: FC = () => {
       <div className={style.LogIn__right}>
         <h2 className={style.LogIn__right__heading}>Welcome!</h2>
         <p className={style.LogIn__right__details}>Enter details to login.</p>
-        <div className={style.LogIn__right__form}>
+        <form
+          onSubmit={handleSubmit}
+          className={style.LogIn__right__form}>
           <Input
             {...{
-              value: email,
+              value: String(email),
               setValue: setEmail,
               clearValue: clearEmail,
               placeholder: "Email",
@@ -57,7 +60,7 @@ const LogIn: FC = () => {
           />
           <PassWordInput
             {...{
-              value: password,
+              value: String(password),
               setValue: setPassword,
               clearValue: clearPassword,
               placeholder: "Password",
@@ -70,9 +73,9 @@ const LogIn: FC = () => {
             Forgot PASSWORD?
           </span>
           <button className={style.LogIn__right__form__button}
-            onClick={handleSubmit}
+            type="submit"
           >Login</button>
-        </div>
+        </form>
       </div>
     </section>
   );
