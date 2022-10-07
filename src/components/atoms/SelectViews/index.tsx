@@ -19,7 +19,7 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
       onClick={() => setToggleItems((props) => !props)}
     >
           <span className={style.SelectViews__selected}>{ select }</span>
-      <OrgDropDown className={style.SelectViews__icon} />
+      <OrgDropDown className={`${style.SelectViews__icon} ${toggleItems && style.SelectViews__icon__active}`} />
       <div
         ref={itemsEl}
         style={{ height: toggleItems ? `${detailsHeight}px` : 0 }}
