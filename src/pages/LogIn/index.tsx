@@ -36,7 +36,8 @@ const LogIn: FC = () => {
         <img
           src={loginIllustration}
           className={style.LogIn__left__illustration}
-          alt="illustration"
+          alt="SignIn illustration"
+          role={"presentation"}
         />
       </div>
       <div className={style.LogIn__right}>

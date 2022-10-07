@@ -5,7 +5,7 @@
   min-height: 100vh;
   justify-content: space-between;
   padding: 100px 60px;
-  font-size: 20px;
+  font-size: 14px;
 }
 .LogIn__left {
   flex-basis: 45%;
@@ -24,7 +24,7 @@
 .LogIn__right__heading {
   color: #213F7D;
   font-weight: 700;
-  font-size: 52px;
+  font-size: 46px;
   margin-left: -5px;
 }
 .LogIn__right__details {
@@ -40,7 +40,7 @@
 }
 .LogIn__right__form__forgot {
   color: #39CDCC;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 1.6px;
