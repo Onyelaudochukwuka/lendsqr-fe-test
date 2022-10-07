@@ -6,6 +6,7 @@
   width: fit-content;
   position: relative;
   padding: 10px 15px;
+  cursor: pointer;
 }
 .SelectViews__selected {
   font-size: 14px;
@@ -16,9 +17,11 @@
 .SelectViews__icon {
   cursor: pointer;
   fill: #213f7d;
+  transition: transform 500ms ease-in-out;
 }
 .SelectViews__icon__active {
   fill: rgba(57, 205, 98, 0.0588235294);
+  transform: rotate(180deg);
 }
 .SelectViews__select {
   height: -15px;

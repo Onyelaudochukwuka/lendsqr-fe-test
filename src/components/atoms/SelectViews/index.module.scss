@@ -2,12 +2,14 @@
 .SelectViews {
   display: flex;
   align-items: center;
-    background-color: $select-input;
-    border-radius: 4px;
-    width: fit-content;
-    position: relative;
-    padding: 10px 15px;
-  &__selected{
+  background-color: $select-input;
+  border-radius: 4px;
+  width: fit-content;
+  position: relative;
+  padding: 10px 15px;
+  cursor: pointer;
+
+  &__selected {
     font-size: 14px;
     color: $sidebar-link-text;
     font-weight: 500;
@@ -16,14 +18,16 @@
   &__icon {
     cursor: pointer;
     fill: $sidebar-link-text;
+    transition: transform 500ms ease-in-out;
     &__active {
       fill: $active;
+      transform: rotate(180deg);
     }
   }
-  &__select{
+  &__select {
     height: -15px;
     transition: all 500ms ease-in;
-    transform-origin:top ;
+    transform-origin: top;
     overflow-x: hidden;
     position: absolute;
     top: calc(100% + 10px);
@@ -33,14 +37,14 @@
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    &__option{
-        padding: 5px 15px;
+    &__option {
+      padding: 5px 15px;
       font-size: 14px;
       color: $sidebar-link-text;
       font-weight: 500;
       cursor: pointer;
       transition: background-color, color 500ms ease-in;
-      &:hover{
+      &:hover {
         color: #fff;
         cursor: pointer;
         background-color: $sidebar-link-text-hover;
