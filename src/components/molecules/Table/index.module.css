@@ -26,10 +26,21 @@
   font-size: 12px;
   flex-direction: column;
 }
+.Table__footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .Table__footer__select {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+}
+.Table__footer__navigation {
   display: flex;
   align-items: center;
   gap: 15px;
+  height: fit-content;
   padding: 15px 20px;
 }
 
