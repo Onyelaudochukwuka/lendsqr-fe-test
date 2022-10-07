@@ -2,6 +2,7 @@ import React, { FC } from "react";
 
 interface IFilter {
   className: string;
+  onClick?: () => void;
 }
 const Filter: FC<IFilter> = (props) => {
   return (
