@@ -2,13 +2,15 @@ import React, { ChangeEvent, FC } from "react";
 import style from "./index.module.css";
 interface IInput {
   placeholder: string;
-  value: string;
+  value: string | number ;
   setValue: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   type: string;
   clearValue: () => void;
   error?: boolean;
   errorMessage?: string;
   className?: string;
+  label?: string;
+  showIcon?: boolean
 }
 const Input: FC<IInput> = ({
   placeholder,
@@ -19,14 +21,17 @@ const Input: FC<IInput> = ({
   error,
   errorMessage,
   className,
+  label
 }) => {
   return (
-    <div className={style.Input}>
+    <div className={`${style.Input} ${className}`}>
+      {!!label && <div className={style.Input__label}>{label}</div>}
       <input
         className={`${style.Input__input} ${className}`}
         {...{ placeholder, value, type }}
         onChange={setValue}
       />
+      
       {!!error && <p className={style.Input__error}>{errorMessage}</p>}
     </div>
   );
