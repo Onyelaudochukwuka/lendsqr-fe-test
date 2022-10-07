@@ -1,4 +1,11 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { OrgDropDown } from "../../../assets";
 import style from "./index.module.css";
 interface ISelectViews {
@@ -15,12 +22,18 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
   }, [itemsEl]);
   return (
     <div className={style.SelectViews}>
-    <div
-      className={style.SelectViews__container}
-      onClick={() => setToggleItems((props) => !props)}
-    >
-        <span className={style.SelectViews__container__selected}>{ select }</span>
-        <OrgDropDown className={`${style.SelectViews__container__icon} ${toggleItems && style.SelectViews__container__icon__active}`} />
+      <div
+        className={`${style.SelectViews__container} ${
+          toggleItems && style.SelectViews__container__active
+        }`}
+        onClick={() => setToggleItems((props) => !props)}
+      >
+        <div className={style.SelectViews__container__selected}>{select}</div>
+        <OrgDropDown
+          className={`${style.SelectViews__container__icon} ${
+            toggleItems && style.SelectViews__container__icon__active
+          }`}
+        />
       </div>
       <div
         ref={itemsEl}
@@ -30,7 +43,12 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
         }`}
       >
         {values.map((item) => (
-            <div className={style.SelectViews__select__option} onClick={() => setSelect(item)}>{item}</div>
+          <div
+            className={style.SelectViews__select__option}
+            onClick={() => setSelect(item)}
+          >
+            {item}
+          </div>
         ))}
       </div>
     </div>
