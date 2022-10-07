@@ -36,5 +36,5 @@ export { default as Activate } from "./icons/Activate";
 export { default as Blacklist } from "./icons/Blacklist";
 export { default as LeftNavigation } from "./icons/LeftNavigation";
 export { default as RightNavigation } from "./icons/RightNavigation";
-
+export { default as Loading } from "./icons/Loading";
 export { loginIllustration, userImage };
