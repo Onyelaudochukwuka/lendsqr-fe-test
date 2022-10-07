@@ -2,36 +2,12 @@ import React, { FC, useEffect, useState } from "react";
 import { Filter, LeftNavigation, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
-import { SelectViews, TableRow } from "../..";
+import { SelectViews, TableHeader, TableRow } from "../..";
 interface ITable {}
 interface Heading {
   value: string;
   mobile?: boolean;
 }
-const heading: Required<Heading[]> = [
-  {
-    value: "Organization",
-  },
-  {
-    value: "Username",
-    mobile: true,
-  },
-  {
-    value: "Email",
-  },
-
-  {
-    value: "Phone Number",
-  },
-  {
-    value: "Date Joined",
-    mobile: true,
-  },
-  {
-    value: "Status",
-    mobile: true,
-  },
-];
 
 const Table: FC<ITable> = () => {
   const { data: rows, isLoading } = useGetUsersQuery({});
@@ -87,16 +63,7 @@ const Table: FC<ITable> = () => {
   return (
     <>
       <div className={style.Table}>
-        <div className={style.Table__header}>
-          {heading.map((prop) => (
-            <div className={`${style.Table__header__heading}  ${!!prop.mobile && style.Table__header__heading__display}`}>
-              <span className={style.Table__header__heading__content}>
-                {prop.value}
-              </span>
-              <Filter className={style.Table__header__heading__icon} />
-            </div>
-          ))}
-        </div>
+        <TableHeader />
         <div className={style.Table__row}>
           {!isLoading &&
             data?.map((data: any) => (
