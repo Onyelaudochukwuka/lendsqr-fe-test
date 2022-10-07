@@ -20,6 +20,13 @@
       align-items: center;
       flex-basis: 15%;
       gap: 11px;
+      @media screen and (max-width: 928px) {
+        flex-basis: 30%;
+        display: none;
+        &__display {
+          display: flex;
+        }
+      }
     }
   }
   &__row {
@@ -31,10 +38,19 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    @media screen and (max-width: 928px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     &__select {
       display: flex;
       gap: 15px;
       padding: 15px 20px;
+    @media screen and (max-width: 928px) {
+            width: fit-content;
+            margin-inline: auto;
+            justify-content: space-between;
+        }
       span {
         color: $log-in-text;
         font-size: 14px;
@@ -50,6 +66,11 @@
       gap: 25px;
       height: fit-content;
       padding: 15px 20px;
+    @media screen and (max-width: 928px) {
+        width: 50%;
+        margin-inline: auto;
+        justify-content: space-between;
+    }
       &__icon {
         cursor: pointer;
         background-color: $table-navigation-icon;
@@ -70,6 +91,10 @@
         display: flex;
         align-items: center;
         gap: 25px;
+        @media screen and (max-width: 928px) {
+                width: 100%;
+                justify-content: space-between;
+            }
         &__unit {
           font-size: 12px;
           color: $sidebar-link-text;

@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-right: 10px;
   border-bottom: 2px solid rgba(33, 63, 125, 0.1);
   padding-block: 20px;
   position: relative;
@@ -25,8 +26,19 @@
     white-space: nowrap;
     overflow: hidden;
     color: $log-in-text;
+    @media (max-width: 928px) {
+      flex-basis: 30%;
+      width: 30%;
+      max-width: 30%;
+      display: none;
+      &__display{
+      display: flex;
+
+    }
+    }
   }
   &__container {
+
     &__status {
       background-color: $pending;
       color: $pending-text;
@@ -35,6 +47,7 @@
       border-radius: 99px;
       display: block;
       width: fit-content;
+      
       &__active {
         background-color: $active;
         color: $active-text;
@@ -43,11 +56,15 @@
         background-color: $inactive;
         color: $sidebar-link-text;
       }
+      &__blacklisted {
+        background-color: $blacklisted;
+        color: $error;
+      }
     }
   }
   &__menu {
     position: absolute;
-    right: 10px;
+    right: -10px;
     padding: 8px 15px;
     border-radius: 99px;
     cursor: pointer;
@@ -65,6 +82,9 @@
     position: absolute;
     top: calc(100% + 20px);
     right: 0;
+    @media (max-width: 928px) {
+      right: -50px;
+    }
     border-radius: 5px;
     background-color: white;
     overflow-x: visible;
