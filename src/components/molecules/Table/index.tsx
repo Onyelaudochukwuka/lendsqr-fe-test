@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { LeftNavigation, RightNavigation } from "../../../assets";
+import { LeftNavigation, Loading, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
 import { SelectViews, TableHeader, TableRow } from "../..";
@@ -10,6 +10,7 @@ const Table: FC<ITable> = () => {
   const [blackListed, setBlacklisted] = useState<string[]>(
     JSON.parse(window.localStorage.getItem("blackListed") ?? "[]")
   );
+  const [filteredQuery, setFilteredQuery] = useState<string>("");
   const orgNames = rows?.map((data: any) => data.orgName);
   const [data, setData] = useState(rows);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
@@ -59,9 +60,10 @@ const Table: FC<ITable> = () => {
     <>
       <div className={style.Table}>
         <TableHeader {...{ orgNames }} />
-        <div className={style.Table__row}>
-          {!isLoading &&
-            data?.map((data: any) => (
+          {!isLoading 
+            ?
+            <div className={style.Table__row}>
+            {data?.map((data: any) => (
               <TableRow
                 {...{
                   ...data,
@@ -70,9 +72,12 @@ const Table: FC<ITable> = () => {
                   blackListed,
                   setBlacklisted
                 }}
-              />
-            ))}
-        </div>
+                />
+              ))}
+            </div>
+              :
+            <Loading className={style.Table__loading} />
+          }
       </div>
       <div className={style.Table__footer}>
         <div className={style.Table__footer__select}>
