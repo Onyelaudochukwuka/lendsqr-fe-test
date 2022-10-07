@@ -1,35 +1,40 @@
 .SelectViews {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+.SelectViews__container {
+  display: flex;
   background-color: rgba(33, 63, 125, 0.1019607843);
   border-radius: 4px;
   width: fit-content;
+  align-items: center;
+  height: fit-content;
   position: relative;
   padding: 10px 15px;
   cursor: pointer;
 }
-.SelectViews__selected {
+.SelectViews__container__selected {
   font-size: 14px;
   color: #213f7d;
   font-weight: 500;
   margin-right: 15px;
 }
-.SelectViews__icon {
+.SelectViews__container__icon {
   cursor: pointer;
   fill: #213f7d;
   transition: transform 500ms ease-in-out;
 }
-.SelectViews__icon__active {
+.SelectViews__container__icon__active {
   fill: rgba(57, 205, 98, 0.0588235294);
   transform: rotate(180deg);
 }
 .SelectViews__select {
-  height: -15px;
+  height: 0;
+  margin-top: 10px;
   transition: all 500ms ease-in;
   transform-origin: top;
   overflow-x: hidden;
-  position: absolute;
-  top: calc(100% + 10px);
+  position: relative;
   right: 0;
   background-color: rgba(33, 63, 125, 0.1019607843);
   border-radius: 4px;
