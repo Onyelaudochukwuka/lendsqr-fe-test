@@ -14,12 +14,14 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
     setDetailsHeight(itemsEl.current?.scrollHeight ?? 0);
   }, [itemsEl]);
   return (
+    <div className={style.SelectViews}>
     <div
-      className={style.SelectViews}
+      className={style.SelectViews__container}
       onClick={() => setToggleItems((props) => !props)}
     >
-          <span className={style.SelectViews__selected}>{ select }</span>
-      <OrgDropDown className={`${style.SelectViews__icon} ${toggleItems && style.SelectViews__icon__active}`} />
+        <span className={style.SelectViews__container__selected}>{ select }</span>
+        <OrgDropDown className={`${style.SelectViews__container__icon} ${toggleItems && style.SelectViews__container__icon__active}`} />
+      </div>
       <div
         ref={itemsEl}
         style={{ height: toggleItems ? `${detailsHeight}px` : 0 }}
