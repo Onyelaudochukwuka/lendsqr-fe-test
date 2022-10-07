@@ -1,0 +1,23 @@
+.TableHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.TableHeader__heading {
+  display: flex;
+  align-items: center;
+  flex-basis: 15%;
+  gap: 11px;
+}
+@media screen and (max-width: 928px) {
+  .TableHeader__heading {
+    flex-basis: 30%;
+    display: none;
+  }
+  .TableHeader__heading__display {
+    display: flex;
+  }
+}
+
+/*# sourceMappingURL=index.module.css.map */
