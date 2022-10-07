@@ -30,7 +30,7 @@ const apiConnection = createApi({
               orgName: user.orgName,
               userName: user.userName,
               email: user.email,
-              phoneNumber: user.phoneNumber.replace(/(-|\s|\.|x|\(|\))/g, "").replace(/\d\w{2,3}/g, (match: string, i: number, str: any) => str.length - 4 > i ? `${match}-` : match),
+            phoneNumber: user.phoneNumber.replace(/(-|\s|\.|x|\(|\))/g, "").split('').reverse('').join('').replace(/\d\w{2,3}/g, (match: string, i: number, str: any) => str.length - 4 > i ? `${match}-` : match).split('').reverse('').join(''),
           id: user.id,
           status:
             user.createdAt > user.lastActiveDate
