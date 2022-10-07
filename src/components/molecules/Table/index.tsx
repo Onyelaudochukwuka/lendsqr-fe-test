@@ -1,21 +1,16 @@
 import React, { FC, useEffect, useState } from "react";
-import { Filter, LeftNavigation, RightNavigation } from "../../../assets";
+import { LeftNavigation, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
 import { SelectViews, TableHeader, TableRow } from "../..";
-interface ITable {}
-interface Heading {
-  value: string;
-  mobile?: boolean;
-}
-
+interface ITable { };
 const Table: FC<ITable> = () => {
   const { data: rows, isLoading } = useGetUsersQuery({});
   const [select, setSelect] = useState<number>(10);
   const [blackListed, setBlacklisted] = useState<string[]>(
     JSON.parse(window.localStorage.getItem("blackListed") ?? "[]")
   );
-
+  const orgNames = rows?.map((data: any) => data.orgName);
   const [data, setData] = useState(rows);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [currentUserMenu, setCurrentUserMenu] = useState<string>("");
@@ -63,7 +58,7 @@ const Table: FC<ITable> = () => {
   return (
     <>
       <div className={style.Table}>
-        <TableHeader />
+        <TableHeader {...{ orgNames }} />
         <div className={style.Table__row}>
           {!isLoading &&
             data?.map((data: any) => (
@@ -73,7 +68,7 @@ const Table: FC<ITable> = () => {
                   currentUserMenu,
                   setCurrentUserMenu,
                   blackListed,
-                  setBlacklisted,
+                  setBlacklisted
                 }}
               />
             ))}
