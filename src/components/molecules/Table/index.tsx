@@ -4,23 +4,47 @@ import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
 import { SelectViews, TableRow } from "../..";
 interface ITable {}
-const heading: string[] = [
-  "Organization",
-  "Name",
-  "Email",
-  "Phone Number",
-  "Date Joined",
-  "Status",
+interface Heading {
+  value: string;
+  mobile?: boolean;
+}
+const heading: Required<Heading[]> = [
+  {
+    value: "Organization",
+  },
+  {
+    value: "Username",
+    mobile: true,
+  },
+  {
+    value: "Email",
+  },
+
+  {
+    value: "Phone Number",
+  },
+  {
+    value: "Date Joined",
+    mobile: true,
+  },
+  {
+    value: "Status",
+    mobile: true,
+  },
 ];
 
 const Table: FC<ITable> = () => {
   const { data: rows, isLoading } = useGetUsersQuery({});
   const [select, setSelect] = useState<number>(10);
-  const [data, setData] = useState(rows);
+  const [blackListed, setBlacklisted] = useState<string[]>(
+    JSON.parse(window.localStorage.getItem("blackListed") ?? "[]")
+  );
 
+  const [data, setData] = useState(rows);
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
+  const [currentUserMenu, setCurrentUserMenu] = useState<string>("");
   const limit = !!rows ? Math.round(rows?.length / select) : 0;
   const indexArr = [...Array(limit + 1).keys()].splice(1);
-  const [currentIndex, setCurrentIndex] = useState<number>(1);
   const currentData = [
     indexArr.slice(
       currentIndex + 3 > indexArr.length
@@ -35,7 +59,16 @@ const Table: FC<ITable> = () => {
   const value = currentData.map((items) =>
     items.map((item) => ({ value: item, active: item === currentIndex }))
   );
-  console.log(value, limit);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    localStorage.removeItem("blackListed");
+    localStorage.setItem(
+      "blackListed",
+      JSON.stringify([...new Set(blackListed)])
+    );
+  }, [blackListed]);
+  console.log(window.localStorage.getItem("blackListed"));
   useEffect(() => {
     if (rows) {
       setData(
@@ -55,17 +88,28 @@ const Table: FC<ITable> = () => {
     <>
       <div className={style.Table}>
         <div className={style.Table__header}>
-          {heading.map((head) => (
-            <div className={style.Table__header__heading}>
+          {heading.map((prop) => (
+            <div className={`${style.Table__header__heading}  ${!!prop.mobile && style.Table__header__heading__display}`}>
               <span className={style.Table__header__heading__content}>
-                {head}
+                {prop.value}
               </span>
               <Filter className={style.Table__header__heading__icon} />
             </div>
           ))}
         </div>
         <div className={style.Table__row}>
-          {!isLoading && data?.map((data: any) => <TableRow {...data} />)}
+          {!isLoading &&
+            data?.map((data: any) => (
+              <TableRow
+                {...{
+                  ...data,
+                  currentUserMenu,
+                  setCurrentUserMenu,
+                  blackListed,
+                  setBlacklisted,
+                }}
+              />
+            ))}
         </div>
       </div>
       <div className={style.Table__footer}>
