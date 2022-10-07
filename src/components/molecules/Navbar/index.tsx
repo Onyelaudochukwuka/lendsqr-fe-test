@@ -23,7 +23,7 @@ const Navbar: FC<INavbar> = ({ className }) => {
           <Input
             className={style.Navbar__left__search__input}
             {...{
-              placeholder: "Search",
+              placeholder: "Search for anything",
               type: "text",
               value: String(search),
               setValue: changeSearch,
