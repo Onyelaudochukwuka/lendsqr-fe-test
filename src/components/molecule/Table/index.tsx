@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
-import { Filter } from "../../assets";
+import { Filter } from "../../../assets";
 import style from "./index.module.css";
-import { useGetUsersQuery } from "../../utils/redux/apiConnection";
-import { SelectViews, TableRow } from "../";
+import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
+import { SelectViews, TableRow } from "../..";
 interface ITable {}
 const heading: string[] = [
   "Organization",

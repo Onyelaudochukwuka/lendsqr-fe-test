@@ -1,5 +1,5 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useRef, useState } from "react";
-import { OrgDropDown } from "../../assets";
+import { OrgDropDown } from "../../../assets";
 import style from "./index.module.css";
 interface ISelectViews {
   select: number;

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { DropDown, Logo, Notification, Search, userImage } from "../../assets";
-import { useInput } from "../../utils/hooks";
+import { DropDown, Logo, Notification, Search, userImage } from "../../../assets";
+import { useInput } from "../../../utils/hooks";
 import Input from "../Input";
 import style from "./index.module.css";
 interface INavbar {

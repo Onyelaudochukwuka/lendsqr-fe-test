@@ -2,7 +2,7 @@ import React, { FC, Fragment, useEffect } from "react";
 import "./App.css";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { Login, UserDashboard } from "./pages";
-import Dashboard from "./pages/UserDashboard/UserDashboard";
+import Dashboard from "./pages/UserDashboard";
 const App: FC = () => {
   return (
     <Fragment>

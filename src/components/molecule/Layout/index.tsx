@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from "react";
-import { Navbar, Sidebar } from "..";
+import { Navbar, Sidebar } from "../..";
 import style from "./index.module.css";
 interface ILayout {
   children: ReactNode;

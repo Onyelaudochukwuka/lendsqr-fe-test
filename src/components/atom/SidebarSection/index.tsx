@@ -1,6 +1,6 @@
 import React, { FC } from "react"
-import { SidebarElements } from "../Sidebar/Sidebar";
-import SideBarLink from "../SideBarLink/SideBarLink";
+import { SidebarElements } from "../../molecule/Sidebar";
+import SideBarLink from "../SideBarLink";
 import style from "./index.module.css";
 interface ISidebarSection {
 

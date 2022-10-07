@@ -1,8 +1,8 @@
 import moment from "moment";
 import React, { FC, useState } from "react";
 import { Link } from "react-router-dom";
-import { Activate, Blacklist, SideMenu, View } from "../../assets";
-import { Status } from "../../utils/redux/apiConnection";
+import { Activate, Blacklist, SideMenu, View } from "../../../assets";
+import { Status } from "../../../utils/redux/apiConnection";
 import style from "./index.module.css";
 interface ITableRow {
   orgName: string;
