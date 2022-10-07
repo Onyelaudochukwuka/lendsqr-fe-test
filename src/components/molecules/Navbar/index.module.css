@@ -17,7 +17,9 @@
 }
 .Navbar__left__search {
   display: flex;
+  align-items: center;
   width: 50%;
+  height: 50px;
 }
 .Navbar__left__search__input {
   width: 100%;
@@ -35,9 +37,10 @@
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
   padding-inline: 15px;
+  height: 100%;
+  margin-left: -20px;
 }
 .Navbar__left__search__searchbar__icon {
-  height: 20px;
   width: auto;
 }
 .Navbar__right {

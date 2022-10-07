@@ -1,0 +1,14 @@
+.SelectDate{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__container{
+        position: relative;
+        &__icon{
+            position: absolute;
+            right: 20px;
+            inset-block: 0;
+            margin-block: auto;
+        }
+    }
+}

@@ -16,7 +16,9 @@
     align-items: center;
     &__search {
       display: flex;
+      align-items: center;
       width: 50%;
+      height: 50px;
       &__input {
         width: 100%;
         padding: 10px 20px;
@@ -33,8 +35,9 @@
         border-bottom-right-radius: 8px;
         border-top-right-radius: 8px;
         padding-inline: 15px;
+        height: 100%;
+        margin-left: -20px;
         &__icon {
-          height: 20px;
           width: auto;
         }
       }

@@ -9,25 +9,17 @@
   color: #545F7D;
   gap: 20px;
 }
-.Table__header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  text-transform: uppercase;
+.Table__loading {
+  align-self: center;
+  width: 45px;
+  animation: spin 1s linear 0s infinite forwards;
 }
-.Table__header__heading {
-  display: flex;
-  align-items: center;
-  flex-basis: 15%;
-  gap: 11px;
-}
-@media screen and (max-width: 928px) {
-  .Table__header__heading {
-    flex-basis: 30%;
-    display: none;
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  .Table__header__heading__display {
-    display: flex;
+  to {
+    transform: rotate(360deg);
   }
 }
 .Table__row {
