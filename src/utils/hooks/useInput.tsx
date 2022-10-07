@@ -1,16 +1,17 @@
 import { ChangeEvent, useState } from "react";
-export type UseInput = [
-  string,
+export type UseInput<T> = [
+  T,
   (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void,
   () => void
 ];
-const useInput = (initial: string): UseInput => {
-  const [value, setValue] = useState<string>(initial);
 
+const useInput = <T,>(initial: T): UseInput<T | null> => {
+
+  const [value, setValue] = useState<T>(initial);
   return [
     value,
-    (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
-      setValue(e.target.value),
+    (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => 
+      setValue(typeof value === "string" ? e.target.value as T : Number(e.target.value.toString().length < 12 ? e.target.value : value ) as T),
     () => setValue(initial),
   ];
 };
