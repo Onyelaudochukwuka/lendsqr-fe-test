@@ -2,41 +2,48 @@
 .SelectViews {
   display: flex;
   flex-direction: column;
-  &__container{
-  display: flex;
-  background-color: $select-input;
-  border-radius: 4px;
-  width: fit-content;
-  align-items: center;
-  height: fit-content;
+  align-self: flex-start;
   position: relative;
-  padding: 10px 15px;
-  cursor: pointer;
-
-  &__selected {
-    font-size: 14px;
-    color: $sidebar-link-text;
-    font-weight: 500;
-    margin-right: 15px;
-
-  }
-  &__icon {
+  &__container {
+    align-self: flex-start;
+    top: 0;
+    display: flex;
+    background-color: $select-input;
+    border-radius: 4px;
+    width: fit-content;
+    align-items: center;
+    height: fit-content;
+    position: relative;
+    padding: 10px 15px;
     cursor: pointer;
-    fill: $sidebar-link-text;
-    transition: transform 500ms ease-in-out;
-    &__active {
-      fill: $active;
-      transform: rotate(180deg);
+    transition: all 500ms ease-in-out;
+    &__active{
+      margin-bottom: 200px;
+    }
+
+    &__selected {
+      font-size: 14px;
+      color: $sidebar-link-text;
+      font-weight: 500;
+      margin-right: 15px;
+    }
+    &__icon {
+      cursor: pointer;
+      fill: $sidebar-link-text;
+      transition: transform 500ms ease-in-out;
+      &__active {
+        fill: $active;
+        transform: rotate(180deg);
+      }
     }
   }
-}
   &__select {
     height: 0;
-    margin-top: 10px;
+    top: 50px;
     transition: all 500ms ease-in;
     transform-origin: top;
     overflow-x: hidden;
-    position: relative;
+    position: absolute;
     right: 0;
     background-color: $select-input;
     border-radius: 4px;

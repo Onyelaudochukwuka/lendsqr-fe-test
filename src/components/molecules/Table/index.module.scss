@@ -1,47 +1,87 @@
 @import "../../../sass/values";
-.Table{
-    width: 100%;
-    height: max-content;
-    background-color: $user-stats;
-    font-size: 14px;
-    padding: 20px 25px;
+.Table {
+  width: 100%;
+  height: max-content;
+  background-color: $user-stats;
+  font-size: 14px;
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  color: $log-in-text;
+  gap: 20px;
+
+  &__header {
     display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    text-transform: uppercase;
+    &__heading {
+      display: flex;
+      align-items: center;
+      flex-basis: 15%;
+      gap: 11px;
+    }
+  }
+  &__row {
+    display: flex;
+    font-size: 12px;
     flex-direction: column;
-    gap: 20px;
-    gap: 30px;
-    &__header{
-        display: flex;
-        justify-content: space-between;
+  }
+  &__footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    &__select {
+      display: flex;
+      gap: 15px;
+      padding: 15px 20px;
+      span {
+        color: $log-in-text;
         font-size: 14px;
-        text-transform: uppercase;
-        &__heading{
-            display: flex;
-            align-items: center;
-            flex-basis: 15%;
-            gap: 11px;
-        }
+        font-weight: 500;
+        position: relative;
+        display: block;
+        top: 10px;
+      }
     }
-    &__row{
+    &__navigation {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      height: fit-content;
+      padding: 15px 20px;
+      &__icon {
+        cursor: pointer;
+        background-color: $table-navigation-icon;
+        transition: background-color 500ms ease-in;
+        &:hover {
+          background-color: $table-navigation-icon-hover;
+          svg{
+            fill: $sidebar-link-text-hover;
+          }
+        }
+        border-radius: 4px;
+        padding: 5px;
+        svg{
+            fill: $sidebar-link-text;
+        }
+      }
+      &__details {
         display: flex;
-        font-size: 12px;
-        flex-direction: column;
-        
-    }
-    &__footer{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        &__select{
-            display: flex;
-            gap: 15px;
-            padding: 15px 20px;
+        align-items: center;
+        gap: 25px;
+        &__unit {
+          font-size: 12px;
+          color: $sidebar-link-text;
+          cursor: pointer;
+          opacity: 0.6;
+          transition: opacity 500ms ease-in-out;
+          &__active,
+          &:hover {
+            opacity: 1;
+          }
         }
-        &__navigation{
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            height: fit-content;
-            padding: 15px 20px;
-        }
+      }
     }
+  }
 }

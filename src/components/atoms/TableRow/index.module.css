@@ -6,6 +6,7 @@
   padding-block: 20px;
   position: relative;
   align-items: center;
+  color: #545F7D;
 }
 .TableRow:first-child {
   padding-top: 0;
@@ -23,6 +24,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: #545F7D;
 }
 .TableRow__container__status {
   background-color: rgba(233, 178, 0, 0.1019607843);

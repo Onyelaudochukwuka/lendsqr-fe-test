@@ -1,8 +1,12 @@
 .SelectViews {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
+  position: relative;
 }
 .SelectViews__container {
+  align-self: flex-start;
+  top: 0;
   display: flex;
   background-color: rgba(33, 63, 125, 0.1019607843);
   border-radius: 4px;
@@ -12,6 +16,10 @@
   position: relative;
   padding: 10px 15px;
   cursor: pointer;
+  transition: all 500ms ease-in-out;
+}
+.SelectViews__container__active {
+  margin-bottom: 200px;
 }
 .SelectViews__container__selected {
   font-size: 14px;
@@ -30,11 +38,11 @@
 }
 .SelectViews__select {
   height: 0;
-  margin-top: 10px;
+  top: 50px;
   transition: all 500ms ease-in;
   transform-origin: top;
   overflow-x: hidden;
-  position: relative;
+  position: absolute;
   right: 0;
   background-color: rgba(33, 63, 125, 0.1019607843);
   border-radius: 4px;
