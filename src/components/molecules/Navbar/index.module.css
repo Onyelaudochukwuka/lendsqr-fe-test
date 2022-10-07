@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   background-color: #fff;
-  z-index: 20;
+  z-index: 50;
 }
 .Navbar__left {
   display: flex;

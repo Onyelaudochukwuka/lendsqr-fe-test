@@ -1,22 +1,40 @@
 .TableHeader {
+  position: relative;
+  &__heading {
     display: flex;
+    position: relative;
     justify-content: space-between;
     font-size: 14px;
     text-transform: uppercase;
+    width: 100%;
+    &__container {
+      display: flex;
+      align-items: center;
+      flex-basis: 15%;
+      gap: 11px;
+      &__icon {
+        cursor: pointer;
+      }
+      @media screen and (max-width: 928px) {
+        flex-basis: 30%;
+        display: none;
 
-    &__heading {
-        display: flex;
-        align-items: center;
-        flex-basis: 15%;
-        gap: 11px;
-
-        @media screen and (max-width: 928px) {
-            flex-basis: 30%;
-            display: none;
-
-            &__display {
-                display: flex;
-            }
+        &__display {
+          display: flex;
         }
+      }
     }
+  }
+  &__filter {
+    position: absolute;
+    background-color: #fff;
+    width: 300px;
+    top: 100%;
+    border: 1px solid rgba(84, 95, 125, 0.14);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+  }
 }

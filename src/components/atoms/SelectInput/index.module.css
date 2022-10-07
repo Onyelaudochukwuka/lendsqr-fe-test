@@ -1,0 +1,50 @@
+.SelectInput {
+  display: flex;
+  width: 91.6666666667%;
+  position: relative;
+  flex-direction: column;
+  margin: auto;
+  gap: 10px;
+  padding-block: 10px;
+}
+.SelectInput__label {
+  font-size: 14px;
+  color: #545F7D;
+}
+.SelectInput__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  margin: auto;
+  padding: 15px 20px;
+}
+.SelectInput__details {
+  position: absolute;
+  top: 100%;
+  display: flex;
+  left: 0;
+  background-color: #fff;
+  z-index: 20;
+  width: 100%;
+  flex-direction: column;
+  height: 150px;
+  overflow-y: scroll;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+.SelectInput__details__container {
+  padding: 10px 20px;
+  transition: background-color 500ms ease-in;
+  cursor: pointer;
+}
+.SelectInput__details__container__active, .SelectInput__details__container:hover {
+  background-color: rgba(84, 95, 125, 0.0588235294);
+  background-color: rgba(84, 95, 125, 0.0588235294);
+}
+
+/*# sourceMappingURL=index.module.css.map */
