@@ -34,5 +34,7 @@ export { default as SideMenu } from "./icons/SideMenu";
 export { default as View } from "./icons/View";
 export { default as Activate } from "./icons/Activate";
 export { default as Blacklist } from "./icons/Blacklist";
+export { default as LeftNavigation } from "./icons/LeftNavigation";
+export { default as RightNavigation } from "./icons/RightNavigation";
 
 export { loginIllustration, userImage };
