@@ -13,3 +13,4 @@ export { default as SelectViews } from "./atoms/SelectViews";
 export { default as TableHeader } from "./atoms/TableHeader";
 export { default as SelectInput } from "./atoms/SelectInput";
 export { default as SelectDate } from "./atoms/SelectDate";
+export { default as UserDetailSummary } from "./molecules/UserDetailSummary";
