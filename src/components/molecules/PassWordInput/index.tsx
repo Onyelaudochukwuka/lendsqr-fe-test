@@ -1,13 +1,13 @@
 import React, { ChangeEvent, FC, useRef } from "react";
 import style from "./index.module.css";
 interface IPassWordInput {
-  placeholder: string
-  value: string
-  setValue: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void
-  type: string
-  clearValue: () => void
-  error: boolean
-  errorMessage: string
+  placeholder: string;
+  value: string;
+  setValue: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  type: string;
+  clearValue: () => void;
+  error: boolean;
+  errorMessage: string;
 }
 
 const PassWordInput: FC<IPassWordInput> = ({
@@ -17,30 +17,31 @@ const PassWordInput: FC<IPassWordInput> = ({
   type,
   clearValue,
   error,
-  errorMessage
+  errorMessage,
 }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   return (
     <div className={style.PassWordInput}>
-    <div className={style.PassWordInput__container}>
-      <input
-        ref={inputEl}
+      <div className={style.PassWordInput__container}>
+        <input
+          ref={inputEl}
           className={style.PassWordInput__container__input}
-        {...{ placeholder, value, type }}
-        onChange={setValue}
-      />
-      <span
-        onClick={() => {
-          if (inputEl.current) {
-            inputEl.current.type =
-              inputEl.current.type === type ? "text" : "password";
-          }
-              }}
+          {...{ placeholder, value, type }}
+          onChange={setValue}
+        />
+        <span
+          onClick={() => {
+            if (!value) return;
+            if (inputEl.current) {
+              inputEl.current.type =
+                inputEl.current.type === type ? "text" : "password";
+            }
+          }}
           className={style.PassWordInput__container__show}
-      >
-        show
-      </span>
-    </div>
+        >
+          show
+        </span>
+      </div>
       {error && <p className={style.PassWordInput__error}>{errorMessage}</p>}
     </div>
   );
