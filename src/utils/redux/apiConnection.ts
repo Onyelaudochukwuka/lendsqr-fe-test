@@ -15,6 +15,31 @@ export enum TIER {
   inactive = 1,
   pending = 2,
 }
+type Education = {
+  level: string;
+  employmentStatus: string;
+  sector: string;
+  duration: string;
+  officeEmail: string;
+  monthlyIncome: string[];
+  loanRepayment: string;
+}
+export interface Response {
+  createdAt: string;
+  orgName: string;
+  userName: string;
+  email: string;
+  phoneNumber: string;
+  lastActiveDate: string;
+  profile: { [key: string]: string };
+  guarantor: { [key: string]: string };
+  accountBalance: string;
+  accountNumber: string;
+  socials: { [key: string]: string };
+  education: Education;
+  id: string;
+  tier: TIER;
+}
 const createRequest = (url: string, method: any) => ({
   url,
   headers: ApiHeaders,
@@ -29,13 +54,13 @@ const apiConnection = createApi({
   endpoints: (builder) => ({
     getUsers: builder.query({
       query: () => createRequest(`/users`, "GET"),
-      transformResponse: (response: any) =>
-          response.map((user: any) => ({
+      transformResponse: (response: Response[]) =>
+          response.map((user: Response) => ({
               createdAt: user.createdAt,
               orgName: user.orgName,
               userName: user.userName,
               email: user.email,
-            phoneNumber: user.phoneNumber.replace(/(-|\s|\.|x|\(|\))/g, "").split('').reverse('').join('').replace(/\d\w{2,3}/g, (match: string, i: number, str: any) => str.length - 4 > i ? `${match}-` : match).split('').reverse('').join(''),
+            phoneNumber: user.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
           id: user.id,
           status:
             user.createdAt > user.lastActiveDate
@@ -51,15 +76,22 @@ const apiConnection = createApi({
     }),
     getUser: builder.query({
       query: (id) => createRequest(`/users/${id}`, "GET"),
-      transformResponse: (response: any) => response.map((user: any) => ({
-        ...user, tier: user.createdAt > user.lastActiveDate
+      transformResponse: (response: Response) => ({
+        ...response,
+        phoneNumber: response.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
+        guarantor: {
+          ...response.guarantor,
+          phoneNumber: response.guarantor.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
+        },
+        tier: response.createdAt > response.lastActiveDate
           ? TIER.inactive
-          : Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) >
+          : Date.parse(response.lastActiveDate) - Date.parse(response.createdAt) >
             ONE_YEAR &&
-            Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) <
+            Date.parse(response.lastActiveDate) - Date.parse(response.createdAt) <
             ONE_YEAR * 3
             ? TIER.pending
-            : TIER.active, })),
+            : TIER.active,
+      }),
       providesTags: ["Get"],
     }),
   }),
