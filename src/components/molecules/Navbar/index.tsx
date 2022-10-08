@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import {
   DropDown,
@@ -12,8 +12,10 @@ import Input from "../Input";
 import style from "./index.module.css";
 interface INavbar {
   className: string;
+  showSideBar: boolean;
+  setShowSideBar: Dispatch<SetStateAction<boolean>>;
 }
-const Navbar: FC<INavbar> = ({ className }) => {
+const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
   const [search, changeSearch, clearSearch] = useInput<string>("");
   return (
     <div className={`${style.Navbar} ${className}`}>
@@ -52,7 +54,7 @@ const Navbar: FC<INavbar> = ({ className }) => {
           </span>
         </div>
       </div>
-      <div className={style.Navbar__menu}></div>
+      <div className={`${style.Navbar__menu} ${showSideBar && style.Navbar__menu__active}`} onClick={() => setShowSideBar(prev => !prev) }></div>
     </div>
   );
 };
