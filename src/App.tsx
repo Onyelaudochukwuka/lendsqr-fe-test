@@ -1,8 +1,7 @@
 import React, { FC, Fragment, useEffect } from "react";
 import "./App.css";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { Login, UserDashboard } from "./pages";
-import Dashboard from "./pages/UserDashboard";
+import { Login, UserDashboard, UserDetails } from "./pages";
 const App: FC = () => {
   return (
     <Fragment>
@@ -10,6 +9,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/logIn" element={<Login />} />
         <Route path="/dashboard/users" element={<UserDashboard />} />
+        <Route path="/dashboard/users/:id" element={<UserDetails />} />
       </Routes>
     </Fragment>
   );
@@ -25,7 +25,7 @@ const MoveToTop = () => {
     if (!!hash) return;
 
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, navigate, hash]);
   return null;
 };
 
