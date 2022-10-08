@@ -3,19 +3,38 @@ import { LeftNavigation, Loading, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
 import { SelectViews, TableHeader, TableRow } from "../..";
-interface ITable { };
+interface ITable {}
+export interface FilteredQuery {
+  orgName?: string[];
+  userName?: string;
+  email?: string;
+  phoneNumber?: number;
+  createdAt?: string;
+  status?: string[];
+}
 const Table: FC<ITable> = () => {
   const { data: rows, isLoading } = useGetUsersQuery({});
+  const [filteredData, setFilteredData] = useState(rows ?? []);
   const [select, setSelect] = useState<number>(10);
   const [blackListed, setBlacklisted] = useState<string[]>(
     JSON.parse(window.localStorage.getItem("blackListed") ?? "[]")
   );
-  const [filteredQuery, setFilteredQuery] = useState<string>("");
+  const [filterQuery, setFilterQuery] = useState<FilteredQuery>({
+    orgName: [],
+    userName: "",
+    email: "",
+    phoneNumber: 0,
+    createdAt: "",
+    status: [],
+  });
+  const [beginQuery, setBeginQuery] = useState<boolean>(false);
   const orgNames = rows?.map((data: any) => data.orgName);
-  const [data, setData] = useState(rows);
+  const [data, setData] = useState(filteredData);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [currentUserMenu, setCurrentUserMenu] = useState<string>("");
-  const limit = !!rows ? Math.round(rows?.length / select) : 0;
+  const limit = !!rows
+    ? Math.round(!!filteredData ? filteredData.length / select : 0)
+    : 0;
   const indexArr = [...Array(limit + 1).keys()].splice(1);
   const currentData = [
     indexArr.slice(
@@ -31,6 +50,43 @@ const Table: FC<ITable> = () => {
   const value = currentData.map((items) =>
     items.map((item) => ({ value: item, active: item === currentIndex }))
   );
+  useEffect(() => {
+    if (!!filterQuery) {
+      setBeginQuery(
+        (!!filterQuery.orgName && filterQuery.orgName?.length > 0) ||
+          !!filterQuery.userName ||
+          !!filterQuery.email ||
+          !!filterQuery.phoneNumber ||
+          !!filterQuery.createdAt ||
+          (!!filterQuery.status && filterQuery.status?.length > 0)
+      );
+    }
+  }, [filterQuery]);
+  useEffect(() => {
+    console.log(beginQuery);
+    if (beginQuery) {
+      setFilteredData(
+        rows?.filter(
+          (row: any) =>
+            filterQuery.orgName?.includes(row.orgName) ||
+            (filterQuery.userName === ""
+              ? false
+              : row.userName.toLowerCase()?.includes(filterQuery.userName?.toLowerCase())) ||
+            (filterQuery.email === ""
+              ? false
+              : row.email.toLowerCase()?.includes(filterQuery.email?.toLowerCase())) ||
+            filterQuery.phoneNumber === row.phoneNumber ||
+            filterQuery.createdAt === row.createdAt ||
+            filterQuery.status
+              ?.map((val) => val.toLowerCase())
+              .includes(row.status)
+        )
+      );
+    } else {
+      setFilteredData(rows);
+    }
+  }, [filterQuery, rows, blackListed, beginQuery]);
+  console.log(filteredData);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -42,16 +98,16 @@ const Table: FC<ITable> = () => {
   }, [blackListed]);
   console.log(window.localStorage.getItem("blackListed"));
   useEffect(() => {
-    if (rows) {
+    if (filteredData) {
       setData(
-        rows.filter(
+        filteredData?.filter(
           (_: unknown, index: number) =>
             index >= select * currentIndex - select &&
             index < select * currentIndex
         )
       );
     }
-  }, [rows, select, currentIndex]);
+  }, [filteredData, select, currentIndex]);
   useEffect(() => {
     setCurrentIndex(1);
   }, [select]);
@@ -59,10 +115,9 @@ const Table: FC<ITable> = () => {
   return (
     <>
       <div className={style.Table}>
-        <TableHeader {...{ orgNames }} />
-          {!isLoading 
-            ?
-            <div className={style.Table__row}>
+        <TableHeader {...{ orgNames, setFilterQuery }} />
+        {!isLoading ? (
+          <div className={style.Table__row}>
             {data?.map((data: any) => (
               <TableRow
                 {...{
@@ -70,14 +125,14 @@ const Table: FC<ITable> = () => {
                   currentUserMenu,
                   setCurrentUserMenu,
                   blackListed,
-                  setBlacklisted
+                  setBlacklisted,
                 }}
-                />
-              ))}
-            </div>
-              :
-            <Loading className={style.Table__loading} />
-          }
+              />
+            ))}
+          </div>
+        ) : (
+          <Loading className={style.Table__loading} />
+        )}
       </div>
       <div className={style.Table__footer}>
         <div className={style.Table__footer__select}>
