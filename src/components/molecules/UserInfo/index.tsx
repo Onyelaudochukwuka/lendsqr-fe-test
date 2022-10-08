@@ -1,7 +1,10 @@
 import React, { FC } from "react";
+import { Response } from "../../../utils/redux/apiConnection";
 import style from "./index.module.css";
-interface IUserInfo {}
-const UserInfo: FC<IUserInfo> = () => {
+interface IUserInfo {
+  data?: Response
+}
+const UserInfo: FC<IUserInfo> = ({ data }) => {
   return (
     <div className={style.UserInfo}>
       <div className={style.UserInfo__details}>
@@ -14,7 +17,7 @@ const UserInfo: FC<IUserInfo> = () => {
               First Name
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              John
+              {data?.profile.firstName}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -22,7 +25,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Phone Number
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              07060780922
+              {data?.phoneNumber}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -30,7 +33,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Email Address
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              grace@gmail.com
+              {data?.email}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -38,7 +41,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Bvn
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              07060780922
+              {data?.profile.bvn}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -46,7 +49,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Gender
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              Female
+              {data?.profile.gender}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -62,7 +65,7 @@ const UserInfo: FC<IUserInfo> = () => {
               loan repayment
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              40,000
+              {`${data?.profile.currency}${data?.education.loanRepayment}`}
             </span>
           </div>
           <div className={style.UserInfo__details__container__item}>
@@ -87,7 +90,7 @@ const UserInfo: FC<IUserInfo> = () => {
               level of education
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              B.Sc
+              {data?.education.level}
             </span>
           </div>
           <div
@@ -97,7 +100,7 @@ const UserInfo: FC<IUserInfo> = () => {
               employment status
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              Employed
+              {data?.education.employmentStatus}
             </span>
           </div>
           <div
@@ -107,7 +110,7 @@ const UserInfo: FC<IUserInfo> = () => {
               sector of employment
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              FinTech
+              {data?.education.sector}
             </span>
           </div>
           <div
@@ -117,7 +120,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Duration of employment
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              2 years
+              {data?.education.duration}
             </span>
           </div>
           <div
@@ -127,7 +130,7 @@ const UserInfo: FC<IUserInfo> = () => {
               office email
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              grace@lendsqr.com
+              {data?.education.officeEmail}
             </span>
           </div>
           <div
@@ -137,7 +140,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Monthly income
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              ₦200,000.00- ₦400,000.00
+              {`${data?.profile.currency}${data?.education.monthlyIncome[1]} - ${data?.profile.currency}${data?.education.monthlyIncome[0]}`}
             </span>
           </div>
           <div
@@ -147,7 +150,7 @@ const UserInfo: FC<IUserInfo> = () => {
               loan repayment
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              40,000
+              {`${data?.profile.currency}${data?.education.loanRepayment}`}
             </span>
           </div>
         </div>
@@ -162,7 +165,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Twitter
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              @grace_effiom
+              {data?.socials.twitter}
             </span>
           </div>
           <div
@@ -172,7 +175,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Facebook
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              Grace Effiom
+              {data?.socials.facebook}
             </span>
           </div>
           <div
@@ -182,7 +185,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Instagram
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              @grace_effiom
+              {data?.socials.instagram}
             </span>
           </div>
         </div>
@@ -197,7 +200,7 @@ const UserInfo: FC<IUserInfo> = () => {
               full Name
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              Debby Ogana
+              {`${data?.guarantor.firstName} ${data?.guarantor.lastName}`}
             </span>
           </div>
           <div
@@ -217,7 +220,7 @@ const UserInfo: FC<IUserInfo> = () => {
               Email Address
             </span>
             <span className={style.UserInfo__details__container__item__value}>
-              debby@gmail.com
+              {data?.guarantor.address}
             </span>
           </div>
           <div
