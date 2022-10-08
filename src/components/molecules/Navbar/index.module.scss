@@ -48,6 +48,9 @@
     align-items: center;
     flex-basis: 25%;
     justify-content: space-between;
+    &__docs{
+      text-decoration: underline;
+    }
     &__user {
       display: flex;
       align-items: center;

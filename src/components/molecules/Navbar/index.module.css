@@ -49,6 +49,9 @@
   flex-basis: 25%;
   justify-content: space-between;
 }
+.Navbar__right__docs {
+  text-decoration: underline;
+}
 .Navbar__right__user {
   display: flex;
   align-items: center;

@@ -1,0 +1,21 @@
+@import "../../../sass/values";
+.UserDetailSummary{
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    &__container{
+        &__left{
+            display: flex;
+            align-items: center;
+            &__image{
+                width: 150px;
+            }
+            &__details{
+                &__name{
+                    color: $sidebar-link-text;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}   

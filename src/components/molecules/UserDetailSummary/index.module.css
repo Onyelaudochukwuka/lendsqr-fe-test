@@ -1,3 +1,18 @@
-
+.UserDetailSummary {
+  width: 100%;
+  background: #fff;
+  padding: 30px;
+}
+.UserDetailSummary__container__left {
+  display: flex;
+  align-items: center;
+}
+.UserDetailSummary__container__left__image {
+  width: 150px;
+}
+.UserDetailSummary__container__left__details__name {
+  color: #213f7d;
+  font-size: 20px;
+}
 
 /*# sourceMappingURL=index.module.css.map */
