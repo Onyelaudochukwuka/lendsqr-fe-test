@@ -1,13 +1,15 @@
 import React, { FC, Fragment, useEffect } from "react";
 import "./App.css";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { Login, UserDashboard, UserDetails } from "./pages";
+import { Login, Unavailable, UserDashboard, UserDetails } from "./pages";
 const App: FC = () => {
   return (
     <Fragment>
       <MoveToTop />
       <Routes>
         <Route path="/logIn" element={<Login />} />
+        <Route path="/dashboard" element={<Unavailable />} />
+        <Route path="/dashboard/:route" element={<Unavailable />} />
         <Route path="/dashboard/users" element={<UserDashboard />} />
         <Route path="/dashboard/users/:id" element={<UserDetails />} />
       </Routes>
