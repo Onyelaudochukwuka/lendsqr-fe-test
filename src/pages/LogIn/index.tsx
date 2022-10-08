@@ -53,7 +53,7 @@ const LogIn: FC = () => {
               setValue: setEmail,
               clearValue: clearEmail,
               placeholder: "Email",
-              type: "email",
+              type: "text",
               error: emailError,
               errorMessage: "Please enter a valid email"
             }}
