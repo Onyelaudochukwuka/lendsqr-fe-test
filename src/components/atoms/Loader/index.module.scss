@@ -1,0 +1,15 @@
+.Loader {
+  align-self: center;
+  width: 45px;
+  animation: spin 1s linear 0s infinite forwards;
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
