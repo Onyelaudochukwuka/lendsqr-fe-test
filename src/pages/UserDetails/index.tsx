@@ -1,10 +1,49 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { LeftArrow } from "../../assets";
-import { Layout, UserDetailSummary, UserInfo } from "../../components";
+import { Layout, Loader, UserDetailSummary, UserInfo } from "../../components";
+import { useGetUserQuery } from "../../utils/redux/apiConnection";
 import style from "./index.module.css";
-interface IUserDetails {}
+interface IUserDetails { }
+export interface Navigation {
+  text: string;
+  active: boolean;
+}
 const UserDetails: FC<IUserDetails> = () => {
+  const { id } = useParams();
+  const { data: userData, isSuccess } = useGetUserQuery(id);
+  const [data, setData] = useState<any>(JSON.parse(localStorage.getItem(`user-${id}`) ?? "{}"));
+  const [loading, setLoading] = useState<boolean>(!!localStorage.getItem(`user-${id}`));
+  const [navigation, setNavigation] = useState<Navigation[]>([
+    {
+      text: "General Details",
+      active: true,
+    },
+    {
+      text: "Documents",
+      active: false,
+    },
+    {
+      text: "Bank Details",
+      active: false,
+    },
+    {
+      text: "Savings",
+      active: false,
+    },
+    {
+      text: "App and System",
+      active: false,
+    },
+  ]);
+  useEffect(() => {
+    if (isSuccess) {
+      localStorage.removeItem(`user-${id}`);
+      localStorage.setItem(`user-${id}`, JSON.stringify(userData));
+      setData(userData);
+      setLoading(true)
+    }
+  }, [id, isSuccess, userData]);
   return (
     <Layout className={style.UserDetails}>
       <Link to={"/dashboard/users"}>
@@ -13,15 +52,39 @@ const UserDetails: FC<IUserDetails> = () => {
           <span className={style.UserDetails__back__text}>Back to Users</span>
         </div>
       </Link>
-          <div className={style.UserDetails__container}>
-              <h2 className={style.UserDetails__container__heading}>User Details</h2>
+      <div className={style.UserDetails__container}>
+        <h2 className={style.UserDetails__container__heading}>User Details</h2>
         <div className={style.UserDetails__container__buttons}>
-          <button className={`${style.UserDetails__container__buttons__button} ${style.UserDetails__container__buttons__button__blacklist}`}>Blacklist User</button>
-          <button className={`${style.UserDetails__container__buttons__button} ${style.UserDetails__container__buttons__button__activate}`}>Activate User</button>
+          <button
+            className={`${style.UserDetails__container__buttons__button} ${style.UserDetails__container__buttons__button__blacklist}`}
+          >
+            Blacklist User
+          </button>
+          <button
+            className={`${style.UserDetails__container__buttons__button} ${style.UserDetails__container__buttons__button__activate}`}
+          >
+            Activate User
+          </button>
         </div>
-          </div>
-      <UserDetailSummary />
-      <UserInfo />
+      </div>
+
+      {
+        loading ? (
+          <>
+          <UserDetailSummary data={data} {...{navigation, setNavigation}} />
+            {navigation[0].active
+              ?
+              <UserInfo data={data} />
+          :
+        <div className={style.UserDetails__unavailable}>
+        <p className={style.UserDetails__unavailable__text}>Currently unavailable</p>
+      </div>
+              }
+        </>
+      ) : (
+        <Loader />
+          )
+        }
     </Layout>
   );
 };
