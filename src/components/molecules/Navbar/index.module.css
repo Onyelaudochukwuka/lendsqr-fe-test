@@ -15,6 +15,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.Navbar__left__logo {
+  width: 120px;
+}
 .Navbar__left__search {
   display: flex;
   align-items: center;

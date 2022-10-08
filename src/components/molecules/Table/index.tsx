@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { LeftNavigation, Loading, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
-import { SelectViews, TableHeader, TableRow } from "../..";
+import { Loader, SelectViews, TableHeader, TableRow } from "../..";
 interface ITable {}
 export interface FilteredQuery {
   orgName?: string[];
@@ -131,7 +131,7 @@ const Table: FC<ITable> = () => {
             ))}
           </div>
         ) : (
-          <Loading className={style.Table__loading} />
+          <Loader />
         )}
       </div>
       <div className={style.Table__footer}>

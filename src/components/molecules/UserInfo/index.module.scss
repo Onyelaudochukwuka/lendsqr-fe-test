@@ -1,0 +1,52 @@
+@import "../../../sass/values";
+.UserInfo {
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  width: 100%;
+  background-color: white;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__heading {
+      font-size: 20px;
+      color: $sidebar-link-text;
+    }
+    &__container {
+      padding-bottom: 45px;
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 30px;
+      border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+      &__item {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        flex-basis: 16%;
+        min-width: 16%;
+        width: fit-content;
+        justify-self: flex-start;
+        &__edu{
+          min-width: 21%;
+          flex-basis: 21%;
+        }
+        &__label {
+          font-size: 11px;
+          color: $sidebar-link-text;
+          margin-bottom: 5px;
+          text-transform: uppercase;
+        }
+        &__value {
+          font-size: 14px;
+          color: $sidebar-heading-text;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

@@ -65,6 +65,7 @@
 }
 .UserDetailSummary__container__center__stars {
   display: flex;
+  gap: 5px;
 }
 .UserDetailSummary__container__right {
   display: flex;
