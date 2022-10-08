@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { LeftArrow } from "../../assets";
-import { Layout } from "../../components";
+import { Layout, UserDetailSummary } from "../../components";
 import style from "./index.module.css";
 interface IUserDetails {}
 const UserDetails: FC<IUserDetails> = () => {
@@ -20,7 +20,7 @@ const UserDetails: FC<IUserDetails> = () => {
           <button className={`${style.UserDetails__container__buttons__button} ${style.UserDetails__container__buttons__button__activate}`}>Activate User</button>
         </div>
           </div>
-          
+          <UserDetailSummary />
     </Layout>
   );
 };
