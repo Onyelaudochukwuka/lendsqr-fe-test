@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import { SideBarLink, SidebarSection } from "../..";
 import {
   AuditLogs,
@@ -10,6 +10,7 @@ import {
   Home,
   Karma,
   LoanRequests,
+  LogOut,
   OrgDropDown,
   Preferences,
   Reports,
@@ -171,6 +172,12 @@ const sidebarElements: Required<SidebarElements[]> = [
         to: "/audit-logs",
         key: "audit-logs"
       },
+      {
+        Icon: LogOut,
+        name: "Log Out",
+        to: "/dashboard/users",
+        key: "log-out"
+      }
     ],
   },
 ];
