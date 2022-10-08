@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { LeftNavigation, Loading, RightNavigation } from "../../../assets";
+import { LeftNavigation, RightNavigation } from "../../../assets";
 import style from "./index.module.css";
 import { useGetUsersQuery } from "../../../utils/redux/apiConnection";
 import { Loader, SelectViews, TableHeader, TableRow } from "../..";
@@ -14,7 +14,7 @@ export interface FilteredQuery {
 }
 const Table: FC<ITable> = () => {
   const { data: rows, isLoading } = useGetUsersQuery({});
-  const [filteredData, setFilteredData] = useState(rows ?? []);
+  const [filteredData, setFilteredData] = useState<any>(rows ?? []);
   const [select, setSelect] = useState<number>(10);
   const [blackListed, setBlacklisted] = useState<string[]>(
     JSON.parse(window.localStorage.getItem("blackListed") ?? "[]")
@@ -28,7 +28,7 @@ const Table: FC<ITable> = () => {
     status: [],
   });
   const [beginQuery, setBeginQuery] = useState<boolean>(false);
-  const orgNames = rows?.map((data: any) => data.orgName);
+  const orgNames:string[] = !!rows ? rows.map((data: any) => String(data.orgName)) :  [""];
   const [data, setData] = useState(filteredData);
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [currentUserMenu, setCurrentUserMenu] = useState<string>("");
