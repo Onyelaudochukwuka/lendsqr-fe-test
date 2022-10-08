@@ -1,35 +1,15 @@
-import React, { FC, useState } from "react";
+import React, { Dispatch, FC, SetStateAction } from "react";
 import { avatar, Star, UnStar } from "../../../assets";
+import { Navigation } from "../../../pages/UserDetails";
+import { Response } from "../../../utils/redux/apiConnection";
 import style from "./index.module.css";
-interface IUserDetailSummary {}
-interface Navigation {
-  text: string;
-  active: boolean;
+interface IUserDetailSummary {
+  data?: Response;
+  navigation: Navigation[];
+  setNavigation: Dispatch<SetStateAction<Navigation[]>>;
 }
-const UserDetailSummary: FC<IUserDetailSummary> = () => {
-    const [navigation, setNavigation] = useState<Navigation[]>([
-        {
-            text: "General Details",
-            active: true,
-        },
-        {
-            text: "Documents",
-            active: false
-        },
-        {
-            text: "Bank Details",
-            active: false
-        },
-        {
-            text: "Savings",
-            active: false
-        },
-        {
-            text: "App and System",
-            active: false
-        },
-    ])
-  let tier = 1;
+
+const UserDetailSummary: FC<IUserDetailSummary> = ({ data, navigation, setNavigation }) => {
   return (
     <div className={style.UserDetailSummary}>
       <div className={style.UserDetailSummary__container}>
@@ -45,14 +25,14 @@ const UserDetailSummary: FC<IUserDetailSummary> = () => {
                 style.UserDetailSummary__container__left__details__name
               }
             >
-              Grace Effiom
+              {data?.profile.firstName} {data?.profile.lastName}
             </p>
             <p
               className={
                 style.UserDetailSummary__container__left__details__accountId
               }
             >
-              LSQFf587g90
+              {data?.accountNumber}
             </p>
           </div>
         </div>
@@ -60,12 +40,12 @@ const UserDetailSummary: FC<IUserDetailSummary> = () => {
         <div className={style.UserDetailSummary__container__center}>
           <div>User’s Tier</div>
           <div className={style.UserDetailSummary__container__center__stars}>
-            {[...Array(tier).keys()].map((data) => (
+            {[...Array(data?.tier).keys()].map((data) => (
               <Star
                 className={style.UserDetailSummary__container__center__star}
               />
             ))}
-            {[...Array(3 - tier).keys()].map((data) => (
+            {[...Array(3 - (!!data?.tier ? data?.tier : 0)).keys()].map((data) => (
               <UnStar
                 className={style.UserDetailSummary__container__center__star}
               />
@@ -75,20 +55,24 @@ const UserDetailSummary: FC<IUserDetailSummary> = () => {
         <div className={style.UserDetailSummary__container__divider}></div>
         <div className={style.UserDetailSummary__container__right}>
           <p className={style.UserDetailSummary__container__right__amount}>
-            ₦200,000.00
+            {`${data?.profile.currency}${data?.accountBalance}`}
           </p>
           <p className={style.UserDetailSummary__container__right__bank}>
-            9912345678/Providus Bank
+            {data?.profile.bvn}/Providus Bank
           </p>
         </div>
       </div>
       <div className={style.UserDetailSummary__navigation}>
         {navigation.map(({ text, active }) => (
-            <div
-                onClick={() => setNavigation(prev => prev.map(({ text: textVal }) => ({
-                    text: textVal,
-                    active: textVal === text
-                }))) }
+          <div
+            onClick={() =>
+              setNavigation((prev) =>
+                prev.map(({ text: textVal }) => ({
+                  text: textVal,
+                  active: textVal === text,
+                }))
+              )
+            }
             className={`${style.UserDetailSummary__navigation__elem} ${
               active && style.UserDetailSummary__navigation__elem__active
             }`}
