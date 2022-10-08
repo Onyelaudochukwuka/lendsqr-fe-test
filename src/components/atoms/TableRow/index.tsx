@@ -2,7 +2,7 @@ import moment from "moment";
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Activate, Blacklist, SideMenu, View } from "../../../assets";
-import { Status } from "../../../utils/redux/apiConnection";
+import { STATUS } from "../../../utils/redux/apiConnection";
 import style from "./index.module.css";
 interface ITableRow {
   orgName: string;
@@ -55,9 +55,9 @@ const TableRow: FC<ITableRow> = ({
             ?
             style.TableRow__container__status__blacklisted
             :
-            status === Status.active
+            status === STATUS.active
               ? style.TableRow__container__status__active
-              : status === Status.inactive
+              : status === STATUS.inactive
               ? style.TableRow__container__status__inactive
               : ""
           }`}
