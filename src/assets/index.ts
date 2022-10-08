@@ -40,4 +40,6 @@ export { default as RightNavigation } from "./icons/RightNavigation";
 export { default as Loading } from "./icons/Loading";
 export { default as DateIcon } from "./icons/DateIcon";
 export { default as LeftArrow } from "./icons/LeftArrow";
+export { default as Star } from "./icons/Star";
+export { default as UnStar } from "./icons/UnStar";
 export { loginIllustration, userImage, avatar };
