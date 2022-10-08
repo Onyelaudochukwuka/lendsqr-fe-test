@@ -1,5 +1,6 @@
 import loginIllustration from "./login-illustration.png";
 import userImage from "./user-image.png";
+import avatar from "./avatar.png";
 export { default as Logo } from "./icons/Logo";
 export { default as Notification } from "./icons/Notification";
 export { default as Search } from "./icons/Search";
@@ -39,4 +40,4 @@ export { default as RightNavigation } from "./icons/RightNavigation";
 export { default as Loading } from "./icons/Loading";
 export { default as DateIcon } from "./icons/DateIcon";
 export { default as LeftArrow } from "./icons/LeftArrow";
-export { loginIllustration, userImage };
+export { loginIllustration, userImage, avatar };
