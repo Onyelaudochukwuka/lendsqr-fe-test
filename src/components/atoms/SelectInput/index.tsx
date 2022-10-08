@@ -7,11 +7,12 @@ interface ISelectInput {
     data: string[];
     label: string;
     placeholder: string;
+    className?: string;
 }
-const SelectInput: FC<ISelectInput> = ({ selectedData, data, label, placeholder, setSelectedData }) => {
+const SelectInput: FC<ISelectInput> = ({ selectedData, data, label, placeholder, setSelectedData, className }) => {
     const [toggleDetails, setToggleDetails] = useState<boolean>(false);
     return (
-        <div className={`${style.SelectInput} ${toggleDetails && style.SelectInput__active}`}>
+        <div className={`${style.SelectInput} ${toggleDetails && style.SelectInput__active} ${className}`}>
             <div className={style.SelectInput__label}> {label} </div>
             <div className={style.SelectInput__content} onClick={()=>setToggleDetails((prev:boolean) => !prev)}>
                 <span className={style.SelectInput__content__text}>{selectedData.length > 0 ? selectedData.toLocaleString().replace(",", (val) => `${val} `) : placeholder}</span>
