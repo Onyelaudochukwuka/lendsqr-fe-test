@@ -5,10 +5,15 @@ const ApiHeaders = {
 };
 const baseUrl = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1";
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
-export enum Status {
+export enum STATUS {
   active = "active",
   inactive = "inactive",
   pending = "pending",
+}
+export enum TIER {
+  active = 3,
+  inactive = 1,
+  pending = 2,
 }
 const createRequest = (url: string, method: any) => ({
   url,
@@ -34,18 +39,27 @@ const apiConnection = createApi({
           id: user.id,
           status:
             user.createdAt > user.lastActiveDate
-              ? Status.inactive
+              ? STATUS.inactive
               : Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) >
                   ONE_YEAR &&
                 Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) <
                   ONE_YEAR * 3
-              ? Status.pending
-              : Status.active,
+              ? STATUS.pending
+              : STATUS.active,
         })),
       providesTags: ["Get"],
     }),
     getUser: builder.query({
       query: (id) => createRequest(`/users/${id}`, "GET"),
+      transformResponse: (response: any) => response.map((user: any) => ({
+        ...user, tier: user.createdAt > user.lastActiveDate
+          ? TIER.inactive
+          : Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) >
+            ONE_YEAR &&
+            Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) <
+            ONE_YEAR * 3
+            ? TIER.pending
+            : TIER.active, })),
       providesTags: ["Get"],
     }),
   }),
