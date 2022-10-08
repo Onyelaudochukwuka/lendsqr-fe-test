@@ -1,21 +1,86 @@
 @import "../../../sass/values";
-.UserDetailSummary{
-    width: 100%;
-    background: #fff;
-    padding: 30px;
-    &__container{
-        &__left{
-            display: flex;
-            align-items: center;
-            &__image{
-                width: 150px;
-            }
-            &__details{
-                &__name{
-                    color: $sidebar-link-text;
-                    font-size: 20px;
-                }
+.UserDetailSummary {
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 30px;
+  gap: 30px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  &__navigation{
+    display: flex;
+    justify-content: space-between;
+    &__elem{
+        padding: 10px 30px;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        transition: all 300ms ease-in;
+        &__active, &:hover{
+            color: $log-in-button;
+            border-bottom: 2px solid $log-in-button;
+            
+        }
+        &__active{
+            &:hover{
+                color: $log-in-button-hover;
+                border-bottom-color: $log-in-button-hover;
             }
         }
     }
-}   
+  }
+  &__container {
+    display: flex;
+    height: 100%;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    &__divider {
+      height: 100%;
+      display: block;
+      opacity: 0.2;
+      background-color: #545f7d;
+      border: 1px solid #545f7d;
+    }
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      &__image {
+        height: 120px;
+      }
+      &__details {
+        &__name {
+          color: $sidebar-link-text;
+          font-size: 20px;
+        }
+        &__accountId {
+          font-size: 12px;
+          color: $sidebar-heading-text;
+        }
+      }
+    }
+    &__center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__stars {
+        display: flex;
+      }
+    }
+    &__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      &__amount {
+        color: $sidebar-link-text;
+        font-size: 20px;
+      }
+      &__bank {
+        font-size: 12px;
+      }
+    }
+  }
+}
