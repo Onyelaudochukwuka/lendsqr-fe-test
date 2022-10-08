@@ -5,6 +5,10 @@
     position: relative;
     justify-content: space-between;
     font-size: 14px;
+    @media screen and (max-width: 768px) {
+      font-size: 10px;
+      gap: 10px;
+    }
     text-transform: uppercase;
     width: 100%;
     &__container {
@@ -12,6 +16,7 @@
       align-items: center;
       flex-basis: 15%;
       gap: 11px;
+      white-space: nowrap;
       &__icon {
         cursor: pointer;
       }
@@ -20,6 +25,9 @@
         display: none;
         &__display {
           display: flex;
+        }
+        &__display:last-child {
+          width: calc(11 / 12 * 100%);
         }
       }
     }
@@ -49,16 +57,14 @@
         background-color: #f5f6f8;
       }
     }
-    &__input{
-      &__display{
-@media screen and (max-width: 928px) {
-      display: flex;
-
-  }
+    &__input {
+      &__display {
+        @media screen and (max-width: 928px) {
+          display: flex;
+        }
       }
     }
   }
-
 }
 .TableHeader__filter__container__input__text {
   width: 100%;
@@ -66,9 +72,14 @@
   display: flex;
   flex-direction: column;
   @media screen and (max-width: 928px) {
-
-      display: none;
+    display: none !important;
+  }
+  &__display {
+    display: none;
+    @media screen and (max-width: 928px) {
+      display: flex !important;
     }
+  }
   gap: 10px;
   input {
     display: block;
@@ -84,4 +95,9 @@
       outline: none;
     }
   }
+}
+
+.TableHeader__filter__container__input__display{
+  display: flex !important;
+  gap: 10px !important;
 }
