@@ -163,7 +163,7 @@ const TableHeader: FC<ITableHeader> = ({
                 clearValue: clearDateFilter,
                 type: "date",
               }}
-              className={`${style.TableHeader__filter__container__input__text} ${style.TableHeader__filter__container__input__display}`}
+              className={`${style.TableHeader__filter__container__input__text} ${style.TableHeader__filter__container__input__text__display}`}
             />
             <SelectInput
               {...{
