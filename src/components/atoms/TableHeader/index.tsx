@@ -1,10 +1,20 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Filter } from "../../../assets";
 import { Input, SelectDate, SelectInput } from "../../";
 import style from "./index.module.css";
 import { useInput } from "../../../utils/hooks";
+import { FilteredQuery } from "../../molecules/Table";
 interface ITableHeader {
   orgNames: string[];
+  setFilterQuery: Dispatch<SetStateAction<FilteredQuery>>;
 }
 interface Heading {
   value: string;
@@ -35,19 +45,43 @@ const heading: Required<Heading[]> = [
   },
 ];
 
-const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
+const TableHeader: FC<ITableHeader> = ({
+  orgNames,
+  setFilterQuery,
+  ...props
+}) => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [selectedOrg, setSelectedOrg] = useState<string[]>([]);
   const [selectedStatus, setSelectedStatus] = useState<string[]>([]);
-  const [userNameFilter, setUserNameFilter, clearNameFilter] = useInput<string>("");
+  const [userNameFilter, setUserNameFilter, clearNameFilter] =
+    useInput<string>("");
   const [emailFilter, setEmailFilter, clearEmailFilter] = useInput<string>("");
-  const [numberFilter, setNumberFilter, clearNumberFilter] = useInput<number>(0);
+  const [numberFilter, setNumberFilter, clearNumberFilter] =
+    useInput<number>(0);
   const [dateFilter, setDateFilter, clearDateFilter] = useInput<string>("");
   const [detailsHeight, setDetailsHeight] = useState(0);
   const itemsEl = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setDetailsHeight(itemsEl.current?.scrollHeight ?? 0);
   }, [itemsEl]);
+  useEffect(() => {
+    setFilterQuery({
+      orgName: selectedOrg,
+      userName: String(userNameFilter),
+      email: String(emailFilter),
+      phoneNumber: Number(numberFilter),
+      createdAt: String(dateFilter),
+      status: selectedStatus,
+    });
+  }, [
+    selectedOrg,
+    selectedStatus,
+    userNameFilter,
+    emailFilter,
+    numberFilter,
+    dateFilter,
+    setFilterQuery
+  ]);
   return (
     <div className={style.TableHeader}>
       <div className={style.TableHeader__heading}>
@@ -67,24 +101,27 @@ const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
           </div>
         ))}
       </div>
-      
+
       <div
         ref={itemsEl}
         style={{ height: toggleFilter ? `${detailsHeight}px` : 0 }}
-        className={`${style.TableHeader__filter} ${toggleFilter && style.TableHeader__filter__active}`}>
-          <div className={style.TableHeader__filter__container}>
-            <div className={style.TableHeader__filter__container__input}>
-              <SelectInput
-                {...{
-                  selectedData: selectedOrg,
-                  setSelectedData: setSelectedOrg,
-                  data: orgNames,
-                  label: "Organization",
-                  placeholder: "Select",
-                }}
+        className={`${style.TableHeader__filter} ${
+          toggleFilter && style.TableHeader__filter__active
+        }`}
+      >
+        <div className={style.TableHeader__filter__container}>
+          <div className={style.TableHeader__filter__container__input}>
+            <SelectInput
+              {...{
+                selectedData: selectedOrg,
+                setSelectedData: setSelectedOrg,
+                data: orgNames,
+                label: "Organization",
+                placeholder: "Select",
+              }}
+              className={style.TableHeader__filter__container__input__text}
             />
-            
-            <Input 
+            <Input
               {...{
                 label: "Username",
                 placeholder: "Username",
@@ -93,9 +130,9 @@ const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
                 clearValue: clearNameFilter,
                 type: "text",
               }}
-              className={style.TableHeader__filter__container__input__text}
+              className={`${style.TableHeader__filter__container__input__text} ${style.TableHeader__filter__container__input__display}`}
             />
-            <Input 
+            <Input
               {...{
                 label: "Email",
                 placeholder: "Email",
@@ -106,7 +143,7 @@ const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
               }}
               className={style.TableHeader__filter__container__input__text}
             />
-            <Input 
+            <Input
               {...{
                 label: "Phone Number",
                 placeholder: "Phone Number",
@@ -117,7 +154,7 @@ const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
               }}
               className={style.TableHeader__filter__container__input__text}
             />
-            <SelectDate 
+            <SelectDate
               {...{
                 label: "Date",
                 placeholder: "Date",
@@ -126,21 +163,21 @@ const TableHeader: FC<ITableHeader> = ({ orgNames, ...props }) => {
                 clearValue: clearDateFilter,
                 type: "date",
               }}
-              className={style.TableHeader__filter__container__input__text}
+              className={`${style.TableHeader__filter__container__input__text} ${style.TableHeader__filter__container__input__display}`}
             />
             <SelectInput
               {...{
-                selectedData: selectedOrg,
-                setSelectedData: setSelectedOrg,
+                selectedData: selectedStatus,
+                setSelectedData: setSelectedStatus,
                 data: ["Active", "Inactive", "Pending", "Blacklisted"],
                 label: "Status",
                 placeholder: "Select",
               }}
+              className={style.TableHeader__filter__container__input__display}
             />
-            </div>
           </div>
         </div>
-      
+      </div>
     </div>
   );
 };
