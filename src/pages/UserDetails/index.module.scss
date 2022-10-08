@@ -1,0 +1,68 @@
+@import "../../sass/values";
+
+.UserDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  background: $dashboard-background;
+  padding: 30px;
+  gap: 30px;
+
+  &__back {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    color: $sidebar-heading-text;
+    &:hover {
+      .UserDetails__back__text {
+        color: $sidebar-link-text-hover;
+        transform: translateX(10px);
+        transition: all 500ms ease-in;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    &__heading {
+      font-size: 24px;
+      font-weight: 500;
+      color: $sidebar-link-text;
+      flex-basis: 40%;
+    }
+    &__buttons {
+      flex-basis: fit-content;
+      display: flex;
+      gap: 30px;
+      &__button {
+        padding: 15px 30px;
+        border-radius: 8px;
+        transition-property: background-color, color;
+        transition-duration: 500ms;
+        transition-timing-function: ease-in;
+        &:hover {
+          color: white;
+        }
+        &__blacklist {
+          border: 2px solid $error;
+          color: $error;
+          &:hover {
+            background-color: $error;
+          }
+        }
+        &__activate {
+          border: 2px solid $log-in-button;
+          color: $log-in-button;
+          &:hover {
+            background-color: $log-in-button;
+          }
+        }
+      }
+    }
+  }
+}
