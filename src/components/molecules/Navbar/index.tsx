@@ -52,6 +52,7 @@ const Navbar: FC<INavbar> = ({ className }) => {
           </span>
         </div>
       </div>
+      <div className={style.Navbar__menu}></div>
     </div>
   );
 };
