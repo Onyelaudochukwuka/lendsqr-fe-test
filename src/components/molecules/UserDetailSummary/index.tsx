@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
+import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import { avatar, Star, UnStar } from "../../../assets";
 import { Navigation } from "../../../pages/UserDetails";
 import { Response } from "../../../utils/redux/apiConnection";
@@ -10,13 +10,16 @@ interface IUserDetailSummary {
 }
 
 const UserDetailSummary: FC<IUserDetailSummary> = ({ data, navigation, setNavigation }) => {
+  const [loaded, setLoaded] = useState(false);
   return (
     <div className={style.UserDetailSummary}>
       <div className={style.UserDetailSummary__container}>
         <div className={style.UserDetailSummary__container__left}>
+          {!loaded && <img src={avatar} alt="avatar" className={style.UserDetailSummary__container__left__image} />}
           <img
-            src={avatar}
+            src={data?.profile.avatar || avatar}
             alt="user"
+            onLoad={(e) => setLoaded(true)}
             className={style.UserDetailSummary__container__left__image}
           />
           <div className={style.UserDetailSummary__container__left__details}>
