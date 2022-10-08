@@ -7,6 +7,12 @@
   padding: 100px 60px;
   font-size: 14px;
 }
+@media screen and (max-width: 768px) {
+  .LogIn {
+    flex-direction: column;
+    padding: 40px;
+  }
+}
 .LogIn__left {
   flex-basis: 45%;
   display: flex;
@@ -28,6 +34,7 @@
   margin-left: -5px;
 }
 .LogIn__right__details {
+  margin-bottom: 15px;
   font-weight: 400;
   color: #545F7D;
 }
@@ -38,7 +45,14 @@
   gap: 20px;
   margin-top: 50px;
 }
+@media screen and (max-width: 768px) {
+  .LogIn__right__form {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 .LogIn__right__form__forgot {
+  margin-top: 10px;
   color: #39CDCC;
   font-size: 12px;
   font-weight: 600;

@@ -16,21 +16,13 @@
 .UserDashboard__stats {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   overflow-x: scroll;
-  --webkit-overflow-scrolling: touch;
+  gap: 30px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-.UserDashboard__stats ::-webkit-scrollbar {
-  width: 0;
-  padding: 0;
-  background-color: #FFFFFF;
-  height: 0;
-}
-.UserDashboard__stats ::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.3);
-  border-radius: 0;
-  width: 0;
-  height: 0;
+.UserDashboard__stats::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=index.module.css.map */

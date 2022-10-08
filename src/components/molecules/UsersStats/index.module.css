@@ -1,20 +1,25 @@
 .UsersStats {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 20px 30px;
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
   border: 1px solid rgba(33, 63, 125, 0.06);
   background-color: #fff;
-  flex-basis: 22%;
-  gap: 30px;
+  width: 22%;
   gap: 15px;
+  flex: 0 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .UsersStats {
+    width: 300px;
+  }
 }
 .UsersStats__heading {
   font-size: 12px;
   font-weight: 500;
   color: #213f7d;
+  white-space: nowrap;
 }
 .UsersStats__count {
   font-size: 24px;

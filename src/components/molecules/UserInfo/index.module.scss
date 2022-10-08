@@ -26,14 +26,24 @@
       &__item {
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: 768px) {
+            flex-basis: 100%;
+              min-width: 100%;
+              width: fit-content;
+          }
         margin-right: 30px;
-        flex-basis: 16%;
-        min-width: 16%;
+        flex-basis: 21%;
+        min-width: 21%;
         width: fit-content;
         justify-self: flex-start;
         &__edu{
           min-width: 21%;
           flex-basis: 21%;
+          @media screen and (max-width: 768px) {
+              flex-basis: 100%;
+                min-width: 100%;
+              width: fit-content;
+            }
         }
         &__label {
           font-size: 11px;
@@ -44,7 +54,10 @@
         &__value {
           font-size: 14px;
           color: $sidebar-heading-text;
-          white-space: nowrap;
+          text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
         }
       }
     }

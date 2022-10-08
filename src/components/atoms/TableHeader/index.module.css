@@ -9,11 +9,18 @@
   text-transform: uppercase;
   width: 100%;
 }
+@media screen and (max-width: 768px) {
+  .TableHeader__heading {
+    font-size: 10px;
+    gap: 10px;
+  }
+}
 .TableHeader__heading__container {
   display: flex;
   align-items: center;
   flex-basis: 15%;
   gap: 11px;
+  white-space: nowrap;
 }
 .TableHeader__heading__container__icon {
   cursor: pointer;
@@ -25,6 +32,9 @@
   }
   .TableHeader__heading__container__display {
     display: flex;
+  }
+  .TableHeader__heading__container__display:last-child {
+    width: 91.6666666667%;
   }
 }
 .TableHeader__filter {
@@ -60,7 +70,7 @@
 }
 
 .TableHeader__filter__container__input__text {
-  width: 100%;
+  width: 100% !important;
   padding: 10px 15px;
   display: flex;
   flex-direction: column;
@@ -68,7 +78,15 @@
 }
 @media screen and (max-width: 928px) {
   .TableHeader__filter__container__input__text {
-    display: none;
+    display: none !important;
+  }
+}
+.TableHeader__filter__container__input__text__display {
+  display: none;
+}
+@media screen and (max-width: 928px) {
+  .TableHeader__filter__container__input__text__display {
+    display: flex !important;
   }
 }
 .TableHeader__filter__container__input__text input {
@@ -84,6 +102,11 @@
   border: 1px solid rgba(84, 95, 125, 0.3);
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.06);
   outline: none;
+}
+
+.TableHeader__filter__container__input__display {
+  display: flex !important;
+  gap: 10px !important;
 }
 
 /*# sourceMappingURL=index.module.css.map */

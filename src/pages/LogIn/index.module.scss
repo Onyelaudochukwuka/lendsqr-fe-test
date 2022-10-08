@@ -7,6 +7,10 @@
   justify-content: space-between;
   padding: 100px 60px;
   font-size: 14px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 40px;
+  }
   &__left {
     flex-basis: 45%;
     display: flex;
@@ -20,6 +24,7 @@
     flex-basis: 45%;
     align-self: center;
     justify-content: flex-start;
+    
     &__heading {
       color: $log-in-heading;
       font-weight: 700;
@@ -27,16 +32,22 @@
       margin-left: -5px;
     }
     &__details {
+      margin-bottom: 15px;
       font-weight: 400;
       color: $log-in-text;
     }
     &__form {
       width: 80%;
+      @media screen and (max-width: 768px) {
+        width: 100%;
+        margin-top: 0;
+      }
       display: flex;
       flex-direction: column;
       gap: 20px;
       margin-top: 50px;
       &__forgot{
+        margin-top: 10px;
         color: $log-in-button;
         font-size: 12px;
         font-weight: 600;

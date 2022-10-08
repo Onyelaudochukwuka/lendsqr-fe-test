@@ -10,9 +10,19 @@
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 768px) {
+  .UserDetailSummary {
+    padding-bottom: 30px;
+  }
+}
 .UserDetailSummary__navigation {
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__navigation {
+    display: none;
+  }
 }
 .UserDetailSummary__navigation__elem {
   padding: 10px 30px;
@@ -35,6 +45,13 @@
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+}
 .UserDetailSummary__container__divider {
   height: 100%;
   display: block;
@@ -47,8 +64,25 @@
   align-items: center;
   gap: 20px;
 }
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container__left {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 .UserDetailSummary__container__left__image {
   height: 120px;
+  border-radius: 999px;
+}
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container__left__image {
+    height: 150px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container__left__details {
+    text-align: center;
+  }
 }
 .UserDetailSummary__container__left__details__name {
   color: #213f7d;
@@ -63,6 +97,11 @@
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container__center {
+    justify-content: center;
+  }
+}
 .UserDetailSummary__container__center__stars {
   display: flex;
   gap: 5px;
@@ -71,6 +110,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+@media screen and (max-width: 768px) {
+  .UserDetailSummary__container__right {
+    align-items: center;
+  }
 }
 .UserDetailSummary__container__right__amount {
   color: #213f7d;

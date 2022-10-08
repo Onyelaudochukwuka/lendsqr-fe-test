@@ -1,36 +1,27 @@
 @import "../../sass/values";
-.UserDashboard{
+.UserDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  background: $dashboard-background;
+  padding: 30px;
+  gap: 30px;
+  &__heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: $sidebar-link-text;
+  }
+  &__stats {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
     width: 100%;
-    background: $dashboard-background;
-    padding: 30px;
+    overflow-x: scroll;
     gap: 30px;
-    &__heading{
-        font-size: 24px;
-        font-weight: 500;
-        color: $sidebar-link-text;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    &__stats{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        overflow-x: scroll;
-        --webkit-overflow-scrolling: touch;
-        ::-webkit-scrollbar {
-                width: 0;
-                padding: 0;
-                background-color: #FFFFFF;
-                height: 0;
-            }
-        
-            ::-webkit-scrollbar-thumb {
-                background: rgba(128, 128, 128, 0.3);
-                border-radius: 0;
-                width: 0;
-                height: 0;
-            }
-    }
+  }
 }
