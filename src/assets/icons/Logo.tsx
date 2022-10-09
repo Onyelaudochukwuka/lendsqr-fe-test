@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import React, { FC } from 'react';
+
+import { Link } from 'react-router-dom';
 
 interface ILogo {
   className: string;
 }
-const Logo: FC<ILogo> = (props) => {
-  return (
-    <Link to={"/"}>
+const Logo: FC<ILogo> = (props) => (
+  <Link to="/">
     <svg
       {...props}
       width="174"
@@ -59,9 +59,8 @@ const Logo: FC<ILogo> = (props) => {
           <stop offset="1" stopColor="#39CDCC" />
         </linearGradient>
       </defs>
-      </svg>
-    </Link>
-  );
-};
+    </svg>
+  </Link>
+);
 
 export default Logo;
