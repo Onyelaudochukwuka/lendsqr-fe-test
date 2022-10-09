@@ -103,8 +103,8 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
               active && style.UserDetailSummary__navigation__elem__active
             }`}
             role="button"
-            tabIndex={0}
             key={`navigation-${text}`}
+            tabIndex={0}
           >
             {text}
           </div>

@@ -49,15 +49,16 @@ const Table: FC<ITable> = () => {
   const indexArr = [...Array(limit + 1).keys()].splice(1);
   const currentData = [
     indexArr.slice(
-      currentIndex + 3 > indexArr.length
-        ? indexArr.length - 4
+      currentIndex + 3 >= indexArr.length
+        ? indexArr.length - (indexArr.length === 3 ? 3 : 4)
         : currentIndex - 1,
-      currentIndex + 3 > indexArr.length
+      currentIndex + 3 >= indexArr.length
         ? indexArr.length - 2
         : currentIndex + 1,
     ),
     indexArr.slice(indexArr.length - 2),
   ];
+  console.log(currentData, indexArr.length - (indexArr.length === 3 ? 3 : 4));
   const value = currentData.map((items) => items.map((item) => ({
     value: item,
     active: item === currentIndex,

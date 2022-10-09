@@ -27,6 +27,11 @@
   align-self: center;
   justify-content: flex-start;
 }
+@media screen and (max-width: 928px) {
+  .LogIn__right {
+    align-self: auto;
+  }
+}
 .LogIn__right__heading {
   color: #213F7D;
   font-weight: 700;
@@ -49,6 +54,10 @@
   .LogIn__right__form {
     width: 100%;
     margin-top: 0;
+    padding: 0;
+  }
+  .LogIn__right__form input {
+    padding-inline: 20px;
   }
 }
 .LogIn__right__form__forgot {

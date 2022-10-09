@@ -119,11 +119,11 @@ const TableRow: FC<ITableRow> = ({
         role="button"
         tabIndex={0}
       >
-        <div className={style.TableRow__dropdown__item}>
+        <Link to={`/dashboard/users/${id}`} className={style.TableRow__dropdown__item}>
           <View className={style.TableRow__dropdown__item__icon} />
           {' '}
           <span>View Details</span>
-        </div>
+        </Link>
         <div
           className={style.TableRow__dropdown__item}
           onClick={() => setBlacklisted((prev) => [...prev, userName])}

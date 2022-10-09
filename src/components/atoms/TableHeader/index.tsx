@@ -131,7 +131,7 @@ const TableHeader: FC<ITableHeader> = ({
                 clearValue: clearNameFilter,
                 type: 'text',
               }}
-              className={`${style.TableHeader__filter__container__input__text} ${style.z}`}
+              className={`${style.TableHeader__filter__container__input__text} ${style.TableHeader__filter__container__input__display}`}
             />
             <Input
               {...{
