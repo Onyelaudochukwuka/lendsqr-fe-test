@@ -1,22 +1,26 @@
-import React, { Dispatch, FC, SetStateAction } from "react";
-import { Link } from "react-router-dom";
+import React, { Dispatch, FC, SetStateAction } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import {
   DropDown,
   Logo,
   Notification,
   Search,
   userImage,
-} from "../../../assets";
-import { useInput } from "../../../utils/hooks";
-import Input from "../Input";
-import style from "./index.module.css";
+} from '../../../assets';
+import { useInput } from '../../../utils/hooks';
+import Input from '../Input';
+
+import style from './index.module.css';
+
 interface INavbar {
   className: string;
   showSideBar: boolean;
   setShowSideBar: Dispatch<SetStateAction<boolean>>;
 }
 const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
-  const [search, changeSearch, clearSearch] = useInput<string>("");
+  const [search, changeSearch, clearSearch] = useInput<string>('');
   return (
     <div className={`${style.Navbar} ${className}`}>
       <div className={style.Navbar__left}>
@@ -25,8 +29,8 @@ const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
           <Input
             className={style.Navbar__left__search__input}
             {...{
-              placeholder: "Search for anything",
-              type: "text",
+              placeholder: 'Search for anything',
+              type: 'text',
               value: String(search),
               setValue: changeSearch,
               clearValue: clearSearch,
@@ -54,7 +58,16 @@ const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
           </span>
         </div>
       </div>
-      <div className={`${style.Navbar__menu} ${showSideBar && style.Navbar__menu__active}`} onClick={() => setShowSideBar(prev => !prev) }></div>
+      <div
+        className={`${style.Navbar__menu} ${
+          showSideBar && style.Navbar__menu__active
+        }`}
+        onClick={() => setShowSideBar((prev) => !prev)}
+        onKeyDown={() => setShowSideBar((prev) => !prev)}
+        role="button"
+        aria-label="hamburgermenu"
+        tabIndex={0}
+      />
     </div>
   );
 };

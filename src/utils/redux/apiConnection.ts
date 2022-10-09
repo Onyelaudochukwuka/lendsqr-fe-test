@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+import { ifCondition } from '../functions';
+
 const ApiHeaders = {
   Accept: 'application/json',
 };
 const baseUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1';
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
-const ifCondition = (condition: boolean, then: any, otherwise: any): any => (condition
-  ? then : otherwise);
 
 export enum STATUS {
   active = 'active',

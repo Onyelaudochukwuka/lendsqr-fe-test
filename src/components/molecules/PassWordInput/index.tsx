@@ -1,5 +1,7 @@
-import React, { ChangeEvent, FC, useRef } from "react";
-import style from "./index.module.css";
+import React, { ChangeEvent, FC, useRef } from 'react';
+
+import style from './index.module.css';
+
 interface IPassWordInput {
   placeholder: string;
   value: string;
@@ -15,7 +17,6 @@ const PassWordInput: FC<IPassWordInput> = ({
   value,
   setValue,
   type,
-  clearValue,
   error,
   errorMessage,
 }) => {
@@ -33,11 +34,18 @@ const PassWordInput: FC<IPassWordInput> = ({
           onClick={() => {
             if (!value) return;
             if (inputEl.current) {
-              inputEl.current.type =
-                inputEl.current.type === type ? "text" : "password";
+              inputEl.current.type = inputEl.current.type === type ? 'text' : 'password';
+            }
+          }}
+          onKeyDown={() => {
+            if (!value) return;
+            if (inputEl.current) {
+              inputEl.current.type = inputEl.current.type === type ? 'text' : 'password';
             }
           }}
           className={style.PassWordInput__container__show}
+          role="button"
+          tabIndex={0}
         >
           show
         </span>

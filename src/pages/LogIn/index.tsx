@@ -1,13 +1,17 @@
-import React, { ChangeEvent, FC, FormEvent, FormEventHandler, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { loginIllustration, Logo } from "../../assets";
-import { Input, Loader, PassWordInput } from "../../components";
-import { isEmail, isPassword } from "../../utils/functions";
-import { useInput } from "../../utils/hooks";
-import style from "./index.module.css";
+import React, { FC, FormEvent, useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
+import { loginIllustration, Logo } from '../../assets';
+import { Input, PassWordInput } from '../../components';
+import { isEmail, isPassword } from '../../utils/functions';
+import { useInput } from '../../utils/hooks';
+
+import style from './index.module.css';
+
 const LogIn: FC = () => {
-  const [email, setEmail, clearEmail] = useInput("");
-  const [password, setPassword, clearPassword] = useInput("");
+  const [email, setEmail, clearEmail] = useInput('');
+  const [password, setPassword, clearPassword] = useInput('');
   const [emailError, setEmailError] = useState(false);
   const [passWordError, setPassWordError] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +24,7 @@ const LogIn: FC = () => {
           setEmailError(false);
         }, 3000);
       }
-      if(!isPassword(String(password))) {
+      if (!isPassword(String(password))) {
         setPassWordError(true);
         setTimeout(() => {
           setPassWordError(false);
@@ -28,8 +32,8 @@ const LogIn: FC = () => {
       }
       return;
     }
-   navigate("/dashboard/users")
-  }
+    navigate('/dashboard/users');
+  };
   return (
     <section className={style.LogIn}>
       <div className={style.LogIn__left}>
@@ -38,7 +42,7 @@ const LogIn: FC = () => {
           src={loginIllustration}
           className={style.LogIn__left__illustration}
           alt="SignIn illustration"
-          role={"presentation"}
+          role="presentation"
         />
       </div>
       <div className={style.LogIn__right}>
@@ -46,16 +50,17 @@ const LogIn: FC = () => {
         <p className={style.LogIn__right__details}>Enter details to login.</p>
         <form
           onSubmit={handleSubmit}
-          className={style.LogIn__right__form}>
+          className={style.LogIn__right__form}
+        >
           <Input
             {...{
               value: String(email),
               setValue: setEmail,
               clearValue: clearEmail,
-              placeholder: "Email",
-              type: "text",
+              placeholder: 'Email',
+              type: 'text',
               error: emailError,
-              errorMessage: "Please enter a valid email"
+              errorMessage: 'Please enter a valid email',
             }}
           />
           <PassWordInput
@@ -63,18 +68,21 @@ const LogIn: FC = () => {
               value: String(password),
               setValue: setPassword,
               clearValue: clearPassword,
-              placeholder: "Password",
-              type: "password",
+              placeholder: 'Password',
+              type: 'password',
               error: passWordError,
-              errorMessage: "Please enter a password with an Uppercase, Lowercase, Number and a special character"
+              errorMessage: 'Please enter a password with an Uppercase, Lowercase, Number and a special character',
             }}
           />
           <span className={style.LogIn__right__form__forgot}>
             Forgot PASSWORD?
           </span>
-          <button className={style.LogIn__right__form__button}
+          <button
+            className={style.LogIn__right__form__button}
             type="submit"
-          >Login</button>
+          >
+            Login
+          </button>
         </form>
       </div>
     </section>

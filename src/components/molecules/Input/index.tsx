@@ -1,5 +1,7 @@
-import React, { ChangeEvent, FC } from "react";
-import style from "./index.module.css";
+import React, { ChangeEvent, FC } from 'react';
+
+import style from './index.module.css';
+
 interface IInput {
   placeholder: string;
   value: string | number ;
@@ -16,24 +18,26 @@ const Input: FC<IInput> = ({
   value,
   setValue,
   type,
-  clearValue,
-  error,
-  errorMessage,
+  error = false,
+  errorMessage = '',
   className,
-  label
-}) => {
-  return (
-    <div className={`${style.Input} ${className}`}>
-      {!!label && <div className={style.Input__label}>{label}</div>}
-      <input
-        className={`${style.Input__input} ${className}`}
-        {...{ placeholder, value, type }}
-        onChange={setValue}
-      />
+  label,
+}) => (
+  <div className={`${style.Input} ${className}`}>
+    {!!label && <div className={style.Input__label}>{label}</div>}
+    <input
+      className={`${style.Input__input} ${className}`}
+      {...{ placeholder, value, type }}
+      onChange={setValue}
+    />
 
-      {!!error && <p className={style.Input__error}>{errorMessage}</p>}
-    </div>
-  );
+    {!!error && <p className={style.Input__error}>{errorMessage}</p>}
+  </div>
+);
+Input.defaultProps = {
+  error: false,
+  errorMessage: '',
+  className: '',
+  label: '',
 };
-
 export default Input;

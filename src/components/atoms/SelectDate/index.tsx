@@ -1,6 +1,15 @@
-import React, { ChangeEvent, FC, useRef } from "react";
-import { DateIcon } from "../../../assets";
-import style from "./index.module.css";
+import React, {
+  ChangeEvent,
+  FC,
+  useRef,
+} from 'react';
+
+import {
+  DateIcon,
+} from '../../../assets';
+
+import style from './index.module.css';
+
 interface ISelectDate {
   placeholder: string;
   value: string | number;
@@ -15,7 +24,6 @@ const SelectDate: FC<ISelectDate> = ({
   value,
   setValue,
   type,
-  clearValue,
   className,
   label,
 }) => {
@@ -27,14 +35,17 @@ const SelectDate: FC<ISelectDate> = ({
         <input
           ref={inputEl}
           className={`${style.SelectDate__container__input} ${className}`}
-          {...{ placeholder, value, type: value === "" ? "text" : type }}
-                  onChange={setValue}
-                  onFocus={() => inputEl.current?.setAttribute("type", "date")}
+          {...{ placeholder, value, type: value === '' ? 'text' : type }}
+          onChange={setValue}
+          onFocus={() => inputEl.current?.setAttribute('type', 'date')}
         />
-              { value === "" && <DateIcon className={style.SelectDate__container__icon} />}
+        { value === '' && <DateIcon className={style.SelectDate__container__icon} />}
       </div>
     </div>
   );
 };
-
+SelectDate.defaultProps = {
+  className: '',
+  label: '',
+};
 export default SelectDate;

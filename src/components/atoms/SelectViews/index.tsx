@@ -5,15 +5,19 @@ import React, {
   useEffect,
   useRef,
   useState,
-} from "react";
-import { OrgDropDown } from "../../../assets";
-import style from "./index.module.css";
+} from 'react';
+
+import { OrgDropDown } from '../../../assets';
+
+import style from './index.module.css';
+
 interface ISelectViews {
   select: number;
   setSelect: Dispatch<SetStateAction<number>>;
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
 }
 const values = [1, 5, 10, 15, 20, 25];
-const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
+const SelectViews: FC<ISelectViews> = ({ select, setSelect, setCurrentIndex }) => {
   const [toggleItems, setToggleItems] = useState(false);
   const [detailsHeight, setDetailsHeight] = useState(0);
   const itemsEl = useRef<HTMLDivElement>(null);
@@ -26,7 +30,16 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
         className={`${style.SelectViews__container} ${
           toggleItems && style.SelectViews__container__active
         }`}
-        onClick={() => setToggleItems((props) => !props)}
+        onClick={() => {
+          setToggleItems((props) => !props);
+          setCurrentIndex(1);
+        }}
+        onKeyDown={() => {
+          setToggleItems((props) => !props);
+          setCurrentIndex(1);
+        }}
+        role="button"
+        tabIndex={0}
       >
         <div className={style.SelectViews__container__selected}>{select}</div>
         <OrgDropDown
@@ -46,6 +59,9 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect }) => {
           <div
             className={style.SelectViews__select__option}
             onClick={() => setSelect(item)}
+            onKeyDown={() => setSelect(item)}
+            role="button"
+            tabIndex={0}
           >
             {item}
           </div>
