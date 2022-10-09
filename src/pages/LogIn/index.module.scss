@@ -7,7 +7,7 @@
   justify-content: space-between;
   padding: 100px 60px;
   font-size: 14px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 928px) {
     flex-direction: column;
     padding: 40px;
   }
@@ -38,7 +38,7 @@
     }
     &__form {
       width: 80%;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 928px) {
         width: 100%;
         margin-top: 0;
       }
@@ -56,14 +56,15 @@
         margin-right: auto;
       }
       &__button {
-        background-color: $log-in-button;
+        background-color: $log-in-button !important;
         color: white;
+        z-index: 20;
         font-weight: 800;
         padding-block: 15px;
         border-radius: 8px;
         transition: background-color 500ms ease-in-out;
         &:hover{
-            background-color: $log-in-button-hover;
+            background-color: $log-in-button-hover !important;
         }
       }
     }

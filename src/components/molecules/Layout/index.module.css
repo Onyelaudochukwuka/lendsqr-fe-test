@@ -4,7 +4,7 @@
   grid-template-columns: 0.22fr 1fr;
   grid-template-rows: repeat(auto, 3);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .Layout {
     grid-template-areas: "nav nav nav" "body body body" "body body body";
     grid-template-columns: 1fr 1fr;
@@ -19,7 +19,7 @@
   grid-area: sidebar;
   transition: all 300ms ease-in;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .Layout__sidebar {
     display: none !important;
   }
@@ -31,6 +31,11 @@
     overflow-y: scroll;
     z-index: 30;
     background-color: #fff;
+    padding-block: 80px;
+  }
+}
+@media screen and (max-width: 728px) {
+  .Layout__sidebar__active {
     padding-block: 60px;
   }
 }

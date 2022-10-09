@@ -199,8 +199,11 @@ const Sidebar: FC<ISidebar> = ({ className }) => (
       <Home className={style.Sidebar__link__icon} />
       <span>Dashboard</span>
     </SideBarLink>
-    {sidebarElements.map((props) => (
-      <SidebarSection {...props} />
+    {sidebarElements.map((props:SidebarElements) => (
+      <SidebarSection
+        {...props}
+        key={`sidebarElements-${props.heading}`}
+      />
     ))}
   </div>
 );

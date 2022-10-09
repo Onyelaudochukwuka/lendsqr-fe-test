@@ -21,6 +21,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.UserDashboard__stats:active {
+  cursor: grab;
+}
 .UserDashboard__stats::-webkit-scrollbar {
   display: none;
 }

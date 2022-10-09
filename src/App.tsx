@@ -1,6 +1,14 @@
-import React, { FC, Fragment, useEffect } from 'react';
+import React, {
+  FC,
+  Fragment,
+  useEffect,
+} from 'react';
+
 import {
-  Route, Routes, useLocation, useNavigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
 } from 'react-router-dom';
 
 import './App.css';

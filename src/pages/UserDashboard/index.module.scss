@@ -18,6 +18,9 @@
     width: 100%;
     overflow-x: scroll;
     gap: 30px;
+    &:active{
+      cursor: grab;
+    }
     -ms-overflow-style: none;
     scrollbar-width: none;
     &::-webkit-scrollbar {

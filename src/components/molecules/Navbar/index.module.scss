@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 30px 80px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 928px) {
      padding: 30px ;
     }
   box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
@@ -14,7 +14,7 @@
   z-index: 50;
   &__menu{
     display: none;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 928px) {
         display: block;
         cursor: pointer;
         width: 32px;
@@ -61,7 +61,7 @@
       align-items: center;
       width: 50%;
       height: 50px;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 928px) {
           display: none;
         }
       &__input {
@@ -93,7 +93,7 @@
     }
   }
   &__right {
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 928px) {
         display: none;
       }
     display: flex;

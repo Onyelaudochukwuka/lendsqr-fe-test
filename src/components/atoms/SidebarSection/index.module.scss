@@ -4,6 +4,9 @@
     flex-direction: column;
     width: 100%;
     gap: 16px;
+    @media screen and (max-width: 928px) {
+        margin-top: 16px;
+    }
     &__heading{
         padding: 0 16px;
         font-size: 14px;

@@ -43,7 +43,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 928px) {
        flex-direction: column;
        gap: 20px;
       }
@@ -57,7 +57,7 @@
       flex-basis: fit-content;
       display: flex;
       gap: 30px;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 928px) {
          font-size: 12px;
          flex-direction: column;
          width: 100%;

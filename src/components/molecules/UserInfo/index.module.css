@@ -34,7 +34,7 @@
   width: fit-content;
   justify-self: flex-start;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .UserInfo__details__container__item {
     flex-basis: 100%;
     min-width: 100%;
@@ -45,7 +45,7 @@
   min-width: 21%;
   flex-basis: 21%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .UserInfo__details__container__item__edu {
     flex-basis: 100%;
     min-width: 100%;

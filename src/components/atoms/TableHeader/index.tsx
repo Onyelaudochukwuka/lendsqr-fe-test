@@ -90,6 +90,7 @@ const TableHeader: FC<ITableHeader> = ({
             className={`${style.TableHeader__heading__container}  ${
               !!prop.mobile && style.TableHeader__heading__container__display
             }`}
+            key={`tableHeader-${prop.value}`}
           >
             <span className={style.TableHeader__heading__container__content}>
               {prop.value}

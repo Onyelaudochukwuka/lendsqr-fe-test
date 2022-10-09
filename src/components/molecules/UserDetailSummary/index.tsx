@@ -61,14 +61,16 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
         <div className={style.UserDetailSummary__container__center}>
           <div>User’s Tier</div>
           <div className={style.UserDetailSummary__container__center__stars}>
-            {[...Array(data?.tier).keys()].map(() => (
+            {[...Array(data?.tier).keys()].map((val) => (
               <Star
+                key={`star-${val}`}
                 className={style.UserDetailSummary__container__center__star}
               />
             ))}
             {[...Array(3 - (data?.tier ? data.tier : 0)).keys()].map(
-              () => (
+              (val) => (
                 <UnStar
+                  key={`unstar-${val}`}
                   className={style.UserDetailSummary__container__center__star}
                 />
               ),
@@ -102,6 +104,7 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
             }`}
             role="button"
             tabIndex={0}
+            key={`navigation-${text}`}
           >
             {text}
           </div>

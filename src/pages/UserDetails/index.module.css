@@ -41,7 +41,7 @@
   align-items: center;
   width: 100%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .UserDetails__container {
     flex-direction: column;
     gap: 20px;
@@ -58,7 +58,7 @@
   display: flex;
   gap: 30px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .UserDetails__container__buttons {
     font-size: 12px;
     flex-direction: column;

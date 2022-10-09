@@ -7,7 +7,6 @@ import {
   DashboardUsersWithSavings,
 } from '../../assets';
 import { Layout, Table, UsersStats } from '../../components';
-import { useGetUsersQuery } from '../../utils/redux/apiConnection';
 
 import style from './index.module.css';
 
@@ -39,20 +38,16 @@ const stats: Required<Stats[]> = [
     count: 102453,
   },
 ];
-const UserDashboard: FC<IUserDashboard> = () => {
-  const { data } = useGetUsersQuery({});
-  console.log(data);
-  return (
-    <Layout className={style.UserDashboard}>
-      <h2 className={style.UserDashboard__heading}>Users</h2>
-      <div className={style.UserDashboard__stats}>
-        {stats.map((props) => (
-          <UsersStats {...props} />
-        ))}
-      </div>
-      <Table />
-    </Layout>
-  );
-};
+const UserDashboard: FC<IUserDashboard> = () => (
+  <Layout className={style.UserDashboard}>
+    <h2 className={style.UserDashboard__heading}>Users</h2>
+    <div className={style.UserDashboard__stats}>
+      {stats.map((props:Stats) => (
+        <UsersStats {...props} key={`userStats-${props.heading}`} />
+      ))}
+    </div>
+    <Table />
+  </Layout>
+);
 
 export default UserDashboard;

@@ -62,6 +62,7 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect, setCurrentIndex }) =
             onKeyDown={() => setSelect(item)}
             role="button"
             tabIndex={0}
+            key={`selectViews-${item}`}
           >
             {item}
           </div>

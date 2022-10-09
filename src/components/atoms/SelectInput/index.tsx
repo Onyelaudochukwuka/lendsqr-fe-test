@@ -70,7 +70,7 @@ const SelectInput: FC<ISelectInput> = ({
               selectedData.includes(name)
               && style.SelectInput__details__container__active
             }`}
-            key={name}
+            key={`selectInput-${name}`}
             role="button"
             tabIndex={0}
           >

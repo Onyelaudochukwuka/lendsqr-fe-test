@@ -75,7 +75,6 @@ const Table: FC<ITable> = () => {
     }
   }, [filterQuery]);
   useEffect(() => {
-    console.log(beginQuery);
     if (beginQuery) {
       setFilteredData(
         rows?.filter(
@@ -97,7 +96,6 @@ const Table: FC<ITable> = () => {
       setFilteredData(rows);
     }
   }, [filterQuery, rows, blackListed, beginQuery]);
-  console.log(filteredData);
 
   useEffect(() => {
     localStorage.removeItem('blackListed');
@@ -106,7 +104,6 @@ const Table: FC<ITable> = () => {
       JSON.stringify([...new Set(blackListed)]),
     );
   }, [blackListed]);
-  console.log(window.localStorage.getItem('blackListed'));
   useEffect(() => {
     if (filteredData) {
       setData(
@@ -129,6 +126,7 @@ const Table: FC<ITable> = () => {
           <div className={style.Table__row}>
             {data?.map((details: any) => (
               <TableRow
+                key={`tableRow-${details.id}`}
                 {...{
                   ...details,
                   currentUserMenu,
@@ -164,7 +162,7 @@ const Table: FC<ITable> = () => {
           <div className={style.Table__footer__navigation__details}>
             {value[0].map(({ value: index, active }) => (
               <div
-                key={`firstIndex-${index}`}
+                key={`bottomNavigation-${index}`}
                 onClick={() => setCurrentIndex(index)}
                 onKeyDown={() => setCurrentIndex(index)}
                 className={`${style.Table__footer__navigation__details__unit} ${
@@ -181,7 +179,7 @@ const Table: FC<ITable> = () => {
             </span>
             {value[1].map(({ value: index, active }) => (
               <div
-                key={`firstIndex-${index}`}
+                key={`bottomNavigation-${index}`}
                 onClick={() => setCurrentIndex(index)}
                 onKeyDown={() => setCurrentIndex(index)}
                 className={`${style.Table__footer__navigation__details__unit} ${

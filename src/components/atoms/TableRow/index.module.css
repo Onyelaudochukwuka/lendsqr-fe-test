@@ -67,6 +67,11 @@
   cursor: pointer;
   transition: background-color 500ms ease-in;
 }
+@media screen and (max-width: 728px) {
+  .TableRow__menu {
+    right: -20px;
+  }
+}
 .TableRow__menu:hover {
   background-color: rgba(84, 95, 125, 0.0588235294);
 }

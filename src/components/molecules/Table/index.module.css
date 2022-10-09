@@ -75,7 +75,7 @@
     justify-content: space-between;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 928px) {
   .Table__footer__navigation {
     width: fit-content;
     margin: auto;
