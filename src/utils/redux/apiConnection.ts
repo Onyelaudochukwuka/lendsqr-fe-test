@@ -1,14 +1,17 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const ApiHeaders = {
-  Accept: "application/json",
+  Accept: 'application/json',
 };
-const baseUrl = "https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1";
+const baseUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1';
 const ONE_YEAR = 365 * 24 * 60 * 60 * 1000;
+const ifCondition = (condition: boolean, then: any, otherwise: any): any => (condition
+  ? then : otherwise);
+
 export enum STATUS {
-  active = "active",
-  inactive = "inactive",
-  pending = "pending",
+  active = 'active',
+  inactive = 'inactive',
+  pending = 'pending',
 }
 export enum TIER {
   active = 3,
@@ -23,7 +26,7 @@ type Education = {
   officeEmail: string;
   monthlyIncome: string[];
   loanRepayment: string;
-}
+};
 export interface Response {
   createdAt: string;
   orgName: string;
@@ -47,52 +50,57 @@ const createRequest = (url: string, method: any) => ({
 });
 
 const apiConnection = createApi({
-  reducerPath: "Api",
+  reducerPath: 'Api',
   baseQuery: fetchBaseQuery({ baseUrl }),
-  tagTypes: ["Get"],
+  tagTypes: ['Get'],
 
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: () => createRequest(`/users`, "GET"),
-      transformResponse: (response: Response[]) =>
-          response.map((user: Response) => ({
-              createdAt: user.createdAt,
-              orgName: user.orgName,
-              userName: user.userName,
-              email: user.email,
-            phoneNumber: user.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
-          id: user.id,
-          status:
-            user.createdAt > user.lastActiveDate
-              ? STATUS.inactive
-              : Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) >
-                  ONE_YEAR &&
-                Date.parse(user.lastActiveDate) - Date.parse(user.createdAt) <
-                  ONE_YEAR * 3
-              ? STATUS.pending
-              : STATUS.active,
-        })),
-      providesTags: ["Get"],
+      query: () => createRequest('/users', 'GET'),
+      transformResponse: (response: Response[]) => response.map((user: Response) => ({
+        createdAt: user.createdAt,
+        orgName: user.orgName,
+        userName: user.userName,
+        email: user.email,
+        phoneNumber: user.phoneNumber
+          .trim()
+          .replace(/((x|\.))/g, '-')
+          .replace(' ', ''),
+        id: user.id,
+        status: user.createdAt > user.lastActiveDate
+          ? STATUS.inactive
+          : ifCondition((Date.parse(user.lastActiveDate) - Date.parse(user.createdAt)
+            > ONE_YEAR && Date.parse(user.lastActiveDate) - Date.parse(user.createdAt)
+            < ONE_YEAR * 3), STATUS.pending, STATUS.active),
+      })),
+      providesTags: ['Get'],
     }),
     getUser: builder.query({
-      query: (id) => createRequest(`/users/${id}`, "GET"),
+      query: (id) => createRequest(`/users/${id}`, 'GET'),
       transformResponse: (response: Response) => ({
         ...response,
-        phoneNumber: response.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
+        phoneNumber: response.phoneNumber
+          .trim()
+          .replace(/((x|\.))/g, '-')
+          .replace(' ', ''),
         guarantor: {
           ...response.guarantor,
-          phoneNumber: response.guarantor.phoneNumber.trim().replace(/((x|\.))/g, "-").replace(" ", ""),
+          phoneNumber: response.guarantor.phoneNumber
+            .trim()
+            .replace(/((x|\.))/g, '-')
+            .replace(' ', ''),
         },
-        tier: response.createdAt > response.lastActiveDate
-          ? TIER.inactive
-          : Date.parse(response.lastActiveDate) - Date.parse(response.createdAt) >
-            ONE_YEAR &&
-            Date.parse(response.lastActiveDate) - Date.parse(response.createdAt) <
-            ONE_YEAR * 3
-            ? TIER.pending
-            : TIER.active,
+        tier:
+          response.createdAt > response.lastActiveDate
+            ? TIER.inactive
+            : ifCondition((Date.parse(response.lastActiveDate)
+              - Date.parse(response.createdAt)
+              > ONE_YEAR
+              && Date.parse(response.lastActiveDate)
+              - Date.parse(response.createdAt)
+              < ONE_YEAR * 3), TIER.pending, TIER.active),
       }),
-      providesTags: ["Get"],
+      providesTags: ['Get'],
     }),
   }),
 });
