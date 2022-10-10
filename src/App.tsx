@@ -13,7 +13,7 @@ import {
 
 import './App.css';
 import {
-  Login, Unavailable, UserDashboard, UserDetails,
+  Login, NotFound, Unavailable, UserDashboard, UserDetails,
 } from './pages';
 
 const MoveToTop = () => {
@@ -34,6 +34,7 @@ const App: FC = () => (
   <>
     <MoveToTop />
     <Routes>
+      <Route path="/:path" element={<NotFound />} />
       <Route path="/logIn" element={<Login />} />
       <Route path="/dashboard" element={<Unavailable />} />
       <Route path="/dashboard/:route" element={<Unavailable />} />
