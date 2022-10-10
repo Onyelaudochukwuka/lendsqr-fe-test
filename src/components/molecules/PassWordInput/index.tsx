@@ -22,7 +22,7 @@ const PassWordInput: FC<IPassWordInput> = ({
 }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   return (
-    <div className={style.PassWordInput}>
+    <div className={style.PassWordInput} data-testid="password-input">
       <div className={style.PassWordInput__container}>
         <input
           ref={inputEl}
