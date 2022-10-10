@@ -21,7 +21,7 @@ const Layout: FC<ILayout> = ({ children, className, ...props }) => {
           showSideBar && style.Layout__sidebar__active
         }`}
       />
-      <section {...props} className={`${className} ${style.Layout__body}`}>
+      <section {...props} className={`${className} ${style.Layout__body}`} data-testid="layout-container">
         {children}
       </section>
     </section>

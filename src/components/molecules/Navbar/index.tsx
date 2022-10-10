@@ -22,7 +22,7 @@ interface INavbar {
 const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
   const [search, changeSearch, clearSearch] = useInput<string>('');
   return (
-    <div className={`${style.Navbar} ${className}`}>
+    <div className={`${style.Navbar} ${className}`} data-testid="navbar-container">
       <div className={style.Navbar__left}>
         <Logo className={style.Navbar__left__logo} />
         <div className={style.Navbar__left__search}>
@@ -42,7 +42,7 @@ const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
         </div>
       </div>
       <div className={style.Navbar__right}>
-        <Link to="/Dashboard" className={style.Navbar__right__docs}>
+        <Link to="/Dashboard" className={style.Navbar__right__docs} data-testid="docs-link">
           <span>Docs</span>
         </Link>
         <Notification className={style.Navbar__right__notification} />
@@ -51,6 +51,7 @@ const Navbar: FC<INavbar> = ({ className, showSideBar, setShowSideBar }) => {
             src={userImage}
             alt="userImage"
             className={style.Navbar__right__user__avatar}
+            data-testid="user-image"
           />
           <span className={style.Navbar__right__user__info}>
             <p className={style.Navbar__right__user__info__name}>Adedeji</p>

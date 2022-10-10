@@ -186,18 +186,18 @@ const sidebarElements: Required<SidebarElements[]> = [
 ];
 
 const Sidebar: FC<ISidebar> = ({ className }) => (
-  <div className={`${style.Sidebar} ${className}`}>
+  <div className={`${style.Sidebar} ${className}`} data-testid="sidebar-container">
     <div className={style.Sidebar__switch}>
       <BriefCase className={style.Sidebar__switch_icon} />
       {' '}
-      <span>Switch Organization</span>
+      <span data-testid="switch-org">Switch Organization</span>
       {' '}
       <OrgDropDown className={style.Sidebar__switch__drop} />
       {' '}
     </div>
     <SideBarLink to="/dashboard" end>
       <Home className={style.Sidebar__link__icon} />
-      <span>Dashboard</span>
+      <span data-testid="dashboard">Dashboard</span>
     </SideBarLink>
     {sidebarElements.map((props:SidebarElements) => (
       <SidebarSection

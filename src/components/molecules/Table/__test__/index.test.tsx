@@ -4,8 +4,8 @@ import { render, screen } from '../../../../testing-utils';
 import userEvent from '@testing-library/user-event';
 
 import Login from '../../../../pages/LogIn'
-
-test('component is renders', () => {
+window.scrollTo = jest.fn();
+test('component is rendered', () => {
     /* eslint-disable-next-line */
     render(<Login/>, { route: '/login' } );
 })

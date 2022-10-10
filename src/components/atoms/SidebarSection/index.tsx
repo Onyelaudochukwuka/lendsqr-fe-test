@@ -10,7 +10,7 @@ const SidebarSection: FC<ISidebarSection & SidebarElements> = ({
   heading,
   children,
 }) => (
-  <div className={style.SidebarSection}>
+  <div className={style.SidebarSection} data-testid={`sidebarElements-${heading}`}>
     <p className={style.SidebarSection__heading}>{heading}</p>
     {children.map(({ Icon, name, to }) => (
       <SideBarLink to={`/dashboard${to}`} key={`sidebarSelection-${to}`}>

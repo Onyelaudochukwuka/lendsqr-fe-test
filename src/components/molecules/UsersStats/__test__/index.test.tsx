@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { Users } from "../../../../assets";
 import UserStats from '..';
 
-test('component is renders', () => {
+test('component is rendered', () => {
     /* eslint-disable-next-line */
     render(<UserStats {...{
         Icon: Users,

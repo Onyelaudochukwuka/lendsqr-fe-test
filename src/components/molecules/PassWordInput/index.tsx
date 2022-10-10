@@ -22,13 +22,14 @@ const PassWordInput: FC<IPassWordInput> = ({
 }) => {
   const inputEl = useRef<HTMLInputElement>(null);
   return (
-    <div className={style.PassWordInput} data-testid="password-input">
+    <div className={style.PassWordInput} data-testid="password-input-container">
       <div className={style.PassWordInput__container}>
         <input
           ref={inputEl}
           className={style.PassWordInput__container__input}
-          {...{ placeholder, value, type }}
+          {...{ value, placeholder, type }}
           onChange={setValue}
+          data-testid="password-input"
         />
         <span
           onClick={() => {
@@ -50,7 +51,7 @@ const PassWordInput: FC<IPassWordInput> = ({
           show
         </span>
       </div>
-      {error && <p className={style.PassWordInput__error}>{errorMessage}</p>}
+      {error && <p className={style.PassWordInput__error} data-testid="error-message">{errorMessage}</p>}
     </div>
   );
 };

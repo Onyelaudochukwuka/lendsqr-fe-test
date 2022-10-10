@@ -6,7 +6,7 @@ import data from '../../../../testing-utils/testdata';
 import UserInfo from '..';
 import { Response } from '../../../../utils/redux/apiConnection';
 
-test('component is renders', () => {
+test('component is rendered', () => {
   render(<UserInfo data={data} />);
     const userFirstName = screen.getByTestId('user-first-name');
     const userPhoneNumber = screen.getByTestId('user-phone-number');

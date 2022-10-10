@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import UserDetailSummary from '..'
 import data from "../../../../testing-utils/testdata";
 
-test('component is renders', () => {
+test('component is rendered', () => {
     /* eslint-disable-next-line */
     render(
         <UserDetailSummary
