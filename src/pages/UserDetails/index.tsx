@@ -58,7 +58,7 @@ const UserDetails: FC<IUserDetails> = () => {
       <Link to="/dashboard/users">
         <div className={style.UserDetails__back}>
           <LeftArrow className={style.UserDetails__back__icon} />
-          <span className={style.UserDetails__back__text}>Back to Users</span>
+          <span className={style.UserDetails__back__text} data-testid="back-to-users">Back to Users</span>
         </div>
       </Link>
       <div className={style.UserDetails__container}>

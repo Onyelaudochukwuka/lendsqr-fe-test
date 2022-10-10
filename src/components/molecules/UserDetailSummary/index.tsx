@@ -39,12 +39,14 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
             alt="user"
             onLoad={() => setLoaded(true)}
             className={style.UserDetailSummary__container__left__image}
+            data-testid="user-avatar"
           />
           <div className={style.UserDetailSummary__container__left__details}>
             <p
               className={
                 style.UserDetailSummary__container__left__details__name
               }
+              data-testid="user-name"
             >
               {`${data?.profile.firstName} ${data?.profile.lastName}`}
             </p>
@@ -52,6 +54,7 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
               className={
                 style.UserDetailSummary__container__left__details__accountId
               }
+              data-testid="user-account-id"
             >
               {data?.accountNumber}
             </p>
@@ -79,11 +82,16 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
         </div>
         <div className={style.UserDetailSummary__container__divider} />
         <div className={style.UserDetailSummary__container__right}>
-          <p className={style.UserDetailSummary__container__right__amount}>
+          <p
+            className={style.UserDetailSummary__container__right__amount}
+            data-testid="user-balance"
+          >
             {`${data?.profile.currency}${data?.accountBalance}`}
           </p>
-          <p className={style.UserDetailSummary__container__right__bank}>
-            {data?.profile.bvn}
+          <p
+            className={style.UserDetailSummary__container__right__bank}
+          >
+            <span data-testid="user-bvn">{data?.profile.bvn}</span>
             /Providus Bank
           </p>
         </div>
@@ -105,6 +113,7 @@ const UserDetailSummary: FC<IUserDetailSummary> = ({
             role="button"
             key={`navigation-${text}`}
             tabIndex={0}
+            data-testid="user-navigation"
           >
             {text}
           </div>

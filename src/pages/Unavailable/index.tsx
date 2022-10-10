@@ -8,7 +8,7 @@ interface IUnavailable {}
 const Unavailable: FC<IUnavailable> = () => (
   <Layout className={style.Unavailable}>
     <div className={style.Unavailable__container}>
-      <h1 className={style.Unavailable__container__heading}>
+      <h1 className={style.Unavailable__container__heading} data-testid="page-unavailable">
         This Page Is Currently Unavailable
       </h1>
       <p className={style.Unavailable__container__text}>
