@@ -44,4 +44,5 @@ export { default as LeftArrow } from './icons/LeftArrow';
 export { default as Star } from './icons/Star';
 export { default as UnStar } from './icons/UnStar';
 export { default as LogOut } from './icons/LogOut';
+export { default as Notfound } from './icons/NotFound';
 export { loginIllustration, userImage, avatar };
