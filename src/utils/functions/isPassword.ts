@@ -1,5 +1,13 @@
 const isPassword = (password: string): boolean => {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(-|\+|\*|\?|!|@|#|\$|%|\^|&|\(|\)|_|=|\||\/|<|>|\{|\}|\[|\]|;|:|'|"|\\|~|,))[a-zA-Z\d-+*?!@#$%^&*()_=+|/<>{}[\];:'"\\~,]{8,}$/g;
-  return regex.test(password);
+  const length = /^.{8,32}/;
+  const upper = /[A-Z]/;
+  const lower = /[a-z]/;
+  const numbers = /[0-9]/;
+  const special = /[^A-Za-z0-9]/;
+  return length.test(password)
+  && upper.test(password)
+  && lower.test(password)
+  && numbers.test(password)
+  && special.test(password);
 };
 export default isPassword;
