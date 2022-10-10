@@ -58,7 +58,6 @@ const Table: FC<ITable> = () => {
     ),
     indexArr.slice(indexArr.length - 2),
   ];
-  console.log(currentData, indexArr.length - (indexArr.length === 3 ? 3 : 4));
   const value = currentData.map((items) => items.map((item) => ({
     value: item,
     active: item === currentIndex,

@@ -18,7 +18,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             First Name
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-first-name">
             {data?.profile.firstName}
           </span>
         </div>
@@ -26,7 +26,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Phone Number
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-phone-number">
             {data?.phoneNumber}
           </span>
         </div>
@@ -34,7 +34,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Email Address
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-email">
             {data?.email}
           </span>
         </div>
@@ -42,7 +42,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Bvn
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-bvn">
             {data?.profile.bvn}
           </span>
         </div>
@@ -50,7 +50,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Gender
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-gender">
             {data?.profile.gender}
           </span>
         </div>
@@ -66,7 +66,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             loan repayment
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-loan">
             {`${data?.profile.currency}${data?.education.loanRepayment}`}
           </span>
         </div>
@@ -91,7 +91,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             level of education
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-education-level">
             {data?.education.level}
           </span>
         </div>
@@ -101,7 +101,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             employment status
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-employment-status">
             {data?.education.employmentStatus}
           </span>
         </div>
@@ -111,7 +111,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             sector of employment
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-sector">
             {data?.education.sector}
           </span>
         </div>
@@ -121,7 +121,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Duration of employment
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-employment-duration">
             {data?.education.duration}
           </span>
         </div>
@@ -131,7 +131,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             office email
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-education-official-email">
             {data?.education.officeEmail}
           </span>
         </div>
@@ -141,7 +141,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Monthly income
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-education-monthly-income">
             {`${data?.profile.currency}${data?.education.monthlyIncome[1]} - ${data?.profile.currency}${data?.education.monthlyIncome[0]}`}
           </span>
         </div>
@@ -151,7 +151,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             loan repayment
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-education-loan">
             {`${data?.profile.currency}${data?.education.loanRepayment}`}
           </span>
         </div>
@@ -164,7 +164,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Twitter
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-twitter">
             {data?.socials.twitter}
           </span>
         </div>
@@ -172,7 +172,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Facebook
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-facebook">
             {data?.socials.facebook}
           </span>
         </div>
@@ -180,7 +180,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Instagram
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="user-instagram">
             {data?.socials.instagram}
           </span>
         </div>
@@ -193,7 +193,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             full Name
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="guarantor-name">
             {`${data?.guarantor.firstName} ${data?.guarantor.lastName}`}
           </span>
         </div>
@@ -209,7 +209,7 @@ const UserInfo: FC<IUserInfo> = ({ data }) => (
           <span className={style.UserInfo__details__container__item__label}>
             Email Address
           </span>
-          <span className={style.UserInfo__details__container__item__value}>
+          <span className={style.UserInfo__details__container__item__value} data-testid="guarantor-email">
             {data?.guarantor.address}
           </span>
         </div>

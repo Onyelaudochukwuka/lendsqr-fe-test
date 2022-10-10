@@ -1,11 +1,21 @@
 import React from 'react';
 
-import { render, screen } from '../../../../testing-utils';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import Login from '../../../../pages/LogIn'
+import { Users } from "../../../../assets";
+import UserStats from '..';
 
 test('component is renders', () => {
     /* eslint-disable-next-line */
-    render(<Login/>, { route: '/login' } );
+    render(<UserStats {...{
+        Icon: Users,
+        heading: "string",
+        count: 4,
+    }} />);
+    const icon = screen.getByTestId("icon");
+    const heading = screen.getByTestId("heading");
+    const count = screen.getByTestId("count");
+    expect(icon).toBeInTheDocument();
+    expect(heading).toBeInTheDocument();
+    expect(count).toBeInTheDocument();
 })
