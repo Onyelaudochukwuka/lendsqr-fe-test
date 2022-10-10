@@ -40,7 +40,7 @@ const stats: Required<Stats[]> = [
 ];
 const UserDashboard: FC<IUserDashboard> = () => (
   <Layout className={style.UserDashboard}>
-    <h2 className={style.UserDashboard__heading}>Users</h2>
+    <h2 className={style.UserDashboard__heading} data-testid="user-heading">Users</h2>
     <div className={style.UserDashboard__stats}>
       {stats.map((props:Stats) => (
         <UsersStats {...props} key={`userStats-${props.heading}`} />
