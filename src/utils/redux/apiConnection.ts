@@ -80,8 +80,7 @@ const apiConnection = createApi({
       transformResponse: (response: Response) => ({
         ...response,
         phoneNumber: response.phoneNumber
-          .trim()
-          .replace(/((x|\.))/g, '-')
+          .replace(/((x|\.|\s))/g, '-')
           .replace(' ', ''),
         guarantor: {
           ...response.guarantor,
