@@ -12,6 +12,27 @@
   box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
   border-radius: 4px;
 }
+.Table__servererror {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+.Table__servererror__heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #213f7d;
+}
+.Table__servererror__text {
+  font-size: 14px;
+  color: #213f7d;
+  font-weight: 500;
+}
 .Table__loading {
   align-self: center;
   width: 45px;

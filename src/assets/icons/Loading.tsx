@@ -11,6 +11,7 @@ const Loading: FC<ILoading> = (props) => (
     x="0px"
     y="0px"
     viewBox="0 0 26.349 26.35"
+    fill="#222"
   >
     <g>
       <g>

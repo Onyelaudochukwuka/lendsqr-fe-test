@@ -24,7 +24,7 @@ export interface FilteredQuery {
   status?: string[];
 }
 const Table: FC<ITable> = () => {
-  const { data: rows, isLoading } = useGetUsersQuery({});
+  const { data: rows, isLoading, isError } = useGetUsersQuery({});
   const [filteredData, setFilteredData] = useState<any>(rows ?? []);
   const [select, setSelect] = useState<number>(10);
   const [blackListed, setBlacklisted] = useState<string[]>(
@@ -90,7 +90,8 @@ const Table: FC<ITable> = () => {
             || filterQuery.createdAt === row.createdAt
             || filterQuery.status
               ?.map((val) => val.toLowerCase())
-              .includes(row.status),
+              .includes(row.status)
+            || (filterQuery.status?.includes('Blacklisted') && blackListed?.includes(row.userName)),
         ),
       );
     } else {
@@ -118,29 +119,35 @@ const Table: FC<ITable> = () => {
   useEffect(() => {
     setCurrentIndex(1);
   }, [select]);
-
+  if (isError) {
+    return (
+      <div className={style.Table__servererror}>
+        <h1 className={style.Table__servererror__heading}>Unable To reach servers :(</h1>
+        <p className={style.Table__servererror__text}>Try refreshing the page</p>
+      </div>
+    );
+  }
+  if (isLoading) {
+    return (<Loader />);
+  }
   return (
     <>
       <div className={style.Table}>
         <TableHeader {...{ orgNames, setFilterQuery }} />
-        {!isLoading ? (
-          <div className={style.Table__row}>
-            {data?.map((details: any) => (
-              <TableRow
-                key={`tableRow-${details.id}`}
-                {...{
-                  ...details,
-                  currentUserMenu,
-                  setCurrentUserMenu,
-                  blackListed,
-                  setBlacklisted,
-                }}
-              />
-            ))}
-          </div>
-        ) : (
-          <Loader />
-        )}
+        <div className={style.Table__row}>
+          {data?.map((details: any) => (
+            <TableRow
+              key={`tableRow-${details.id}`}
+              {...{
+                ...details,
+                currentUserMenu,
+                setCurrentUserMenu,
+                blackListed,
+                setBlacklisted,
+              }}
+            />
+          ))}
+        </div>
       </div>
       <div className={style.Table__footer}>
         <div className={style.Table__footer__select}>

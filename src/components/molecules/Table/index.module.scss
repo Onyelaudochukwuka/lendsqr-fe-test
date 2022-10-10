@@ -1,4 +1,4 @@
-@import "../../../sass/values";
+@import '../../../sass/values';
 .Table {
   width: 100%;
   height: max-content;
@@ -10,21 +10,42 @@
   color: $log-in-text;
   gap: 20px;
   border: 1px solid rgba(33, 63, 125, 0.06);
-    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
-    border-radius: 4px;
-
-  &__loading{
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  &__servererror {
+            display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 100%;
+              padding: 30px;
+              background-color: #fff;
+              border: 1px solid rgba(33, 63, 125, 0.06);
+              box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+              border-radius: 4px;
+            
+              &__heading {
+                font-size: 16px;
+                font-weight: 600;
+                color: $sidebar-link-text;
+              }
+            
+              &__text {
+                font-size: 14px;
+                color: $sidebar-link-text;
+                font-weight: 500;
+              }
+  }
+  &__loading {
     align-self: center;
     width: 45px;
     animation: spin 1s linear 0s infinite forwards;
     @keyframes spin {
-      from{
+      from {
         transform: rotate(0deg);
       }
-      to{
+      to {
         transform: rotate(360deg);
       }
-      
     }
   }
   &__row {
@@ -44,11 +65,11 @@
       display: flex;
       gap: 15px;
       padding: 15px 20px;
-    @media screen and (max-width: 928px) {
-            width: fit-content;
-            margin-inline: auto;
-            justify-content: space-between;
-        }
+      @media screen and (max-width: 928px) {
+        width: fit-content;
+        margin-inline: auto;
+        justify-content: space-between;
+      }
       span {
         color: $log-in-text;
         font-size: 14px;
@@ -64,29 +85,29 @@
       gap: 25px;
       height: fit-content;
       padding: 15px 20px;
-    @media screen and (max-width: 928px) {
+      @media screen and (max-width: 928px) {
         width: 50%;
         margin-inline: auto;
         justify-content: space-between;
-    }
-                                                                @media screen and (max-width: 928px) {
-          width: fit-content;
-          margin: auto;
-        }
+      }
+      @media screen and (max-width: 928px) {
+        width: fit-content;
+        margin: auto;
+      }
       &__icon {
         cursor: pointer;
         background-color: $table-navigation-icon;
         transition: background-color 500ms ease-in;
         &:hover {
           background-color: $table-navigation-icon-hover;
-          svg{
+          svg {
             fill: $sidebar-link-text-hover;
           }
         }
         border-radius: 4px;
         padding: 5px;
-        svg{
-            fill: $sidebar-link-text;
+        svg {
+          fill: $sidebar-link-text;
         }
       }
       &__details {
@@ -94,9 +115,9 @@
         align-items: center;
         gap: 25px;
         @media screen and (max-width: 928px) {
-                width: 100%;
-                justify-content: space-between;
-            }
+          width: 100%;
+          justify-content: space-between;
+        }
         &__unit {
           font-size: 12px;
           color: $sidebar-link-text;
