@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event';
 import App from './App';
 import { render, screen } from './testing-utils';
 
+// All Pages where tested here
+
 test('full app rendering/navigating', () => {
   render(<App />);
   expect(screen.getByText('Login')).toBeInTheDocument();
