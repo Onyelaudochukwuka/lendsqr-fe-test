@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# Lendsqr Assessment test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Lendsqr is a Lending-as-a-Service provider
 
-## Available Scripts
+# Getting Started
 
-In the project directory, you can run:
+Navigate to directory on your machine:
 
-### `npm start`
+```bash
+cd folder/to/clone-into/
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone repository:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```bash
+git clone https://github.com/Onyelaudochukwuka/lendsqrassessment
+```
 
-### `npm test`
+Install all dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm i
+# or
+yarn install
+```
 
-### `npm run build`
+run the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run start
+# or
+yarn start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Project Structure
+    
+    src
+    ├── ...
+    ├── pages # contains all page components
+    ├── components  ├── molecule # contains all super component
+                    ├── atom # contains all sub components
+    ├── utils  ├── hooks   # All custom hooks
+               ├── functions # All helper functions
+               ├── redux # redux store, slices and api connection
+    ├── assets # Images
+                ├── icons # contains all icons
+    ├── testing utils # helpers for tests
+    ├──sass # reset and value partials
+    └── ... └──package.json # Contains all dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Learn More About React
 
-### `npm run eject`
+To learn more about React, take a look at the following resources:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- [React Documentation](https://reactjs.org/docs/getting-started.html) - Learn about React and it's installation.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+You can check out [the React's GitHub repository](https://github.com/facebook/react/) - your feedback and contributions are welcome!
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
