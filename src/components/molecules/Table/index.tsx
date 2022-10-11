@@ -152,7 +152,11 @@ const Table: FC<ITable> = () => {
         <div className={style.Table__footer__select}>
           <span>Showing </span>
           <SelectViews {...{ select, setSelect, setCurrentIndex }} />
-          <span>out of 1000</span>
+          <span>
+            out of
+            {' '}
+            {filteredData.length}
+          </span>
         </div>
         <div className={style.Table__footer__navigation}>
           <div
