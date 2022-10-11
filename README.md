@@ -48,6 +48,12 @@ yarn start
     ├──sass # reset and value partials
     └── ... └──package.json # Contains all dependencies
 
+## Implemented Features
+ - [x] Users can filter details on the user dashboard
+ - [x] Users can view details of a single user 
+ - [x] single user details is stored in local storage on visiting page, the data stored updates whenever a response goes through.
+ - [x] 
+
 ## Learn More About React
 
 To learn more about React, take a look at the following resources:
