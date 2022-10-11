@@ -138,6 +138,7 @@
 }
 .Table__footer__navigation__details__unit__active, .Table__footer__navigation__details__unit:hover {
   opacity: 1;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=index.module.css.map */
