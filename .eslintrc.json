@@ -23,7 +23,7 @@
       }
     ],
     "linebreak-style": 0,
-    "no-console": 0,
+    "no-console": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-param-reassign": 0,
