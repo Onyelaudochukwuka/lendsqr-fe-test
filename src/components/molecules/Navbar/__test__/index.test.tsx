@@ -7,14 +7,13 @@ import userEvent from '@testing-library/user-event';
 import Navbar from '..';
 window.scrollTo = jest.fn();
 test('component is rendered', () => {
+  const data = {
+    className: 'testing',
+    showSideBar: false,
+    setShowSideBar: jest.fn()
+  }
   render(
-    <Navbar
-      {...{
-        className: 'testing',
-        showSidebar: false,
-        setShowSidebar: jest.fn(),
-      }}
-    />
+    <Navbar {...data} />,
   );
   expect(screen.getByTestId('navbar-container')).toHaveClass('testing');
   const docsLink = screen.getByTestId('docs-link');
