@@ -63,10 +63,19 @@ The features described in the assessment test were implemented. as well as the f
  - [x] inputs on the login page is validated using regex
  - [x] Users can login (Login data is not being stored)
 
+## Performance tests
+- tests were Performed with JEST and React testing library
+
+![Screen Shot 2022-10-11 at 10 19 18 AM](https://user-images.githubusercontent.com/82924100/195051191-9da5a882-9186-4f01-8157-54270be40dda.png)
+![Screen Shot 2022-10-11 at 10 15 56 AM](https://user-images.githubusercontent.com/82924100/195051255-b8527455-08e2-4e3d-97af-e6bb26fd268a.png)
+
+- The above are performance reports from web.dev and google lighthouse which goes to say my application is performant, accessible and SEO friendly as well as obey best semantic practices
+
 
 ## Technologies Used
 - React
 - Typescript
+
 - Redux
 - Redux Toolkit
 - React Router
