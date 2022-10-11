@@ -37,7 +37,7 @@ yarn start
     src
     ├── ...
     ├── pages # contains all page components
-    ├── components  ├── molecule # contains all super component
+    ├── components  ├── molecule # contains all super components
                     ├── atom # contains all sub components
     ├── utils  ├── hooks   # All custom hooks
                ├── functions # All helper functions
