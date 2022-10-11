@@ -6,6 +6,7 @@
   position: relative;
   justify-content: space-between;
   font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
   width: 100%;
 }

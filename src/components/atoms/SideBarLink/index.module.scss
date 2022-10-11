@@ -1,4 +1,4 @@
-@import "../../../sass/values";
+@import '../../../sass/values';
 .SideBarLink {
   display: flex;
   gap: 15px;
@@ -8,42 +8,25 @@
   width: 100%;
   cursor: pointer;
   transition-property: background-color, color;
-   transition-duration: 1s;
-   transition-timing-function: ease-in-out;
-   color: #7A8CB1;
-//    @media screen and (max-width:920px) {
-//     display: inline-flex;
-//         width: 30px;
-//         overflow-x: hidden;
-//         padding-inline: 0px;
-//         svg{
-//             width: 30px;
-//             height: 30px;
-//             flex: 1 1 auto;
-//             flex-basis: 30px;
-//         }
-//         span{
-//             display: none;
-//         }
-//    }
- 
-&:hover {
-        background-color: $sidebar-link-background;
-        color: $sidebar-link-text;
-        border-left: 3px solid $log-in-button;
-}
-  &__active{
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  color: #7a8cb1;
+  &:hover {
     background-color: $sidebar-link-background;
     color: $sidebar-link-text;
     border-left: 3px solid $log-in-button;
-    &:hover{
-        background-color: $sidebar-link-hover;
-        color: $sidebar-link-text-hover;
-        border-left: 3px solid $log-in-button-hover;
-        
+  }
+  &__active {
+    background-color: $sidebar-link-background;
+    color: $sidebar-link-text;
+    border-left: 3px solid $log-in-button;
+    &:hover {
+      background-color: $sidebar-link-hover;
+      color: $sidebar-link-text-hover;
+      border-left: 3px solid $log-in-button-hover;
     }
-    svg{
-        fill: $sidebar-link-text;
+    svg {
+      fill: $sidebar-link-text;
     }
   }
 }
