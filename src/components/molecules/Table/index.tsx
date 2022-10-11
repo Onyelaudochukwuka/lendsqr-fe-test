@@ -44,7 +44,7 @@ const Table: FC<ITable> = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(1);
   const [currentUserMenu, setCurrentUserMenu] = useState<string>('');
   const limit = rows
-    ? Math.round(filteredData ? filteredData.length / select : 0)
+    ? Math.ceil(filteredData ? filteredData.length / select : 0)
     : 0;
   const indexArr = [...Array(limit + 1).keys()].splice(1);
   const currentData = [
@@ -155,7 +155,7 @@ const Table: FC<ITable> = () => {
           <span>
             out of
             {' '}
-            {filteredData.length}
+            {filteredData ? filteredData.length : 100}
           </span>
         </div>
         <div className={style.Table__footer__navigation}>
