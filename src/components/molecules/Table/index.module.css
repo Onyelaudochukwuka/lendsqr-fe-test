@@ -134,7 +134,7 @@
   color: #213f7d;
   cursor: pointer;
   opacity: 0.6;
-  transition: opacity 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 .Table__footer__navigation__details__unit__active, .Table__footer__navigation__details__unit:hover {
   opacity: 1;

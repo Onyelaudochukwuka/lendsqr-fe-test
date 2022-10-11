@@ -123,7 +123,7 @@
           color: $sidebar-link-text;
           cursor: pointer;
           opacity: 0.6;
-          transition: opacity 500ms ease-in-out;
+          transition: all 500ms ease-in-out;
           &__active,
           &:hover {
             opacity: 1;
