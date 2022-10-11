@@ -50,6 +50,7 @@ yarn start
 
 ## Implemented Features
 The features described in the assessment test were implemented. as well as the following:
+ - [x] All Buttons are interactive
  - [x] Users can filter details on the user dashboard
  - [x] Users can view details of a single user 
  - [x] single user details is stored in local storage on visiting page, the data stored updates whenever a response goes through.
