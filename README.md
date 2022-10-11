@@ -49,20 +49,35 @@ yarn start
     └── ... └──package.json # Contains all dependencies
 
 ## Implemented Features
+The features described in the assessment test were implemented. as well as the following:
  - [x] Users can filter details on the user dashboard
  - [x] Users can view details of a single user 
  - [x] single user details is stored in local storage on visiting page, the data stored updates whenever a response goes through.
- - [x] 
-
-## Learn More About React
-
-To learn more about React, take a look at the following resources:
-
-- [React Documentation](https://reactjs.org/docs/getting-started.html) - Learn about React and it's installation.
-
-
-You can check out [the React's GitHub repository](https://github.com/facebook/react/) - your feedback and contributions are welcome!
-
+ - [x] Users can navigate through users using the pagination buttons
+ - [x] Users can choose how many user details they want to see at a time
+ - [x] Users can blacklist a user on the dashboard
+ - [x] Users can activate a blacklisted user on the dashboard
+ - [x] Users can view the details of a blacklisted user
+ - [x] Other pages on the side bar are accessible
+ - [x] A 404 page for pages that doesn't exists
+ - [x] inputs on the login page is validated using regex
+ - [x] Users can login (Login data is not being stored)
 
 
+## Technologies Used
+- React
+- Typescript
+- Redux
+- Redux Toolkit
+- React Router
+- EsLint
+- Prettier
+- Sass
+- React Testing Library
+- Jest
 
+## Author
+Onyela Udochukwuka
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
