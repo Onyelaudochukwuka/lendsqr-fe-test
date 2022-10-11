@@ -4,32 +4,50 @@
   display: flex;
   min-height: 100vh;
   justify-content: space-between;
-  padding: 100px 60px;
+  align-items: stretch;
   font-size: 14px;
 }
 @media screen and (max-width: 928px) {
   .LogIn {
     flex-direction: column;
-    padding: 40px;
   }
 }
 .LogIn__left {
+  padding: 100px 60px;
   flex-basis: 45%;
   display: flex;
   flex-direction: column;
   gap: 100px;
+}
+@media screen and (max-width: 928px) {
+  .LogIn__left {
+    padding: 50px 30px;
+  }
 }
 .LogIn__left__illustration {
   width: 100%;
 }
 .LogIn__right {
   flex-basis: 45%;
-  align-self: center;
-  justify-content: flex-start;
+  padding: 100px 60px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+}
+@media screen and (max-width: 928px) {
+  .LogIn__right {
+    padding: 40px;
+  }
 }
 @media screen and (max-width: 928px) {
   .LogIn__right {
     align-self: auto;
+  }
+}
+@media screen and (min-width: 929px) {
+  .LogIn__right {
+    box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
   }
 }
 .LogIn__right__heading {
@@ -39,9 +57,13 @@
   margin-left: -5px;
 }
 .LogIn__right__details {
-  margin-bottom: 15px;
   font-weight: 400;
   color: #545F7D;
+}
+@media screen and (max-width: 928px) {
+  .LogIn__right__details {
+    margin-bottom: 15px;
+  }
 }
 .LogIn__right__form {
   width: 80%;
