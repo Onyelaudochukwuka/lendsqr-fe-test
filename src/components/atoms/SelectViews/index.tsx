@@ -40,12 +40,14 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect, setCurrentIndex }) =
         }}
         role="button"
         tabIndex={0}
+        data-testid="select-views"
       >
         <div className={style.SelectViews__container__selected}>{select}</div>
         <OrgDropDown
           className={`${style.SelectViews__container__icon} ${
             toggleItems && style.SelectViews__container__icon__active
           }`}
+          data-testid="select-views-icon"
         />
       </div>
       <div
@@ -54,6 +56,7 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect, setCurrentIndex }) =
         className={`${style.SelectViews__select} ${
           toggleItems && style.SelectViews__select__active
         }`}
+        data-testid="select-views-container"
       >
         {values.map((item) => (
           <div
@@ -63,6 +66,7 @@ const SelectViews: FC<ISelectViews> = ({ select, setSelect, setCurrentIndex }) =
             role="button"
             tabIndex={0}
             key={`selectViews-${item}`}
+            data-testid="select-views-option"
           >
             {item}
           </div>

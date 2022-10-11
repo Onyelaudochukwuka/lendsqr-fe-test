@@ -14,7 +14,7 @@ test('component is rendered', () => {
   expect(dashboard).toBeInTheDocument();
   ['CUSTOMERS', 'BUSINESSES', 'SETTINGS'].forEach(async (text) => {
     expect(
-    screen.getByTestId(`sidebarElements-${text}`)
+    screen.getByTestId(`sidebar-elements-${text}`)
     ).toBeInTheDocument();
   });
 });

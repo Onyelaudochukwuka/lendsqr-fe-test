@@ -12,10 +12,10 @@ interface ISideBarLink {
 }
 const SideBarLink: FC<ISideBarLink> = ({ children, className, ...props }) => (
   <NavLink
-    className={({ isActive }) => `${style.SideBarLink} ${className} ${
-      isActive ? style.SideBarLink__active : ''
+    className={({ isActive }) => `${style.SideBarLink} ${className} ${isActive ? style.SideBarLink__active : ''
     }`}
     {...props}
+    data-testid={`sidebar-link-${props.to}`}
   >
     {children}
   </NavLink>

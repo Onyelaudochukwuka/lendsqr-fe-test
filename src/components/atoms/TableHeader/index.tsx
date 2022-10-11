@@ -83,7 +83,7 @@ const TableHeader: FC<ITableHeader> = ({
     setFilterQuery,
   ]);
   return (
-    <div className={style.TableHeader}>
+    <div className={style.TableHeader} data-testid="table-header-container">
       <div className={style.TableHeader__heading}>
         {heading.map((prop) => (
           <div
@@ -91,6 +91,7 @@ const TableHeader: FC<ITableHeader> = ({
               !!prop.mobile && style.TableHeader__heading__container__display
             }`}
             key={`tableHeader-${prop.value}`}
+            data-testid="table-heading"
           >
             <span className={style.TableHeader__heading__container__content}>
               {prop.value}
@@ -98,6 +99,7 @@ const TableHeader: FC<ITableHeader> = ({
             <Filter
               className={style.TableHeader__heading__container__icon}
               onClick={() => setToggleFilter((props) => !props)}
+              data-testid="table-filter"
             />
           </div>
         ))}
@@ -109,6 +111,7 @@ const TableHeader: FC<ITableHeader> = ({
         className={`${style.TableHeader__filter} ${
           toggleFilter && style.TableHeader__filter__active
         }`}
+        data-testid="table-filter-container"
       >
         <div className={style.TableHeader__filter__container}>
           <div className={style.TableHeader__filter__container__input}>

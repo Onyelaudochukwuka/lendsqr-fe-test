@@ -32,13 +32,14 @@ const SelectInput: FC<ISelectInput> = ({
         toggleDetails && style.SelectInput__active
       } ${className}`}
     >
-      <div className={style.SelectInput__label}>{label}</div>
+      <div className={style.SelectInput__label} data-testid="label">{label}</div>
       <div
         className={style.SelectInput__content}
         onClick={() => setToggleDetails((prev: boolean) => !prev)}
         onKeyDown={() => setToggleDetails((prev: boolean) => !prev)}
         role="button"
         tabIndex={0}
+        data-testid="input-container"
       >
         <span className={style.SelectInput__content__text}>
           {selectedData.length > 0
@@ -49,6 +50,7 @@ const SelectInput: FC<ISelectInput> = ({
           className={`${style.SelectInput__content__icon} ${
             toggleDetails && style.SelectInput__content__icon__active
           }`}
+          data-testid="icon"
         />
       </div>
       <div

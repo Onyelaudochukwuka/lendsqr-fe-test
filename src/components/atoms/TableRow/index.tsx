@@ -56,22 +56,24 @@ const TableRow: FC<ITableRow> = ({
     }
   }, [blackListed, userName]);
   return (
-    <div className={style.TableRow}>
-      <div className={style.TableRow__elements}>{orgName}</div>
+    <div className={style.TableRow} data-testid="table-row-container">
+      <div className={style.TableRow__elements} data-testid="org-name">{orgName}</div>
       <div
         className={`${style.TableRow__elements} ${style.TableRow__elements__display}`}
       >
-        <Link to={`/dashboard/users/${id}`}>{userName}</Link>
+        <Link to={`/dashboard/users/${id}`} data-testid="user-name">{userName}</Link>
       </div>
-      <div className={style.TableRow__elements}>{email}</div>
-      <div className={style.TableRow__elements}>{phoneNumber}</div>
+      <div className={style.TableRow__elements} data-testid="email">{email}</div>
+      <div className={style.TableRow__elements} data-testid="phone-number">{phoneNumber}</div>
       <div
         className={`${style.TableRow__elements} ${style.TableRow__elements__display}`}
+        data-testid="created-at"
       >
         {moment(createdAt).format('MMMM D YYYY, h:mm:ss A')}
       </div>
       <div
         className={`${style.TableRow__container} ${style.TableRow__elements} ${style.TableRow__elements__display} `}
+        data-testid="status"
       >
         <span
           className={`${style.TableRow__container__status} ${
@@ -105,6 +107,7 @@ const TableRow: FC<ITableRow> = ({
         onBlur={() => setDropdown(false)}
         role="button"
         tabIndex={0}
+        data-testid="menu"
       >
         <SideMenu className={style.TableRow__menu__icon} />
       </span>
@@ -118,8 +121,13 @@ const TableRow: FC<ITableRow> = ({
         }`}
         role="button"
         tabIndex={0}
+        data-testid="dropdown"
       >
-        <Link to={`/dashboard/users/${id}`} className={style.TableRow__dropdown__item}>
+        <Link
+          to={`/dashboard/users/${id}`}
+          className={style.TableRow__dropdown__item}
+          data-testid="view"
+        >
           <View className={style.TableRow__dropdown__item__icon} />
           {' '}
           <span>View Details</span>
@@ -130,6 +138,7 @@ const TableRow: FC<ITableRow> = ({
           onKeyDown={() => setBlacklisted((prev) => [...prev, userName])}
           role="button"
           tabIndex={0}
+          data-testid="blacklist"
         >
           <Blacklist className={style.TableRow__dropdown__item__icon} />
           {' '}
@@ -141,6 +150,7 @@ const TableRow: FC<ITableRow> = ({
           onKeyDown={() => setBlacklisted((prev) => prev.filter((val) => val !== userName))}
           role="button"
           tabIndex={0}
+          data-testid="activate"
         >
           <Activate className={style.TableRow__dropdown__item__icon} />
           {' '}

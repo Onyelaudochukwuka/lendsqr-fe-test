@@ -38,8 +38,9 @@ const SelectDate: FC<ISelectDate> = ({
           {...{ placeholder, value, type: value === '' ? 'text' : type }}
           onChange={setValue}
           onFocus={() => inputEl.current?.setAttribute('type', 'date')}
+          data-testid="select-date"
         />
-        { value === '' && <DateIcon className={style.SelectDate__container__icon} />}
+        { value === '' && <DateIcon className={style.SelectDate__container__icon} data-testid="date-icon" />}
       </div>
     </div>
   );
