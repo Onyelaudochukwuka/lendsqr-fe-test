@@ -1,6 +1,6 @@
 # Lendsqr Assessment test
 
-Lendsqr is a Lending-as-a-Service provider
+Lendsqr is a Lending-as-a-Service solution. Lendsqr provide a platform for lenders to create and manage their lending products. Lendsqr also provide a platform for borrowers to apply for loans and manage their loan accounts.
 
 # Getting Started
 
