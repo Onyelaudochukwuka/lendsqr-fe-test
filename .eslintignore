@@ -1,3 +1,4 @@
 /src/**/*/__test__
 /babel.config.ts
 /jest.config.ts
+/templates
