@@ -5,8 +5,7 @@ import SideBarLink from '../SideBarLink';
 
 import style from './index.module.css';
 
-interface ISidebarSection {}
-const SidebarSection: FC<ISidebarSection & SidebarElements> = ({
+const SidebarSection: FC<SidebarElements> = ({
   heading,
   children,
 }) => (
